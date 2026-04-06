@@ -1,0 +1,247 @@
+% ownership-contrast.tex
+% Standalone TikZ figure: Ownership structure contrast
+%   Left  — Northern Virginia REIT model (dispersed, ungovernable)
+%   Right — Amsterdam concentrated model (identifiable counterparty)
+%
+% Compile with:  lualatex ownership-contrast.tex
+%             or pdflatex ownership-contrast.tex
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, backgrounds, calc}
+
+% ── Colour definitions ────────────────────────────────────────────────────────
+\definecolor{dcblue}{RGB}{31,73,125}       % deep governance blue
+\definecolor{dcaccent}{RGB}{192,80,77}     % problem red
+\definecolor{dcgreen}{RGB}{0,112,44}       % functional green
+\definecolor{dcbluelt}{RGB}{189,214,238}   % light blue fill
+\definecolor{dcaccentlt}{RGB}{242,220,219} % light red fill
+\definecolor{dcgreenlt}{RGB}{198,239,206}  % light green fill
+\definecolor{dcgrey}{RGB}{120,120,120}     % divider / annotation grey
+\definecolor{dcgold}{RGB}{180,140,0}       % sovereign wealth / neutral
+
+% ── Shared node styles ────────────────────────────────────────────────────────
+\tikzset{
+  %% Left-side (REIT / problem) nodes
+  lnode/.style={
+    draw=dcaccent, fill=dcaccentlt, text=dcaccent,
+    rounded corners=2pt, font=\footnotesize\bfseries,
+    minimum width=3.0cm, minimum height=0.55cm,
+    align=center, inner sep=4pt
+  },
+  %% Left-side investor leaf nodes (smaller)
+  linvestor/.style={
+    draw=dcaccent!60, fill=dcaccentlt, text=dcaccent!80!black,
+    rounded corners=2pt, font=\scriptsize,
+    minimum width=2.4cm, minimum height=0.50cm,
+    align=center, inner sep=3pt
+  },
+  %% Right-side (Amsterdam / functional) nodes
+  rnode/.style={
+    draw=dcblue, fill=dcbluelt, text=dcblue,
+    rounded corners=2pt, font=\footnotesize\bfseries,
+    minimum width=3.0cm, minimum height=0.55cm,
+    align=center, inner sep=4pt
+  },
+  %% Right-side authority node
+  rauth/.style={
+    draw=dcgreen, fill=dcgreenlt, text=dcgreen!60!black,
+    rounded corners=2pt, font=\footnotesize\bfseries,
+    minimum width=3.0cm, minimum height=0.55cm,
+    align=center, inner sep=4pt
+  },
+  %% Municipal authority (left — blocked)
+  lauth/.style={
+    draw=dcblue, fill=dcbluelt, text=dcblue,
+    rounded corners=2pt, font=\footnotesize\bfseries,
+    minimum width=3.0cm, minimum height=0.55cm,
+    align=center, inner sep=4pt
+  },
+  %% Section title labels
+  sectitle/.style={
+    font=\small\bfseries, text=white,
+    inner sep=6pt, align=center
+  },
+  %% Caption boxes
+  caption/.style={
+    draw=none, fill=none,
+    font=\scriptsize\itshape,
+    align=center, text width=5.8cm
+  },
+  %% Hierarchy edges (ownership chain — upward)
+  own/.style={
+    -{Stealth[length=5pt,width=4pt]},
+    line width=0.7pt, color=dcgrey!80
+  },
+  %% Governance arrow (right side — clean connection)
+  govok/.style={
+    -{Stealth[length=6pt,width=5pt]},
+    line width=1.2pt, color=dcgreen,
+    dashed
+  },
+  %% Governance arrow (left side — blocked)
+  govblock/.style={
+    -{Stealth[length=6pt,width=5pt]},
+    line width=1.2pt, color=dcblue,
+    dashed
+  },
+  %% Fanout lines (no arrowhead — just structure)
+  fanout/.style={
+    line width=0.6pt, color=dcgrey!70
+  },
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=0.7cm and 0.5cm]
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  LEFT SIDE — Northern Virginia (REIT model)
+% ══════════════════════════════════════════════════════════════════════════════
+
+%% Facility (bottom)
+\node[lnode] (L_facility)
+  {Data Center Campus\\{\scriptsize\normalfont Ashburn, VA}};
+
+%% Operating company
+\node[lnode, above=of L_facility] (L_opco)
+  {Operating Company\\{\scriptsize\normalfont e.g.\ Equinix Inc.}};
+
+%% REIT vehicle
+\node[lnode, above=of L_opco] (L_reit)
+  {REIT Vehicle\\{\scriptsize\normalfont Equinix REIT Trust}};
+
+%% Investor fanout — four leaves spread above REIT
+%  We place a phantom anchor above the REIT then fan out
+\node[above=1.4cm of L_reit] (L_fanroot) {};  % invisible junction
+
+\node[linvestor, left=0.3cm of L_fanroot, yshift= 0.35cm] (L_inv1)
+  {Pension Fund A};
+\node[linvestor, left=0.3cm of L_fanroot, yshift=-0.35cm] (L_inv2)
+  {Pension Fund B};
+\node[linvestor, right=0.3cm of L_fanroot, yshift= 0.35cm] (L_inv3)
+  {Retail Investors\\{\tiny millions of shareholders}};
+\node[linvestor, right=0.3cm of L_fanroot, yshift=-0.35cm] (L_inv4)
+  {Sovereign Wealth Fund};
+
+%% Municipal authority (left side)
+\node[lauth, left=1.5cm of L_reit, yshift=-0.2cm] (L_muni)
+  {Municipal Authority\\{\scriptsize\normalfont seeks counterparty}};
+
+% ── Ownership chain edges ─────────────────────────────────────────────────────
+\draw[own] (L_facility) -- (L_opco);
+\draw[own] (L_opco)     -- (L_reit);
+
+% REIT → fan-out junction → investors
+\draw[fanout] (L_reit.north) -- (L_fanroot);
+\draw[fanout] (L_fanroot) -| (L_inv1.south);
+\draw[fanout] (L_fanroot) -| (L_inv2.south);
+\draw[fanout] (L_fanroot) -| (L_inv3.south);
+\draw[fanout] (L_fanroot) -| (L_inv4.south);
+
+% ── Blocked governance arrow ──────────────────────────────────────────────────
+%  Arrow from Municipal Authority toward REIT, terminated with red barrier
+
+% Draw the dashed arrow shaft (stops short of REIT)
+\draw[govblock]
+  (L_muni.east) -- ++(0.85,0) coordinate (L_arrowhead);
+
+% Red X / barrier marker (robust pure-TikZ cross, no Unicode needed)
+\node[inner sep=0pt] at ($(L_muni.east)+(1.05,0)$) (L_barrier) {%
+  \begin{tikzpicture}[baseline=-0.5ex]
+    \draw[line width=1.6pt, color=dcaccent, line cap=round]
+      (-0.18,-0.18) -- (0.18,0.18)
+      (0.18,-0.18) -- (-0.18,0.18);
+    \draw[color=dcaccent, line width=1.0pt] (0,0) circle (0.22);
+  \end{tikzpicture}%
+};
+
+% Small label under the arrow
+\node[font=\scriptsize\itshape, text=dcblue, below=0.05cm of L_arrowhead, anchor=north]
+  {no accountable\\counterparty};
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  VERTICAL DIVIDER
+% ══════════════════════════════════════════════════════════════════════════════
+
+% Compute a centre x between the two halves (place divider by hand)
+\draw[line width=1pt, color=dcgrey!50, dashed]
+  (2.9, -0.7) -- (2.9, 7.2);
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  RIGHT SIDE — Amsterdam (concentrated model)
+% ══════════════════════════════════════════════════════════════════════════════
+
+%% Facility (bottom) — right side, shift right of divider
+\node[rnode, right=5.2cm of L_facility] (R_facility)
+  {Data Center Campus\\{\scriptsize\normalfont Amsterdam, NL}};
+
+%% Operator-owner
+\node[rnode, above=of R_facility] (R_opco)
+  {Operator-Owner\\{\scriptsize\normalfont Identifiable legal entity}};
+
+%% AMS-IX cooperative node — sits alongside the operator
+\node[rauth, right=0.8cm of R_opco] (R_amsix)
+  {AMS-IX\\{\scriptsize\normalfont Cooperative node}};
+
+%% Municipal authority (right side — connects cleanly)
+\node[rauth, above=1.5cm of R_opco] (R_muni)
+  {Municipal Authority\\{\scriptsize\normalfont City of Amsterdam}};
+
+% ── Ownership chain edges ─────────────────────────────────────────────────────
+\draw[own] (R_facility) -- (R_opco);
+\draw[own] (R_opco)     -- (R_muni);
+
+% AMS-IX lateral link to operator
+\draw[fanout, color=dcblue!60]
+  (R_amsix.west) -- (R_opco.east);
+
+% ── Clean governance arrow ────────────────────────────────────────────────────
+\draw[govok]
+  (R_muni.south) -- (R_opco.north)
+  node[midway, right=0.12cm, font=\scriptsize\itshape, text=dcgreen!70!black, align=left]
+    {moratorium\\negotiation};
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  HEADER BANDS
+% ══════════════════════════════════════════════════════════════════════════════
+
+% Left header
+\node[fill=dcaccent, minimum width=5.6cm, minimum height=0.7cm,
+      anchor=south, rounded corners=2pt]
+  (L_header) at (-0.6, 7.0) {};
+\node[sectitle] at (L_header.center)
+  {Northern Virginia};
+
+% Right header
+\node[fill=dcblue, minimum width=5.6cm, minimum height=0.7cm,
+      anchor=south, rounded corners=2pt]
+  (R_header) at (6.4, 7.0) {};
+\node[sectitle] at (R_header.center)
+  {Amsterdam};
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CAPTION STRIPS (bottom)
+% ══════════════════════════════════════════════════════════════════════════════
+
+\node[caption, text=dcaccent, below=0.35cm of L_facility]
+  {\textbf{Dispersed ownership} — no accountable counterparty.\\
+   Regulatory intervention diffuses across global shareholder base.};
+
+\node[caption, text=dcblue, below=0.35cm of R_facility]
+  {\textbf{Concentrated ownership} — governance intervention possible.\\
+   Identifiable operator is a legible counterparty for municipal authority.};
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  BACKGROUND PANELS  (drawn behind everything else)
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{pgfonlayer}{background}
+  % Left panel
+  \fill[dcaccentlt!40, rounded corners=4pt]
+    (-3.7, -1.55) rectangle (2.75, 7.15);
+  % Right panel
+  \fill[dcbluelt!40, rounded corners=4pt]
+    (3.05, -1.55) rectangle (10.0, 7.15);
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{document}
