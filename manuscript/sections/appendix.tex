@@ -169,44 +169,37 @@ as a strategic opacity finding.
 \label{tab:wp1results}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.35}
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{%
-  >{\raggedright}p{2.6cm}
-  >{\raggedright}p{1.6cm}
-  >{\raggedright}p{2.1cm}
-  rrrr
-  rrrr
-  >{\raggedright}p{2.4cm}}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllrrrrrrrrl}
 \toprule
-\rowcolor{dcblue}
-\multicolumn{3}{c}{\textcolor{white}{\textbf{Facility}}} &
-\multicolumn{4}{c}{\textcolor{white}{\textbf{Corporate website}}} &
-\multicolumn{4}{c}{\textcolor{white}{\textbf{Wikipedia article}}} &
-\multicolumn{1}{c}{\textcolor{white}{\textbf{$\Delta$ECI}}} \\
-\cmidrule(lr){1-3}\cmidrule(lr){4-7}\cmidrule(lr){8-11}\cmidrule(lr){12-12}
-\textbf{Operator} & \textbf{City} & \textbf{Country} &
-\textbf{Tok.} & \textbf{TTR} & \textbf{DC$_n$} & \textbf{ECI} &
-\textbf{Tok.} & \textbf{TTR} & \textbf{DC$_n$} & \textbf{ECI} &
-\textbf{Corp$-$Wiki} \\
+\cellcolor{dcblue}\textcolor{white}{\textbf{Operator}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{City}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{Country}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{C-Tok.}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{C-TTR}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{C-DC$_n$}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{C-ECI}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{W-Tok.}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{W-TTR}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{W-DC$_n$}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{W-ECI}} &
+\cellcolor{dcblue}\textcolor{white}{\textbf{$\Delta$ECI}} \\
 \midrule
 Amazon Web Services & Ashburn & United States &
   829 & 0.54 & 5 & 167.1 &
   1{,}804 & 0.50 & 5 & 1.4 &
   \textbf{\textcolor{dcaccent}{+165.7}} \\
-\addlinespace[2pt]
 \rowcolor{dcgray}
 Equinix & Amsterdam & Netherlands &
-  \textit{0} & --- & \textit{0} & --- &
+  0 & --- & 0 & --- &
   12{,}819 & 0.40 & 0 & 1.7 &
-  \textit{n/a\,(WAF)} \\
-\addlinespace[2pt]
+  \textit{n/a (WAF)} \\
 Digital Realty & Dallas & United States &
   1{,}571 & 0.58 & 22 & 75.7 &
   13{,}181 & 0.35 & 0 & 3.1 &
   \textbf{\textcolor{dcaccent}{+72.6}} \\
 \bottomrule
-\end{tabular}
-\end{adjustbox}
+\end{tabular}}
 \vspace{0.4em}
 \begin{flushleft}
 \footnotesize\textit{Notes.} Tok.\ = token count post stopword removal. TTR = type--token
