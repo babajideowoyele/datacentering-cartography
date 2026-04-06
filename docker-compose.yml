@@ -1,0 +1,62 @@
+# Datacentering Cartography — orchestrated pipeline
+#
+# Services:
+#   pipeline   — main Python pipeline (WP1-WP4)
+#   hyphe      — browser-rendered web crawler for operator sites (WP1 full run)
+#
+# Usage:
+#   docker compose up pipeline          # run the main pipeline
+#   docker compose run pipeline \
+#     python -m scripts.wp1.scrape_operator_websites \
+#     --config scripts/wp1/config_template.csv \
+#     --output data/raw/corporate-websites
+
+version: "3.9"
+
+services:
+
+  pipeline:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./scripts:/app/scripts
+      - ./notebooks:/app/notebooks
+    environment:
+      - COPERNICUS_USER=${COPERNICUS_USER:-}
+      - COPERNICUS_PASSWORD=${COPERNICUS_PASSWORD:-}
+      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS:-}
+    command: >
+      python -m scripts.wp1.scrape_operator_websites
+      --config scripts/wp1/config_template.csv
+      --output data/raw/corporate-websites
+      --delay 2.0
+
+  hyphe:
+    image: medialab/hyphe:latest
+    ports:
+      - "19980:19980"   # Hyphe API
+      - "8080:8080"     # Hyphe frontend
+    volumes:
+      - hyphe_data:/app/hyphe/data
+    restart: unless-stopped
+    # Configure operators as web entities in Hyphe frontend at localhost:8080
+    # then use the API to export crawled pages to data/raw/corporate-websites/
+
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/app/data
+      - ./notebooks:/app/notebooks
+      - ./scripts:/app/scripts
+    command: >
+      jupyter notebook
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+
+volumes:
+  hyphe_data:

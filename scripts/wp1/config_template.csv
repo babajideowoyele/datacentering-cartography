@@ -1,4 +1,4 @@
-operator_name,website_url,sustainability_page_url,city_name,country,wikipedia_page_title
-amazon_web_services,https://aws.amazon.com,https://aws.amazon.com/sustainability/,Ashburn,United States,Ashburn, Virginia
-equinix,https://www.equinix.com,https://www.equinix.com/company/sustainability,Amsterdam,Netherlands,Amsterdam
-digital_realty,https://www.digitalrealty.com,https://www.digitalrealty.com/sustainability,Dallas,United States,Dallas
+operator_name,website_url,sustainability_page_url,data_centers_page_url,about_page_url,city_name,country,wikipedia_page_title
+amazon_web_services,https://aws.amazon.com,https://aws.amazon.com/sustainability/,https://aws.amazon.com/about/global-infrastructure/,https://aws.amazon.com/about/,Ashburn,United States,"Ashburn, Virginia"
+equinix,https://www.equinix.com,https://www.equinix.com/resources/infopapers/equinix-2023-sustainability-report,https://www.equinix.com/data-centers/design/,https://www.equinix.com/about/,Amsterdam,Netherlands,Amsterdam
+digital_realty,https://www.digitalrealty.com,https://www.digitalrealty.com/sustainability,https://www.digitalrealty.com/data-centers/,https://www.digitalrealty.com/company/about-digital-realty/,Dallas,United States,Dallas

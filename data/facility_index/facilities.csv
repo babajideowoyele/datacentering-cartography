@@ -1,0 +1,4 @@
+facility_id,operator_name,operator_type,lat,lon,city,country,jurisdiction_disclosure_level,wikipedia_page_title,website_url,sustainability_page_url,notes
+noVA_aws_001,amazon_web_services,hyperscale,38.9517,-77.4481,Ashburn,United States,low,"Ashburn, Virginia",https://aws.amazon.com,https://aws.amazon.com/sustainability/,Loudoun County / Data Center Alley seed entry
+ams_equinix_001,equinix,colocation,52.3676,4.9041,Amsterdam,Netherlands,high,Amsterdam,https://www.equinix.com,https://www.equinix.com/company/sustainability,Post-moratorium context; AMS-IX ecosystem
+dub_digitalrealty_001,digital_realty,colocation,53.3498,-6.2603,Dublin,Ireland,medium,Dublin,https://www.digitalrealty.com,https://www.digitalrealty.com/sustainability,EU comparison point

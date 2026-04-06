@@ -105,6 +105,9 @@ class RobotsCache:
         return self._parsers[domain]
 
     def is_allowed(self, url: str, user_agent: str = "*") -> bool:
+        # Skip data: and blob: URIs — not HTTP resources
+        if url.startswith(("data:", "blob:")):
+            return False
         try:
             rp = self._get_parser(url)
             return rp.can_fetch(user_agent, url)

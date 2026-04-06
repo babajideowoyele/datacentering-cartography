@@ -107,13 +107,23 @@ class RobotsCache:
             rp = urllib.robotparser.RobotFileParser()
             robots_url = f"{base}/robots.txt"
             try:
-                rp.set_url(robots_url)
-                rp.read()
+                # Fetch robots.txt with a browser UA — CDNs/WAFs may return
+                # different content to bot UAs, causing false disallows.
+                import requests as _req
+                resp = _req.get(
+                    robots_url,
+                    headers={"User-Agent": "Mozilla/5.0"},
+                    timeout=10,
+                )
+                rp.parse(resp.text.splitlines())
                 log.debug("Fetched robots.txt from %s", robots_url)
             except Exception as exc:
                 log.warning("Could not read robots.txt for %s: %s", base, exc)
             self._cache[base] = rp
-        return self._cache[base].can_fetch(self._ua, url)
+        # Check our bot UA; fall back to wildcard '*' rules
+        allowed_bot = self._cache[base].can_fetch(self._ua, url)
+        allowed_star = self._cache[base].can_fetch("*", url)
+        return allowed_bot or allowed_star
 
 
 # ---------------------------------------------------------------------------
@@ -265,19 +275,23 @@ def scrape_operator(
 
     summary = {"operator": operator_name, "pages_collected": []}
 
+    # Explicit per-page URLs from config (optional columns)
+    explicit_dc_url = row.get("data_centers_page_url", "").strip()
+    explicit_about_url = row.get("about_page_url", "").strip()
+
     # Build target list: (slug, url_candidates)
+    # Explicit URL goes first; fallback paths appended after
     targets: list[tuple[str, list[str]]] = [
-        (
-            "sustainability",
-            [sustainability_url] if sustainability_url else [],
-        ),
-        ("data_centers", []),
-        ("about", []),
+        ("sustainability", [sustainability_url] if sustainability_url else []),
+        ("data_centers", [explicit_dc_url] if explicit_dc_url else []),
+        ("about", [explicit_about_url] if explicit_about_url else []),
     ]
     # Append fallback paths for all targets
     for i, (slug, candidates) in enumerate(targets):
         for path in FALLBACK_PAGE_PATHS.get(slug, []):
-            candidates.append(base_url + path)
+            candidate = base_url + path
+            if candidate not in candidates:
+                candidates.append(candidate)
         targets[i] = (slug, candidates)
 
     for slug, url_candidates in targets:
