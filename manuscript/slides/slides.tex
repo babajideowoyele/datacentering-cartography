@@ -189,8 +189,8 @@ WP & CAS Dimension & Data & Output \\
 \midrule
 WP1 & Conceptual   & Operator websites, Wikipedia        & Imaginary divergence (ECI) \\
 WP2 & Conceptual   & Satellite + corporate imagery       & Visual abstraction score \\
-WP3 & Structural   & OpenCorporates, REIT, Overture Maps & Ownership + urban graph \\
-WP4 & Temporal     & News, planning, social media        & Signal-to-response lag \\
+WP3 & Structural   & SEC EDGAR, OpenCorporates, REIT, Overture Maps & Ownership + urban graph \\
+WP4 & Temporal     & News, planning, social media (GDELT) & Signal-to-response lag \\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -258,7 +258,7 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
   \begin{block}{WP3 — Structural Cartography}
     \small
     \begin{itemize}
-      \item OpenCorporates + REIT filings
+      \item SEC EDGAR + REIT filings: 20 nodes, 35 edges
       \item \textbf{REIT structure} disperses accountability
       \item Overture Maps + city2graph: urban graphs
       \item \alert{Ashburn: 36 power nodes, 1 res.\ zone}
@@ -270,9 +270,10 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
   \begin{block}{WP4 — Contestation Signals}
     \small
     \begin{itemize}
-      \item News, planning records, social media
+      \item News (GDELT), planning records, social media
       \item BERTopic + event detection
       \item \textbf{Signal-to-response lag}
+      \item Seed: 58 events, 4 cities
     \end{itemize}
   \end{block}
 \end{column}
@@ -306,6 +307,37 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
   \textcolor{dcblue}{$\bullet$ power infra}\quad
   \textcolor{green!60!black}{$\bullet$ residential}\quad
   lines = proximity edges
+\end{center}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 8d — WP3b ownership network
+\begin{frame}{WP3b First Results: Ownership Network (Seed Run, April 2026)}
+\begin{center}
+  \includegraphics[width=0.82\textwidth,height=0.64\textheight,keepaspectratio]{../figures/wp3_ownership_network}
+\end{center}
+\begin{center}
+  \footnotesize
+  \textcolor{red}{$\bullet$ REIT}\quad
+  \textcolor{blue}{$\bullet$ operating}\quad
+  \textcolor{cyan!70!black}{$\bullet$ subsidiary}\quad
+  \textcolor{green!60!black}{$\bullet$ institutional investor}\\[0.2em]
+  Vanguard, BlackRock, State Street hold cross-REIT positions:
+  \alert{no single accountable owner}.
+\end{center}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 8e — WP4 contestation signal
+\begin{frame}{WP4 First Results: Contestation Signal (Seed Corpus, April 2026)}
+\begin{center}
+  \includegraphics[width=0.86\textwidth,height=0.66\textheight,keepaspectratio]{../figures/wp4_contestation_signal}
+\end{center}
+\begin{center}
+  \footnotesize
+  Shaded band = Amsterdam moratorium (2019--2022).
+  Dublin: \alert{81\% negative-tone} events --- highest sustained signal.
+  Ashburn: comparable volume, \alert{zero regime response}.
 \end{center}
 \end{frame}
 

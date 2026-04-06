@@ -1,0 +1,22 @@
+{
+  "node_count": 20,
+  "edge_count": 35,
+  "reit_entities": [
+    "Equinix Inc.",
+    "Digital Realty Trust Inc.",
+    "Iron Mountain Inc."
+  ],
+  "entity_type_counts": {
+    "subsidiary": 11,
+    "institutional_investor": 3,
+    "reit": 3,
+    "operating_company": 3
+  },
+  "relationship_counts": {
+    "owns": 14,
+    "subsidiary_of": 14,
+    "invests_in": 7
+  },
+  "is_dag": false,
+  "weakly_connected_components": 1
+}

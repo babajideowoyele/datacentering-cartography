@@ -1,0 +1,17 @@
+{
+  "data_source": "constructed_from_public_record",
+  "note": "GDELT API unavailable from local network. Events constructed from published academic and press record. Full GDELT live pull deferred to server run.",
+  "sources": [
+    "Vonderau 2019 (Amsterdam)",
+    "Washington Post / Loudoun Now (Ashburn)",
+    "Irish Times / EirGrid / An Bord Pleanala (Dublin)",
+    "The Oregonian / Columbia Gorge News (The Dalles)"
+  ],
+  "cities": [
+    "Amsterdam",
+    "Ashburn",
+    "Dublin",
+    "The Dalles"
+  ],
+  "run_date": "2026-04-06"
+}

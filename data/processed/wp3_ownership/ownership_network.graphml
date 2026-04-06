@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d11" for="edge" attr.name="ownership_pct" attr.type="string"/>
+<key id="d10" for="edge" attr.name="ownership_pct" attr.type="double"/>
+<key id="d9" for="edge" attr.name="relationship_type" attr.type="string"/>
+<key id="d8" for="node" attr.name="note" attr.type="string"/>
+<key id="d7" for="node" attr.name="parent_cik" attr.type="string"/>
+<key id="d6" for="node" attr.name="reit_conversion_year" attr.type="long"/>
+<key id="d5" for="node" attr.name="enterprise_value_bn" attr.type="double"/>
+<key id="d4" for="node" attr.name="cik" attr.type="string"/>
+<key id="d3" for="node" attr.name="reit_status" attr.type="boolean"/>
+<key id="d2" for="node" attr.name="jurisdiction" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="name" attr.type="string"/>
+<graph edgedefault="directed"><node id="vanguard">
+  <data key="d0">The Vanguard Group</data>
+  <data key="d1">institutional_investor</data>
+  <data key="d2">US</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+</node>
+<node id="blackrock">
+  <data key="d0">BlackRock Inc.</data>
+  <data key="d1">institutional_investor</data>
+  <data key="d2">US</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+</node>
+<node id="statestreet">
+  <data key="d0">State Street Corporation</data>
+  <data key="d1">institutional_investor</data>
+  <data key="d2">US</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+</node>
+<node id="eqix">
+  <data key="d0">Equinix Inc.</data>
+  <data key="d1">reit</data>
+  <data key="d2">US</data>
+  <data key="d3">True</data>
+  <data key="d4">0001101239</data>
+  <data key="d5">26.0</data>
+  <data key="d6">2015</data>
+</node>
+<node id="eqix_opco">
+  <data key="d0">Equinix Operating Co. LLC</data>
+  <data key="d1">operating_company</data>
+  <data key="d2">US</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001101239</data>
+</node>
+<node id="eqix_europe">
+  <data key="d0">Equinix Europe Ltd</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">GB</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001101239</data>
+</node>
+<node id="switch_data">
+  <data key="d0">Switch and Data LLC</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">US</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001101239</data>
+  <data key="d8">Acquired 2010</data>
+</node>
+<node id="eqix_apac">
+  <data key="d0">Equinix Asia-Pacific Pte. Ltd</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">SG</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001101239</data>
+</node>
+<node id="eqix_brazil">
+  <data key="d0">Equinix do Brasil Ltda</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">BR</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001101239</data>
+</node>
+<node id="dlr">
+  <data key="d0">Digital Realty Trust Inc.</data>
+  <data key="d1">reit</data>
+  <data key="d2">US</data>
+  <data key="d3">True</data>
+  <data key="d4">0001297996</data>
+  <data key="d5">20.0</data>
+</node>
+<node id="dlr_lp">
+  <data key="d0">Digital Realty Trust LP</data>
+  <data key="d1">operating_company</data>
+  <data key="d2">US</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001297996</data>
+  <data key="d8">Operating partnership; holds physical assets</data>
+</node>
+<node id="dlr_sg">
+  <data key="d0">Digital Singapore Jurong East Pte. Ltd</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">SG</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001297996</data>
+</node>
+<node id="dlr_ie">
+  <data key="d0">Digital Dublin Ltd</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">IE</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001297996</data>
+</node>
+<node id="dlr_nl">
+  <data key="d0">Digital Realty Netherlands BV</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">NL</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001297996</data>
+</node>
+<node id="dlr_au">
+  <data key="d0">Digital Realty Australia Pty Ltd</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">AU</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001297996</data>
+</node>
+<node id="irm">
+  <data key="d0">Iron Mountain Inc.</data>
+  <data key="d1">reit</data>
+  <data key="d2">US</data>
+  <data key="d3">True</data>
+  <data key="d4">0001020569</data>
+  <data key="d6">2014</data>
+</node>
+<node id="irm_dc">
+  <data key="d0">Iron Mountain Data Centers LLC</data>
+  <data key="d1">operating_company</data>
+  <data key="d2">US</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001020569</data>
+</node>
+<node id="irm_uk">
+  <data key="d0">Iron Mountain (UK) Ltd</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">GB</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001020569</data>
+</node>
+<node id="irm_eu">
+  <data key="d0">Iron Mountain Europe Ltd</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">GB</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001020569</data>
+</node>
+<node id="irm_au">
+  <data key="d0">Iron Mountain Australia Group Pty Ltd</data>
+  <data key="d1">subsidiary</data>
+  <data key="d2">AU</data>
+  <data key="d3">False</data>
+  <data key="d4"></data>
+  <data key="d7">0001020569</data>
+</node>
+<edge source="vanguard" target="eqix">
+  <data key="d9">invests_in</data>
+  <data key="d10">10.0</data>
+</edge>
+<edge source="vanguard" target="dlr">
+  <data key="d9">invests_in</data>
+  <data key="d10">13.0</data>
+</edge>
+<edge source="vanguard" target="irm">
+  <data key="d9">invests_in</data>
+  <data key="d10">11.0</data>
+</edge>
+<edge source="blackrock" target="eqix">
+  <data key="d9">invests_in</data>
+  <data key="d10">8.0</data>
+</edge>
+<edge source="blackrock" target="dlr">
+  <data key="d9">invests_in</data>
+  <data key="d10">7.0</data>
+</edge>
+<edge source="blackrock" target="irm">
+  <data key="d9">invests_in</data>
+  <data key="d10">9.0</data>
+</edge>
+<edge source="statestreet" target="eqix">
+  <data key="d9">invests_in</data>
+  <data key="d10">5.0</data>
+</edge>
+<edge source="eqix" target="eqix_opco">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="eqix" target="eqix_europe">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="eqix" target="switch_data">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="eqix" target="eqix_apac">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="eqix" target="eqix_brazil">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="eqix_opco" target="eqix">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="eqix_europe" target="eqix">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="switch_data" target="eqix">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="eqix_apac" target="eqix">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="eqix_brazil" target="eqix">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="dlr" target="dlr_lp">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="dlr" target="dlr_sg">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="dlr" target="dlr_ie">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="dlr" target="dlr_nl">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="dlr" target="dlr_au">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="dlr_lp" target="dlr">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="dlr_sg" target="dlr">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="dlr_ie" target="dlr">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="dlr_nl" target="dlr">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="dlr_au" target="dlr">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="irm" target="irm_dc">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="irm" target="irm_uk">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="irm" target="irm_eu">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="irm" target="irm_au">
+  <data key="d9">owns</data>
+  <data key="d10">100.0</data>
+</edge>
+<edge source="irm_dc" target="irm">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="irm_uk" target="irm">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="irm_eu" target="irm">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+<edge source="irm_au" target="irm">
+  <data key="d9">subsidiary_of</data>
+  <data key="d11"></data>
+</edge>
+</graph></graphml>

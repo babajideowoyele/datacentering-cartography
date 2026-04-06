@@ -1,0 +1,21 @@
+entity_id,name,entity_type,jurisdiction,reit_status,cik
+vanguard,The Vanguard Group,institutional_investor,US,False,
+blackrock,BlackRock Inc.,institutional_investor,US,False,
+statestreet,State Street Corporation,institutional_investor,US,False,
+eqix,Equinix Inc.,reit,US,True,0001101239
+eqix_opco,Equinix Operating Co. LLC,operating_company,US,False,
+eqix_europe,Equinix Europe Ltd,subsidiary,GB,False,
+switch_data,Switch and Data LLC,subsidiary,US,False,
+eqix_apac,Equinix Asia-Pacific Pte. Ltd,subsidiary,SG,False,
+eqix_brazil,Equinix do Brasil Ltda,subsidiary,BR,False,
+dlr,Digital Realty Trust Inc.,reit,US,True,0001297996
+dlr_lp,Digital Realty Trust LP,operating_company,US,False,
+dlr_sg,Digital Singapore Jurong East Pte. Ltd,subsidiary,SG,False,
+dlr_ie,Digital Dublin Ltd,subsidiary,IE,False,
+dlr_nl,Digital Realty Netherlands BV,subsidiary,NL,False,
+dlr_au,Digital Realty Australia Pty Ltd,subsidiary,AU,False,
+irm,Iron Mountain Inc.,reit,US,True,0001020569
+irm_dc,Iron Mountain Data Centers LLC,operating_company,US,False,
+irm_uk,Iron Mountain (UK) Ltd,subsidiary,GB,False,
+irm_eu,Iron Mountain Europe Ltd,subsidiary,GB,False,
+irm_au,Iron Mountain Australia Group Pty Ltd,subsidiary,AU,False,

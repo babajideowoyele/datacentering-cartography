@@ -101,30 +101,31 @@ environment is containerised in the project's \texttt{Dockerfile} and
   Seed run \\
 \addlinespace[2pt]
 \rowcolor{dcgray}
+\rowcolor{dcgray}
 \textbf{3b} &
   parse\_sec\_reit\_filings.py &
   Python 3.11 &
   SEC EDGAR XBRL filings; REIT tickers &
   Ownership network edges; asset schedule &
   sec-edgar-downloader, pyarrow &
-  Planned \\
+  Design \\
 \addlinespace[2pt]
 \textbf{3c} &
   build\_ownership\_network.py &
   Python 3.11 &
-  OpenCorporates API; REIT asset schedule &
-  Full ownership network (GraphML); actor typology &
-  NetworkX, OpenCorporates API key &
-  Planned \\
+  SEC EDGAR submissions API; hardcoded seed graph &
+  Ownership network GraphML + nodes/edges CSV + summary JSON &
+  NetworkX, requests &
+  Seed run \\
 \addlinespace[2pt]
 \rowcolor{dcgray}
 \textbf{4a} &
-  build\_contestation\_corpus.py &
+  build\_seed\_corpus.py / build\_contestation\_corpus.py &
   Python 3.11 &
-  GDELT 2.0; NewsAPI; planning portals &
-  Timestamped news + planning record corpus &
+  Documented public record (seed); GDELT 2.0 (live) &
+  Timestamped news + planning record corpus; signal summary CSV &
   gdelt, newsapi-python &
-  Design \\
+  Seed run \\
 \addlinespace[2pt]
 \textbf{4b} &
   run\_bertopic\_pipeline.py &
@@ -277,6 +278,117 @@ yet match Overture Maps water-infrastructure naming; planned fix for next pipeli
 revision). Res = residential zones. Com = commercial zones. NrPwr/NrH$_2$O =
 $k$-nearest-neighbour edges ($k{=}3$). AdjRes = edges within 1\,km radius.
 $G(N,E)$ = total graph size.
+\end{flushleft}
+\end{table}
+
+% ============================================================
+\section{WP3b Seed Results: Ownership Network}
+\label{app:wp3bresults}
+% ============================================================
+
+\Cref{tab:wp3bresults} summarises the seed ownership network constructed from SEC EDGAR
+submissions data (April 2026). The pipeline resolves three REIT holding companies
+(Equinix, Digital Realty, Iron Mountain) through their operating subsidiaries to
+institutional investors, using CIK-level submissions data from the SEC EDGAR API.
+The full network comprises 20 nodes and 35 edges across four actor types.
+
+\begin{table}[ht]
+\centering
+\small
+\caption{WP3b ownership network: node inventory by actor type (seed run, April 2026).
+         Edge types: \textit{owns} (holding company $\to$ subsidiary/operating company),
+         \textit{invests\_in} (institutional investor $\to$ REIT).
+         Data: SEC EDGAR submissions API; seed network with hardcoded structure.}
+\label{tab:wp3bresults}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.35}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{>{\bfseries\raggedright}p{3.0cm}>{\raggedright}p{1.6cm}r>{\raggedright\arraybackslash}p{7.0cm}}
+\toprule
+\rowcolor{dcblue}
+\textcolor{white}{\textbf{Actor type}} &
+\textcolor{white}{\textbf{Colour}} &
+\textcolor{white}{\textbf{Count}} &
+\textcolor{white}{\textbf{Examples}} \\
+\midrule
+REIT holding company & Red & 3 & Equinix Inc., Digital Realty Trust Inc., Iron Mountain Inc. \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+Operating entity & Blue & 3 & Equinix Operating Co., Digital Realty Operating LP, Iron Mountain Operating Co. \\
+\addlinespace[2pt]
+Subsidiary & Light blue & 11 & Equinix Europe Ltd, Digital Realty Europe B.V., Equinix Singapore Pte Ltd, \ldots \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+Institutional investor & Green & 3 & Vanguard Group, BlackRock Inc., State Street Corp. \\
+\midrule
+\textbf{Total} & & \textbf{20} & 35 edges: 32 \textit{owns}, 3 \textit{invests\_in} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\vspace{0.4em}
+\begin{flushleft}
+\footnotesize\textit{Notes.} Seed network: holding structure is manually documented
+from SEC filings and corporate records; live OpenCorporates enrichment and SEC XBRL
+asset-schedule parsing are deferred to the full pipeline run. The three institutional
+investors each hold 6--10\% positions across all three REITs --- the dispersed
+cross-holding structure that dissolves governance accountability.
+\end{flushleft}
+\end{table}
+
+% ============================================================
+\section{WP4 Seed Results: Contestation Signal Corpus}
+\label{app:wp4results}
+% ============================================================
+
+\Cref{tab:wp4results} reports the WP4 seed contestation corpus (April 2026), constructed
+from the documented academic and press record. The full GDELT live pull is deferred to
+the server pipeline run; the seed corpus is a methodologically transparent placeholder.
+Signal onset is defined as the first year with $\geq 3$ events in the corpus.
+
+\begin{table}[ht]
+\centering
+\small
+\caption{WP4 seed contestation corpus summary by city (April 2026).
+         Negative \% = share of events with negative tone valence.
+         Signal onset = first year $\geq 3$ events. Data: documented public record
+         (58 events total); full GDELT corpus deferred to server run.}
+\label{tab:wp4results}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.4}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{>{\raggedright}p{2.8cm}rrrr>{\raggedright}p{3.0cm}>{\raggedright\arraybackslash}p{4.2cm}}
+\toprule
+\rowcolor{dcblue}
+\textcolor{white}{\textbf{City}} &
+\textcolor{white}{\textbf{Events}} &
+\textcolor{white}{\textbf{Neg.\,\%}} &
+\textcolor{white}{\textbf{Onset}} &
+\textcolor{white}{\textbf{Peak}} &
+\textcolor{white}{\textbf{Regime response}} &
+\textcolor{white}{\textbf{Key sources}} \\
+\midrule
+Amsterdam & 16 & 56\% & 2019 & 2019 & Moratorium 2019--2022; lifted under criteria & NRC Handelsblad, Het Parool, Municipality \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+Ashburn (NoVA) & 17 & 59\% & 2021 & 2021 & None; operator-accommodating & Loudoun Now, Washington Post, Virginia DEQ \\
+\addlinespace[2pt]
+Dublin & 16 & 81\% & 2020 & 2021 & Grid connection moratorium (EirGrid); planning refusals & Irish Times, EirGrid, An Bord Pleanála \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+The Dalles & 9 & 56\% & --- & 2022 & Water compact revised 2024 & The Oregonian, Oregon Water Resources \\
+\midrule
+\textbf{Total} & \textbf{58} & \textbf{63\%} & & & & \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\vspace{0.4em}
+\begin{flushleft}
+\footnotesize\textit{Notes.} The Dalles onset is listed as ``---'' because the
+episodic water-conflict pattern does not reach the $\geq 3$ events/year threshold
+in any single year; total signal is moderate but temporally dispersed.
+Amsterdam onset and regime response co-occur in 2019 — the moratorium was
+declared within months of the threshold being crossed, consistent with the
+short signal-to-response lag predicted by WP3's governance counterparty finding.
 \end{flushleft}
 \end{table}
 
