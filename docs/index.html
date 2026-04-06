@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datacentering Cartography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    /* ── Carbon-inspired design tokens ── */
+    :root {
+      --bg:         #161616;
+      --surface-1:  #262626;
+      --surface-2:  #393939;
+      --border:     #525252;
+      --text-01:    #f4f4f4;
+      --text-02:    #c6c6c6;
+      --text-03:    #8d8d8d;
+      --blue-60:    #0f62fe;
+      --blue-40:    #78a9ff;
+      --red-60:     #da1e28;
+      --red-40:     #ff8389;
+      --green-50:   #24a148;
+      --green-40:   #42be65;
+      --yellow-40:  #f1c21b;
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 2rem;
+      --spacing-lg: 4rem;
+      --spacing-xl: 8rem;
+      --mono:       'IBM Plex Mono', monospace;
+      --sans:       'IBM Plex Sans', sans-serif;
+      --max-w:      1312px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-01);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--blue-40); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--spacing-md); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: #000;
+      border-bottom: 1px solid var(--surface-2);
+      height: 48px;
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--spacing-md);
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-01);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex; gap: var(--spacing-md);
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-02);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .nav-links a:hover { color: var(--text-01); text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 80vh;
+      display: flex; align-items: center;
+      border-bottom: 1px solid var(--surface-2);
+      padding: var(--spacing-xl) 0;
+    }
+    .hero-content { max-width: 900px; }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-03);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-md);
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--spacing-md);
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--text-03);
+      text-decoration: line-through;
+      text-decoration-color: var(--red-60);
+      text-decoration-thickness: 2px;
+    }
+    .hero-sub {
+      font-size: 1.25rem;
+      color: var(--text-02);
+      font-weight: 300;
+      max-width: 680px;
+      margin-bottom: var(--spacing-lg);
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: flex; gap: var(--spacing-sm); flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border: none; cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-primary { background: var(--blue-60); color: #fff; }
+    .btn-primary:hover { background: #0050e6; text-decoration: none; color: #fff; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-01);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { background: var(--surface-1); text-decoration: none; }
+
+    /* ── STAT BAR ── */
+    .stat-bar {
+      background: var(--surface-1);
+      border-bottom: 1px solid var(--surface-2);
+      padding: var(--spacing-lg) 0;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--surface-2);
+    }
+    .stat-cell {
+      background: var(--surface-1);
+      padding: var(--spacing-md) var(--spacing-lg);
+    }
+    .stat-number {
+      font-family: var(--mono);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-01);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-number.accent { color: var(--red-40); }
+    .stat-number.blue   { color: var(--blue-40); }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-03);
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: var(--spacing-xl) 0;
+      border-bottom: 1px solid var(--surface-2);
+    }
+    .section-header {
+      display: flex; align-items: baseline; gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+    }
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-03);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .section-body {
+      color: var(--text-02);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 740px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    /* ── MAP ── */
+    #facility-map {
+      width: 100%; height: 480px;
+      background: var(--surface-1);
+      margin-top: var(--spacing-md);
+    }
+    .map-legend {
+      display: flex; gap: var(--spacing-md);
+      margin-top: var(--spacing-sm);
+      font-family: var(--mono); font-size: 0.72rem; color: var(--text-03);
+    }
+    .legend-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      display: inline-block; margin-right: 4px; vertical-align: middle;
+    }
+
+    /* ── WP GRID ── */
+    .wp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--surface-2);
+      margin-bottom: var(--spacing-lg);
+    }
+    .wp-card {
+      background: var(--surface-1);
+      padding: var(--spacing-md);
+    }
+    .wp-card-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-40);
+      margin-bottom: var(--spacing-xs);
+    }
+    .wp-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+    }
+    .wp-card-body {
+      font-size: 0.875rem;
+      color: var(--text-02);
+      line-height: 1.65;
+      margin-bottom: var(--spacing-sm);
+    }
+    .wp-card-status {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .status-seed { background: var(--green-50); color: #000; }
+    .status-design { background: var(--surface-2); color: var(--text-03); }
+
+    /* ── CHART PANELS ── */
+    .chart-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-md);
+    }
+    @media (max-width: 768px) { .chart-row { grid-template-columns: 1fr; } }
+
+    .chart-panel {
+      background: var(--surface-1);
+      padding: var(--spacing-md);
+    }
+    .chart-panel-title {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-03);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--spacing-sm);
+    }
+    .chart-panel canvas { width: 100% !important; }
+
+    /* ── FINDING CALLOUT ── */
+    .finding {
+      border-left: 3px solid var(--red-60);
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: rgba(218,30,40,0.06);
+      margin: var(--spacing-md) 0;
+    }
+    .finding-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--red-40);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.3rem;
+    }
+    .finding p {
+      font-size: 0.95rem;
+      color: var(--text-01);
+      line-height: 1.65;
+    }
+    .finding strong { color: var(--red-40); }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin-top: var(--spacing-md);
+    }
+    .compare-table th {
+      background: #000;
+      color: var(--text-02);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--surface-2);
+    }
+    .compare-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--surface-2);
+      color: var(--text-02);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .compare-table tr:nth-child(even) td { background: var(--surface-1); }
+    .compare-table .label { color: var(--text-01); font-weight: 600; width: 22%; }
+    .compare-table .alert { color: var(--red-40); font-weight: 600; }
+    .compare-table .ok    { color: var(--green-40); font-weight: 600; }
+    .compare-table .highlight td { background: rgba(218,30,40,0.08) !important; }
+
+    /* ── CONTRIBUTE ── */
+    .contribute-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--surface-2);
+      margin-top: var(--spacing-md);
+    }
+    .contribute-card {
+      background: var(--surface-1);
+      padding: var(--spacing-md);
+    }
+    .contribute-card-icon {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      color: var(--blue-40);
+      margin-bottom: var(--spacing-xs);
+    }
+    .contribute-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+    }
+    .contribute-card-body {
+      font-size: 0.85rem;
+      color: var(--text-02);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #000;
+      border-top: 1px solid var(--surface-2);
+      padding: var(--spacing-lg) 0;
+    }
+    .footer-inner {
+      display: flex; flex-wrap: wrap; gap: var(--spacing-md);
+      justify-content: space-between; align-items: flex-start;
+    }
+    .footer-brand {
+      font-family: var(--mono); font-size: 0.75rem;
+      color: var(--text-03); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: var(--spacing-xs);
+    }
+    .footer-note { font-size: 0.8rem; color: var(--text-03); max-width: 420px; line-height: 1.6; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-links a { font-family: var(--mono); font-size: 0.72rem; color: var(--text-03); }
+    .footer-links a:hover { color: var(--text-01); }
+
+    /* ── MISC ── */
+    .mono { font-family: var(--mono); }
+    .tag-inline {
+      display: inline-block;
+      font-family: var(--mono); font-size: 0.65rem;
+      padding: 1px 6px; background: var(--surface-2); color: var(--text-02);
+      margin-left: 0.4rem; vertical-align: middle;
+    }
+    .viirs-bar-row {
+      display: flex; align-items: center; gap: var(--spacing-sm);
+      margin-bottom: 0.75rem; font-size: 0.875rem;
+    }
+    .viirs-city { width: 120px; color: var(--text-02); font-family: var(--mono); font-size: 0.75rem; }
+    .viirs-bar-bg { flex: 1; height: 8px; background: var(--surface-2); }
+    .viirs-bar-fill { height: 100%; transition: width 1s; }
+    .viirs-val { width: 80px; text-align: right; font-family: var(--mono); font-size: 0.72rem; color: var(--text-03); }
+
+    .ownership-tags { display: flex; flex-wrap: wrap; gap: var(--spacing-xs); margin-top: var(--spacing-sm); }
+    .otag {
+      display: inline-block; font-family: var(--mono); font-size: 0.65rem;
+      padding: 3px 8px; border: 1px solid;
+    }
+    .otag-reit      { border-color: var(--red-60);   color: var(--red-40); }
+    .otag-operating { border-color: var(--blue-60);  color: var(--blue-40); }
+    .otag-sub       { border-color: var(--border);   color: var(--text-03); }
+    .otag-investor  { border-color: var(--green-50); color: var(--green-40); }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Datacentering Cartography</a>
+    <ul class="nav-links">
+      <li><a href="#map">Facilities</a></li>
+      <li><a href="#wp1">WP1</a></li>
+      <li><a href="#wp3">WP3</a></li>
+      <li><a href="#wp4">WP4</a></li>
+      <li><a href="#contribute">Contribute</a></li>
+      <li><a href="https://github.com/babajide-owoyele/datacentering-cartography" target="_blank">GitHub ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Open research infrastructure · Erasmus University Rotterdam · April 2026</p>
+      <h1 class="hero-title">
+        The <em>cloud</em> is not<br>a metaphor.<br>It is infrastructure.
+      </h1>
+      <p class="hero-sub">
+        A multimodal cartography of data center assemblages — mapping
+        ownership, territory, concealment, and contestation across jurisdictions.
+        All data and pipelines are open.
+      </p>
+      <div class="hero-cta">
+        <a href="#map" class="btn btn-primary">Explore the map</a>
+        <a href="https://github.com/babajide-owoyele/datacentering-cartography" class="btn btn-ghost" target="_blank">View on GitHub</a>
+        <a href="#contribute" class="btn btn-ghost">Contribute data</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STAT BAR ── -->
+<div class="stat-bar">
+  <div class="container">
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="stat-number">4,757</div>
+        <div class="stat-label">Papers on data centers (OpenAlex 2010–2025)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number accent">0</div>
+        <div class="stat-label">In innovation studies / sociotechnical regimes</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number blue">400</div>
+        <div class="stat-label">TWh/yr global consumption — fastest-growing OECD user</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">15</div>
+        <div class="stat-label">Facilities in the open index (seed, April 2026)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">// 01 &nbsp; The problem</span>
+    </div>
+    <h2 class="section-title">Strategic invisibility is a sociotechnical fact</h2>
+    <p class="section-body">
+      Operators strategically conceal facility locations, energy sources, water consumption, and ownership chains.
+      No public database exists. Planning disputes flare and pass with little systematic documentation.
+      Ownership runs through REITs, sovereign wealth funds, and shell companies across multiple jurisdictions.
+      The word "cloud" does ideological work: it naturalises infrastructure, makes it weightless, placeless.
+    </p>
+    <p class="section-body">
+      <strong>Datacentering</strong> — the active, continuous socio-material process through which digital
+      infrastructure is assembled, contested, and reproduced — names what "cloud" conceals.
+      This project maps it across four dimensions: conceptual, visual, structural, temporal.
+    </p>
+    <div class="wp-grid">
+      <div class="wp-card">
+        <div class="wp-card-tag">WP1 · Conceptual</div>
+        <div class="wp-card-title">Territorial Imaginaries</div>
+        <div class="wp-card-body">Corporate websites vs city Wikipedia. Environmental Claim Index divergence score per operator–city pair. AWS ECI 120× higher than Wikipedia.</div>
+        <span class="wp-card-status status-seed">Seed run</span>
+      </div>
+      <div class="wp-card">
+        <div class="wp-card-tag">WP2 · Visual</div>
+        <div class="wp-card-title">Strategic Invisibility</div>
+        <div class="wp-card-body">Sentinel-2 satellite imagery + VIIRS nighttime lights + LST thermal maps. Corporate photography (CLIP). Visual abstraction score.</div>
+        <span class="wp-card-status status-seed">Seed run</span>
+      </div>
+      <div class="wp-card">
+        <div class="wp-card-tag">WP3 · Structural</div>
+        <div class="wp-card-title">Ownership Cartography</div>
+        <div class="wp-card-body">SEC EDGAR + OpenCorporates + Overture Maps. REIT structure disperses accountability. Urban embeddedness graphs via city2graph.</div>
+        <span class="wp-card-status status-seed">Seed run</span>
+      </div>
+      <div class="wp-card">
+        <div class="wp-card-tag">WP4 · Temporal</div>
+        <div class="wp-card-title">Contestation Signals</div>
+        <div class="wp-card-body">News archives (GDELT), planning records, social media. BERTopic + event detection. Signal-to-response lag. 58 events, 4 cities.</div>
+        <span class="wp-card-status status-seed">Seed run</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAP ── -->
+<section class="section" id="map">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">// 02 &nbsp; Facilities</span>
+      <h2 class="section-title">15 facilities · 10 cities · 8 countries</h2>
+    </div>
+    <p class="section-body">
+      The facility index is a community-maintained open database. Each record links a physical location
+      to operator identity, ownership structure, planning history, and contestation signals.
+    </p>
+    <div id="facility-map"></div>
+    <div class="map-legend">
+      <span><span class="legend-dot" style="background:#da1e28"></span>Hyperscale</span>
+      <span><span class="legend-dot" style="background:#0f62fe"></span>Colocation</span>
+      <span><span class="legend-dot" style="background:#8d8d8d"></span>Other</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── WP1 ── -->
+<section class="section" id="wp1">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">// 03 &nbsp; WP1 · Conceptual</span>
+      <h2 class="section-title">Environmental Claim Index divergence</h2>
+    </div>
+    <p class="section-body">
+      The ECI is a weighted keyword density score measuring how intensely an operator's
+      corporate website deploys green language, relative to the Wikipedia article for
+      the same city. High divergence = imaginary inflation: the operator narrates
+      sustainability while the city article narrates planning disputes and energy demand.
+    </p>
+    <div class="finding">
+      <div class="finding-label">Key finding · WP1 seed run, April 2026</div>
+      <p>AWS corporate ECI = <strong>167.1</strong> vs Wikipedia ECI = <strong>1.4</strong> — a gap of <strong>+165.7</strong>.
+      Equinix's website returned zero content to the research scraper: <strong>WAF-blocked</strong>,
+      itself recorded as a strategic opacity finding at the technical layer.</p>
+    </div>
+    <div class="chart-row" style="margin-top: var(--spacing-md);">
+      <div class="chart-panel">
+        <div class="chart-panel-title">ECI score: Corporate vs Wikipedia</div>
+        <canvas id="eciChart" height="220"></canvas>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-panel-title">ΔECI divergence (corp − wiki)</div>
+        <canvas id="deltaChart" height="220"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WP2 ── -->
+<section class="section" id="wp2">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">// 04 &nbsp; WP2 · Visual</span>
+      <h2 class="section-title">Nighttime light growth &amp; thermal signatures</h2>
+    </div>
+    <p class="section-body">
+      VIIRS nighttime lights (2014–2024) reveal electricity-intensity growth around facility clusters.
+      Ashburn shows the clearest signal: exurban context means less background noise from
+      urban LED transitions. Amsterdam's apparent decrease reflects city-wide LED streetlight
+      replacement masking data center growth — itself a finding about measurement confounds
+      in urban vs exurban siting strategies.
+    </p>
+    <div class="finding">
+      <div class="finding-label">Key finding · WP2 seed run, April 2026</div>
+      <p>Ashburn nighttime radiance: <strong>+8.7%</strong> (2014–2024) — only city with net increase.
+      Amsterdam: <strong>−9.2%</strong> (LED transition masking effect).
+      LST thermal maps show cooling-tower heat plumes visible from Landsat at 30m resolution.</p>
+    </div>
+    <div style="margin-top: var(--spacing-md);">
+      <div class="chart-panel-title" style="font-family:var(--mono);font-size:0.72rem;color:var(--text-03);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:var(--spacing-sm);">
+        VIIRS mean radiance 2014–2024 (nW/cm²/sr, 10 km radius)
+      </div>
+      <div class="viirs-bar-row">
+        <div class="viirs-city">Ashburn</div>
+        <div class="viirs-bar-bg"><div class="viirs-bar-fill" id="vb-ashburn" style="width:0%;background:var(--red-40)"></div></div>
+        <div class="viirs-val">24.8 (+8.7%)</div>
+      </div>
+      <div class="viirs-bar-row">
+        <div class="viirs-city">Amsterdam</div>
+        <div class="viirs-bar-bg"><div class="viirs-bar-fill" id="vb-amsterdam" style="width:0%;background:var(--blue-40)"></div></div>
+        <div class="viirs-val">17.4 (−9.2%)</div>
+      </div>
+      <div class="viirs-bar-row">
+        <div class="viirs-city">Dublin</div>
+        <div class="viirs-bar-bg"><div class="viirs-bar-fill" id="vb-dublin" style="width:0%;background:var(--green-40)"></div></div>
+        <div class="viirs-val">25.2 (−1.6%)</div>
+      </div>
+    </div>
+    <div class="chart-row" style="margin-top:var(--spacing-md);">
+      <div class="chart-panel">
+        <div class="chart-panel-title">VIIRS annual radiance time series</div>
+        <canvas id="viirsChart" height="220"></canvas>
+      </div>
+      <div class="chart-panel" style="display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div class="chart-panel-title">Satellite data layers (WP2)</div>
+          <table style="width:100%;font-size:0.8rem;font-family:var(--mono);margin-top:0.5rem;">
+            <tr style="border-bottom:1px solid var(--surface-2)">
+              <td style="padding:0.5rem 0;color:var(--text-03)">Dataset</td>
+              <td style="padding:0.5rem 0;color:var(--text-01)">Coverage</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--surface-2)">
+              <td style="padding:0.5rem 0;color:var(--text-02)">Sentinel-2 RGB</td>
+              <td style="padding:0.5rem 0;color:var(--text-01)">3 fac · 10m · 2024</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--surface-2)">
+              <td style="padding:0.5rem 0;color:var(--text-02)">Landsat LST</td>
+              <td style="padding:0.5rem 0;color:var(--text-01)">3 fac · 30m · Summer 2024</td>
+            </tr>
+            <tr>
+              <td style="padding:0.5rem 0;color:var(--text-02)">VIIRS DNB</td>
+              <td style="padding:0.5rem 0;color:var(--text-01)">3 fac · 500m · 2014–2024</td>
+            </tr>
+          </table>
+        </div>
+        <div style="margin-top:var(--spacing-sm);font-size:0.8rem;color:var(--text-03);font-family:var(--mono);">
+          Source: GEE · COPERNICUS/S2_SR_HARMONIZED · LANDSAT/LC08+09/C02/T1_L2 · NOAA/VIIRS/DNB
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WP3 ── -->
+<section class="section" id="wp3">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">// 05 &nbsp; WP3 · Structural</span>
+      <h2 class="section-title">Ownership cartography &amp; urban embeddedness</h2>
+    </div>
+    <p class="section-body">
+      Who owns this infrastructure, in what legal form, with what consequences for governance?
+      The REIT structure distributes beneficial ownership across retail investors and pension funds,
+      dissolving the concentrated accountability that would otherwise attach to a single identifiable owner.
+      When communities or municipalities seek a counterparty for binding commitments,
+      the REIT provides none.
+    </p>
+
+    <div class="finding">
+      <div class="finding-label">Key finding · WP3 seed run, April 2026</div>
+      <p>Ashburn: <strong>36 power nodes</strong>, <strong>1 residential zone</strong>, <strong>0 adjacency edges</strong> — deliberate land-use segregation at scale.
+      Amsterdam: <strong>61 residential zones</strong>, <strong>16 adjacency edges</strong> — embedded in the urban fabric.
+      The structural difference, not signal strength, explains the governance divergence.</p>
+    </div>
+
+    <div class="chart-row" style="margin-top:var(--spacing-md);">
+      <div class="chart-panel">
+        <div class="chart-panel-title">Urban embeddedness: 3 seed facilities (2 km bbox)</div>
+        <canvas id="embedChart" height="240"></canvas>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-panel-title">Ownership network actors (seed, 20 nodes / 35 edges)</div>
+        <div class="ownership-tags">
+          <span class="otag otag-reit">REIT · Equinix Inc.</span>
+          <span class="otag otag-reit">REIT · Digital Realty Trust</span>
+          <span class="otag otag-reit">REIT · Iron Mountain Inc.</span>
+          <span class="otag otag-operating">Operating · Equinix Operating Co.</span>
+          <span class="otag otag-operating">Operating · Digital Realty Operating LP</span>
+          <span class="otag otag-operating">Operating · Iron Mountain Operating Co.</span>
+          <span class="otag otag-sub">Equinix Europe Ltd</span>
+          <span class="otag otag-sub">Digital Realty Europe B.V.</span>
+          <span class="otag otag-sub">Equinix Singapore Pte Ltd</span>
+          <span class="otag otag-sub">+ 8 more subsidiaries</span>
+          <span class="otag otag-investor">Investor · Vanguard Group</span>
+          <span class="otag otag-investor">Investor · BlackRock Inc.</span>
+          <span class="otag otag-investor">Investor · State Street Corp.</span>
+        </div>
+        <p style="margin-top:var(--spacing-sm);font-size:0.8rem;color:var(--text-03);line-height:1.6;">
+          Vanguard, BlackRock, and State Street each hold 6–10% positions
+          <em>across all three REITs simultaneously</em> — the cross-holding structure
+          that makes concentrated governance accountability structurally impossible.
+        </p>
+      </div>
+    </div>
+
+    <h3 style="font-size:1rem;font-weight:600;margin-top:var(--spacing-lg);margin-bottom:var(--spacing-sm);">Virginia vs Amsterdam: the structural contrast</h3>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Northern Virginia (Loudoun Co.)</th>
+          <th>Amsterdam</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">Ownership</td><td>REIT-dominated; beneficial ownership dispersed</td><td>Mixed; operator-owned campuses, AMS-IX coop</td></tr>
+        <tr><td class="label">Counterparty</td><td class="alert">None identifiable</td><td class="ok">Municipality + named operators</td></tr>
+        <tr><td class="label">Urban (2 km)</td><td class="alert">36 power / 1 residential / 0 edges</td><td class="ok">2 power / 61 residential / 16 edges</td></tr>
+        <tr><td class="label">ECI divergence</td><td class="alert">+165.7 (corp 120× wiki)</td><td>Lower; regulatory vocab absorbed</td></tr>
+        <tr><td class="label">Contestation</td><td>High</td><td>High</td></tr>
+        <tr class="highlight"><td class="label">Regime response</td><td class="alert">None</td><td class="ok">Moratorium 2019–2022</td></tr>
+        <tr class="highlight"><td class="label">Key variable</td><td colspan="2" style="color:var(--red-40);font-weight:600;">Not signal strength — ownership structure + governance counterparty</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── WP4 ── -->
+<section class="section" id="wp4">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">// 06 &nbsp; WP4 · Temporal</span>
+      <h2 class="section-title">Contestation signals &amp; regime response lag</h2>
+    </div>
+    <p class="section-body">
+      58 documented contestation events (2007–2025) across four jurisdictions.
+      Amsterdam declares a moratorium within months of signal onset in 2019.
+      Northern Virginia produces no moratorium despite comparable cumulative signal.
+      Dublin shows the highest sustained negativity — 81% negative-tone events —
+      driven by EirGrid grid-capacity constraints and An Bord Pleanála refusals.
+    </p>
+    <div class="finding">
+      <div class="finding-label">Key finding · WP4 seed corpus, April 2026</div>
+      <p>Signal onset: Amsterdam 2019, Dublin 2020, Ashburn 2021.
+      Amsterdam signal-to-response lag: <strong>&lt; 1 year</strong>.
+      Ashburn lag: <strong>undefined</strong> — no regime response at end of observation window (2025).
+      The lag variable operationalises WP3's governance counterparty finding.</p>
+    </div>
+    <div class="chart-row" style="margin-top:var(--spacing-md);">
+      <div class="chart-panel">
+        <div class="chart-panel-title">Annual contestation event counts (seed corpus)</div>
+        <canvas id="contestChart" height="260"></canvas>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-panel-title">City summary</div>
+        <table style="width:100%;font-size:0.8rem;font-family:var(--mono);">
+          <tr style="border-bottom:1px solid var(--surface-2)">
+            <td style="padding:0.5rem 0;color:var(--text-03)">City</td>
+            <td style="padding:0.5rem 0;color:var(--text-03)">Events</td>
+            <td style="padding:0.5rem 0;color:var(--text-03)">Neg%</td>
+            <td style="padding:0.5rem 0;color:var(--text-03)">Onset</td>
+            <td style="padding:0.5rem 0;color:var(--text-03)">Response</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--surface-2)">
+            <td style="padding:0.5rem 0;color:var(--text-02)">Amsterdam</td>
+            <td style="padding:0.5rem 0;">16</td>
+            <td style="padding:0.5rem 0;">56%</td>
+            <td style="padding:0.5rem 0;">2019</td>
+            <td style="padding:0.5rem 0;color:var(--green-40)">Moratorium</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--surface-2)">
+            <td style="padding:0.5rem 0;color:var(--text-02)">Ashburn</td>
+            <td style="padding:0.5rem 0;">17</td>
+            <td style="padding:0.5rem 0;">59%</td>
+            <td style="padding:0.5rem 0;">2021</td>
+            <td style="padding:0.5rem 0;color:var(--red-40)">None</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--surface-2)">
+            <td style="padding:0.5rem 0;color:var(--text-02)">Dublin</td>
+            <td style="padding:0.5rem 0;">16</td>
+            <td style="padding:0.5rem 0;color:var(--red-40)">81%</td>
+            <td style="padding:0.5rem 0;">2020</td>
+            <td style="padding:0.5rem 0;color:var(--yellow-40)">Grid moratorium</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem 0;color:var(--text-02)">The Dalles</td>
+            <td style="padding:0.5rem 0;">9</td>
+            <td style="padding:0.5rem 0;">56%</td>
+            <td style="padding:0.5rem 0;">—</td>
+            <td style="padding:0.5rem 0;color:var(--text-03)">Water compact</td>
+          </tr>
+        </table>
+        <p style="margin-top:var(--spacing-sm);font-size:0.75rem;color:var(--text-03);line-height:1.5;">
+          Seed corpus from documented public record. Full GDELT live pull deferred to server run.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTRIBUTE ── -->
+<section class="section" id="contribute">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">// 07 &nbsp; Contribute</span>
+      <h2 class="section-title">The cartography is a commons</h2>
+    </div>
+    <p class="section-body">
+      Datacentering is too large, too distributed, too opaque for any single team.
+      The infrastructure is deliberately fragmented across jurisdictions.
+      The research commons is the methodological response.
+    </p>
+    <div class="contribute-grid">
+      <div class="contribute-card">
+        <div class="contribute-card-icon">[01]</div>
+        <div class="contribute-card-title">Add a facility</div>
+        <div class="contribute-card-body">Add a record to the facility index CSV. Coordinates, operator name, city, and any notes on planning history or contestation. No code required.</div>
+      </div>
+      <div class="contribute-card">
+        <div class="contribute-card-icon">[02]</div>
+        <div class="contribute-card-title">Local knowledge</div>
+        <div class="contribute-card-body">Know about a planning dispute, a moratorium, a community campaign, or an unreported facility? Open a GitHub Discussion. That knowledge is valuable here.</div>
+      </div>
+      <div class="contribute-card">
+        <div class="contribute-card-icon">[03]</div>
+        <div class="contribute-card-title">Data access</div>
+        <div class="contribute-card-body">Company registry access, REIT filings, planning portal scraping rights, or MediaCloud/GDELT API credentials for non-English jurisdictions.</div>
+      </div>
+      <div class="contribute-card">
+        <div class="contribute-card-icon">[04]</div>
+        <div class="contribute-card-title">Replicate in other languages</div>
+        <div class="contribute-card-body">The WP1 ECI pipeline and WP4 contestation corpus are language-agnostic. Replication in French, German, Dutch, Japanese, or Chinese would be immediately valuable.</div>
+      </div>
+    </div>
+    <div style="margin-top:var(--spacing-md);display:flex;gap:var(--spacing-sm);flex-wrap:wrap;">
+      <a href="https://github.com/babajide-owoyele/datacentering-cartography" class="btn btn-primary" target="_blank">GitHub repository ↗</a>
+      <a href="https://github.com/babajide-owoyele/datacentering-cartography/discussions" class="btn btn-ghost" target="_blank">Open a Discussion ↗</a>
+      <a href="https://github.com/babajide-owoyele/datacentering-cartography/blob/main/CONTRIBUTING.md" class="btn btn-ghost" target="_blank">Contributing guide ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Datacentering Cartography</div>
+        <p class="footer-note">
+          Open research infrastructure developed alongside
+          <em>Towards a Cartography of Datacentering: A Multimodal Research Agenda</em>
+          (Research Policy ECR Conference, 27 April 2026).
+          Code: MIT. Data: CC BY 4.0.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/babajide-owoyele/datacentering-cartography" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/babajide-owoyele/datacentering-cartography/blob/main/CONTRIBUTING.md" target="_blank">Contributing guide ↗</a>
+        <a href="https://github.com/babajide-owoyele/datacentering-cartography/blob/main/data/facility_index/facilities.csv" target="_blank">Facility index (CSV) ↗</a>
+        <a href="https://www.eur.nl/" target="_blank">Erasmus University Rotterdam ↗</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Leaflet map ── */
+const facilities = [
+  {id:"noVA_aws_001",      lat:38.9517, lon:-77.4481, city:"Ashburn, VA",    op:"Amazon Web Services",    type:"hyperscale"},
+  {id:"ams_equinix_001",   lat:52.3676, lon:4.9041,   city:"Amsterdam",      op:"Equinix",                type:"colocation"},
+  {id:"dub_digitalrealty_001", lat:53.3498, lon:-6.2603, city:"Dublin",      op:"Digital Realty",         type:"colocation"},
+  {id:"noVA_equinix_001",  lat:38.8977, lon:-77.4444, city:"Ashburn, VA",   op:"Equinix",                type:"colocation"},
+  {id:"noVA_ironmountain_001", lat:38.7509, lon:-77.4753, city:"Manassas, VA", op:"Iron Mountain",        type:"colocation"},
+  {id:"sgp_equinix_001",   lat:1.3521,  lon:103.8198, city:"Singapore",      op:"Equinix",                type:"colocation"},
+  {id:"sgp_digitalrealty_001", lat:1.3200, lon:103.7000, city:"Singapore",   op:"Digital Realty",         type:"colocation"},
+  {id:"fra_equinix_001",   lat:50.1109, lon:8.6821,   city:"Frankfurt",      op:"Equinix",                type:"colocation"},
+  {id:"fra_digitalrealty_001", lat:50.0780, lon:8.6880, city:"Frankfurt",    op:"Digital Realty",         type:"colocation"},
+  {id:"lon_equinix_001",   lat:51.5074, lon:-0.5950,  city:"Slough/London",  op:"Equinix",                type:"colocation"},
+  {id:"sto_digitalrealty_001", lat:59.3293, lon:18.0686, city:"Stockholm",   op:"Digital Realty",         type:"colocation"},
+  {id:"syd_equinix_001",   lat:-33.8688, lon:151.2093, city:"Sydney",        op:"Equinix",                type:"colocation"},
+  {id:"noVA_microsoft_001", lat:36.6682, lon:-78.3875, city:"Boydton, VA",   op:"Microsoft",              type:"hyperscale"},
+  {id:"noVA_meta_001",     lat:35.3318, lon:-81.8651, city:"Forest City, NC", op:"Meta",                  type:"hyperscale"},
+  {id:"ore_google_001",    lat:45.5946, lon:-121.1787, city:"The Dalles, OR", op:"Google",                type:"hyperscale"},
+];
+
+const typeColor = { hyperscale:"#da1e28", colocation:"#0f62fe" };
+
+const map = L.map("facility-map", { zoomControl: true }).setView([35, 10], 2);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  subdomains: "abcd", maxZoom: 20
+}).addTo(map);
+
+facilities.forEach(f => {
+  const color = typeColor[f.type] || "#8d8d8d";
+  const marker = L.circleMarker([f.lat, f.lon], {
+    radius: 7, fillColor: color, color: "#000",
+    weight: 1.5, opacity: 1, fillOpacity: 0.85
+  }).addTo(map);
+  marker.bindPopup(`
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:#161616;color:#f4f4f4;padding:4px;min-width:180px">
+      <div style="font-weight:600;margin-bottom:4px;color:${color}">${f.op}</div>
+      <div style="color:#8d8d8d">${f.city}</div>
+      <div style="color:#525252;margin-top:2px">${f.id}</div>
+    </div>
+  `, {className: "dark-popup"});
+});
+
+/* ── ECI charts ── */
+const eciCtx = document.getElementById("eciChart").getContext("2d");
+new Chart(eciCtx, {
+  type: "bar",
+  data: {
+    labels: ["AWS", "Digital Realty", "Equinix"],
+    datasets: [
+      { label: "Corporate ECI", data: [167.1, 75.7, null], backgroundColor: "#da1e28", borderColor: "#da1e28", borderWidth: 1 },
+      { label: "Wikipedia ECI", data: [1.4, 3.1, 1.7],     backgroundColor: "#0f62fe", borderColor: "#0f62fe", borderWidth: 1 },
+    ]
+  },
+  options: {
+    responsive: true, plugins: { legend: { labels: { color: "#c6c6c6", font: { family: "IBM Plex Mono", size: 11 } } } },
+    scales: {
+      x: { ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 11 } }, grid: { color: "#393939" } },
+      y: { ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 10 } }, grid: { color: "#393939" }, beginAtZero: true }
+    }
+  }
+});
+
+const deltaCtx = document.getElementById("deltaChart").getContext("2d");
+new Chart(deltaCtx, {
+  type: "bar",
+  data: {
+    labels: ["AWS (Ashburn)", "Digital Realty (Dallas)", "Equinix (WAF-blocked)"],
+    datasets: [{
+      label: "ΔECI (corp − wiki)",
+      data: [165.7, 72.6, null],
+      backgroundColor: ["#da1e28", "#da1e28", "#525252"],
+      borderColor: ["#ff8389", "#ff8389", "#393939"],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    indexAxis: "y", responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 10 } }, grid: { color: "#393939" }, beginAtZero: true },
+      y: { ticks: { color: "#c6c6c6", font: { family: "IBM Plex Mono", size: 11 } }, grid: { color: "#393939" } }
+    }
+  }
+});
+
+/* ── VIIRS chart ── */
+const viirsCtx = document.getElementById("viirsChart").getContext("2d");
+const viirsYears = [2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024];
+new Chart(viirsCtx, {
+  type: "line",
+  data: {
+    labels: viirsYears,
+    datasets: [
+      { label: "Ashburn", data: [22.81,22.95,23.10,23.40,23.65,23.80,23.95,24.10,24.30,24.55,24.80], borderColor: "#da1e28", backgroundColor: "rgba(218,30,40,0.1)", pointRadius: 3, tension: 0.3 },
+      { label: "Amsterdam", data: [19.18,19.00,18.80,18.55,18.30,18.10,17.90,17.70,17.55,17.45,17.41], borderColor: "#0f62fe", backgroundColor: "rgba(15,98,254,0.1)", pointRadius: 3, tension: 0.3 },
+      { label: "Dublin", data: [25.64,25.50,25.40,25.35,25.30,25.25,25.20,25.25,25.20,25.22,25.23], borderColor: "#42be65", backgroundColor: "rgba(66,190,101,0.1)", pointRadius: 3, tension: 0.3 },
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { labels: { color: "#c6c6c6", font: { family: "IBM Plex Mono", size: 11 } } } },
+    scales: {
+      x: { ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 10 } }, grid: { color: "#393939" } },
+      y: { ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 10 } }, grid: { color: "#393939" } }
+    }
+  }
+});
+
+/* ── Urban embeddedness chart ── */
+const embedCtx = document.getElementById("embedChart").getContext("2d");
+new Chart(embedCtx, {
+  type: "bar",
+  data: {
+    labels: ["Ashburn / AWS", "Amsterdam / Equinix", "Dublin / Digital Realty"],
+    datasets: [
+      { label: "Power nodes",     data: [36, 2, 301], backgroundColor: "#f1c21b" },
+      { label: "Residential zones", data: [1, 61, 361], backgroundColor: "#0f62fe" },
+      { label: "Adjacency edges", data: [0, 16, 61],  backgroundColor: "#42be65" },
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { labels: { color: "#c6c6c6", font: { family: "IBM Plex Mono", size: 11 } } } },
+    scales: {
+      x: { ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 10 } }, grid: { color: "#393939" }, stacked: false },
+      y: { ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 10 } }, grid: { color: "#393939" }, beginAtZero: true }
+    }
+  }
+});
+
+/* ── Contestation chart ── */
+const contestCtx = document.getElementById("contestChart").getContext("2d");
+const contestYears = [2017,2018,2019,2020,2021,2022,2023,2024,2025];
+new Chart(contestCtx, {
+  type: "bar",
+  data: {
+    labels: contestYears,
+    datasets: [
+      { label: "Amsterdam", data: [2,2,4,2,2,2,1,2,0], backgroundColor: "#0f62fe" },
+      { label: "Ashburn",   data: [1,2,2,2,3,2,2,3,1], backgroundColor: "#da1e28" },
+      { label: "Dublin",    data: [0,1,2,3,3,3,2,2,0], backgroundColor: "#42be65" },
+      { label: "The Dalles",data: [0,0,1,1,0,1,1,1,0], backgroundColor: "#8d8d8d" },
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: "#c6c6c6", font: { family: "IBM Plex Mono", size: 11 } } },
+      annotation: {}
+    },
+    scales: {
+      x: { stacked: false, ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 10 } }, grid: { color: "#393939" } },
+      y: { stacked: false, ticks: { color: "#8d8d8d", font: { family: "IBM Plex Mono", size: 10 } }, grid: { color: "#393939" }, beginAtZero: true }
+    }
+  }
+});
+
+/* ── VIIRS bars animation ── */
+setTimeout(() => {
+  document.getElementById("vb-ashburn").style.width  = "82%";
+  document.getElementById("vb-amsterdam").style.width = "58%";
+  document.getElementById("vb-dublin").style.width   = "84%";
+}, 400);
+
+/* ── Dark popup style ── */
+const style = document.createElement("style");
+style.textContent = `.dark-popup .leaflet-popup-content-wrapper { background:#161616; border:1px solid #393939; border-radius:0; box-shadow:none; } .dark-popup .leaflet-popup-tip { background:#161616; } .leaflet-popup-content { margin:8px 10px; }`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>

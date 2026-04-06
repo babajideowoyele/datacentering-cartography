@@ -123,7 +123,7 @@ def _try_gee(
         return False
 
     try:
-        ee.Initialize()
+        ee.Initialize(project="rpcartography")
     except Exception as exc:
         logger.debug("GEE initialisation failed (%s); skipping GEE backend.", exc)
         return False
