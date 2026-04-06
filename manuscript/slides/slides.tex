@@ -224,9 +224,10 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
   \begin{block}{WP2 — Strategic Invisibility}
     \small
     \begin{itemize}
-      \item Sentinel-2 satellite imagery
+      \item Sentinel-2 + LST + VIIRS nightlights
       \item Corporate photography (CLIP)
       \item Visual abstraction score
+      \item Seed: 3 facilities, GEE pipeline
     \end{itemize}
   \end{block}
 \end{column}
@@ -247,6 +248,27 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
   \footnotesize AWS ECI \alert{120$\times$} higher than Wikipedia.
   Equinix WAF-blocked: strategic opacity at the \textit{technical} layer.
 \end{center}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 7c — WP2 satellite results
+\begin{frame}{WP2 First Results: Satellite Layers (Seed Run, April 2026)}
+\begin{columns}[T]
+\begin{column}{0.50\textwidth}
+  \includegraphics[width=\textwidth,height=0.62\textheight,keepaspectratio]{../figures/wp2_lst_map}
+  \begin{center}
+    \footnotesize LST thermal maps --- summer 2024, 30\,m (Landsat 8/9)
+  \end{center}
+\end{column}
+\begin{column}{0.46\textwidth}
+  \includegraphics[width=\textwidth,height=0.52\textheight,keepaspectratio]{../figures/wp2_nightlights_timeseries}
+  \begin{center}
+    \footnotesize VIIRS nighttime lights 2014--2024\\[0.2em]
+    Ashburn: \alert{+8.7\%} --- only net growth.\\
+    Amsterdam: $-9.2\%$ (LED transition effect).
+  \end{center}
+\end{column}
+\end{columns}
 \end{frame}
 
 %% ------------------------------------------------------------------
