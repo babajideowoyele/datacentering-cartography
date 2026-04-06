@@ -1,0 +1,25 @@
+{
+"type": "FeatureCollection",
+"name": "edges",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "pwr_6958", "edge_type": "near_power", "distance_km": 1.1491 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.912867, 52.3764401 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "pwr_2523", "edge_type": "near_power", "distance_km": 1.1525 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9129448, 52.3764465 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_80", "edge_type": "adjacent_residential", "distance_km": 0.4701 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9100488, 52.3697629 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_314", "edge_type": "adjacent_residential", "distance_km": 0.27 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.907105, 52.3691911 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_388", "edge_type": "adjacent_residential", "distance_km": 0.6662 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9052552, 52.3735498 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_816", "edge_type": "adjacent_residential", "distance_km": 0.5917 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9110946, 52.3707738 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_852", "edge_type": "adjacent_residential", "distance_km": 0.4712 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.908894, 52.370664 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_945", "edge_type": "adjacent_residential", "distance_km": 0.5589 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9078531, 52.3720736 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1100", "edge_type": "adjacent_residential", "distance_km": 0.5233 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9093121, 52.3641337 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1127", "edge_type": "adjacent_residential", "distance_km": 0.3645 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9022393, 52.3706753 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1227", "edge_type": "adjacent_residential", "distance_km": 0.7713 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9145224, 52.3648408 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1354", "edge_type": "adjacent_residential", "distance_km": 0.9645 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.8900709, 52.3689629 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1751", "edge_type": "adjacent_residential", "distance_km": 0.5638 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9073016, 52.3722785 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1817", "edge_type": "adjacent_residential", "distance_km": 0.2521 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9075158, 52.368488 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1831", "edge_type": "adjacent_residential", "distance_km": 0.5174 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9073165, 52.371818 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1841", "edge_type": "adjacent_residential", "distance_km": 0.5596 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9091082, 52.3715967 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1924", "edge_type": "adjacent_residential", "distance_km": 0.0975 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9055197, 52.3674672 ] ] } },
+{ "type": "Feature", "properties": { "source": "ams_equinix_001", "target": "res_1983", "edge_type": "adjacent_residential", "distance_km": 0.4974 }, "geometry": { "type": "LineString", "coordinates": [ [ 4.9041, 52.3676 ], [ 4.9084684, 52.3711907 ] ] } }
+]
+}

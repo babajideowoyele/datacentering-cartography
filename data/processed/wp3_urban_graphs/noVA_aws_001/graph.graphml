@@ -1,0 +1,746 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d18" for="edge" attr.name="distance_km" attr.type="float"/>
+<key id="d17" for="edge" attr.name="edge_type" attr.type="string"/>
+<key id="d16" for="node" attr.name="elevation" attr.type="double"/>
+<key id="d15" for="node" attr.name="version" attr.type="long"/>
+<key id="d14" for="node" attr.name="surface" attr.type="string"/>
+<key id="d13" for="node" attr.name="class" attr.type="string"/>
+<key id="d12" for="node" attr.name="subtype" attr.type="string"/>
+<key id="d11" for="node" attr.name="source_tags" attr.type="string"/>
+<key id="d10" for="node" attr.name="wikidata" attr.type="string"/>
+<key id="d9" for="node" attr.name="level" attr.type="double"/>
+<key id="d8" for="node" attr.name="names" attr.type="string"/>
+<key id="d7" for="node" attr.name="sources" attr.type="string"/>
+<key id="d6" for="node" attr.name="id" attr.type="string"/>
+<key id="d5" for="node" attr.name="operator" attr.type="string"/>
+<key id="d4" for="node" attr.name="country" attr.type="string"/>
+<key id="d3" for="node" attr.name="city" attr.type="string"/>
+<key id="d2" for="node" attr.name="lon" attr.type="double"/>
+<key id="d1" for="node" attr.name="lat" attr.type="double"/>
+<key id="d0" for="node" attr.name="node_type" attr.type="string"/>
+<graph edgedefault="directed"><node id="noVA_aws_001">
+  <data key="d0">datacenter</data>
+  <data key="d1">38.9517</data>
+  <data key="d2">-77.4481</data>
+  <data key="d3">Ashburn</data>
+  <data key="d4">United States</data>
+  <data key="d5">amazon_web_services</data>
+</node>
+<node id="pwr_24">
+  <data key="d6">6dcfcfc0-f390-3812-96d2-69cba180601d</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w262931721@7', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9440582</data>
+  <data key="d2">-77.4315917</data>
+</node>
+<node id="pwr_108">
+  <data key="d6">4aa2b015-ed5d-33ea-a96a-4d012518ee0f</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w877327405@3', 'update_time': '2024-09-30T02:12:21.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Columbia Gas Transmission', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '20"'], ['location', 'underground'], ['man_made', 'pipeline'], ['operator', 'Columbia Gas Transmission, LLC'], ['substance', 'gas'], ['usage', 'transmission']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9235746</data>
+  <data key="d2">-77.4136961</data>
+</node>
+<node id="pwr_214">
+  <data key="d6">2761daf5-1b23-389d-8dfb-59887c5b7e45</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w374573681@5', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9434634</data>
+  <data key="d2">-77.43159</data>
+</node>
+<node id="pwr_346">
+  <data key="d6">682300ef-f4b1-3e22-8e3f-a711c9808ead</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w374573679@5', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.942864</data>
+  <data key="d2">-77.4309409</data>
+</node>
+<node id="pwr_572">
+  <data key="d6">0b7792af-6acb-32f6-957f-9f9abec2bc32</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w734230984@5', 'update_time': '2024-12-19T13:16:00.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Colonial Pipeline', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['location', 'underground'], ['man_made', 'pipeline'], ['operator', 'Colonial Pipeline'], ['operator:wikidata', 'Q107145391'], ['ref', 'CPC 000030'], ['start_date', '1970s'], ['substance', 'fuel'], ['usage', 'transmission']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.926271</data>
+  <data key="d2">-77.4228575</data>
+</node>
+<node id="pwr_706">
+  <data key="d6">51fa539a-a904-33bd-b3c0-a8cf110b9627</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w262931604@6', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9401837</data>
+  <data key="d2">-77.4311925</data>
+</node>
+<node id="pwr_859">
+  <data key="d6">bf87f578-91e7-38bf-9269-67ce2b994357</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w820841095@3', 'update_time': '2021-01-11T21:18:04.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Potomac Interceptor', 'common': None, 'rules': None}</data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '381'], ['location', 'underground'], ['man_made', 'pipeline'], ['note', '15"'], ['operator', 'District of Columbia Water and Sewer Authority'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9588552</data>
+  <data key="d2">-77.4294207</data>
+</node>
+<node id="pwr_934">
+  <data key="d6">e196384f-ae81-3ab0-a81b-88b28a7280a9</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w706750509@1', 'update_time': '2019-07-23T17:34:59.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['man_made', 'pipeline']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9421926</data>
+  <data key="d2">-77.4325557</data>
+</node>
+<node id="pwr_960">
+  <data key="d6">ed7e9091-37a9-36b1-b0b7-ee9cdf948e2f</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w374573680@5', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9428677</data>
+  <data key="d2">-77.43159</data>
+</node>
+<node id="pwr_1046">
+  <data key="d6">56064b6d-950f-3225-9153-67824e92c174</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w374573678@5', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9434597</data>
+  <data key="d2">-77.4309362</data>
+</node>
+<node id="pwr_1081">
+  <data key="d6">81779fe4-4760-37d8-83d3-b942d0c09735</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w807677400@12', 'update_time': '2021-09-30T20:34:10.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['location', 'underground'], ['man_made', 'pipeline'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9778535</data>
+  <data key="d2">-77.4979396</data>
+</node>
+<node id="pwr_1105">
+  <data key="d6">ca61e345-acf8-302d-baab-f43e78c3c979</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w879032821@1', 'update_time': '2020-11-29T22:16:29.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '152'], ['location', 'underground'], ['man_made', 'pipeline'], ['substance', 'gas']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9236125</data>
+  <data key="d2">-77.4294846</data>
+</node>
+<node id="pwr_1161">
+  <data key="d6">46f667e5-e51e-3620-bf43-596cb0030f6f</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w820841098@4', 'update_time': '2021-01-11T21:18:04.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Potomac Interceptor', 'common': None, 'rules': None}</data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '914'], ['location', 'underground'], ['man_made', 'pipeline'], ['note', '36"'], ['operator', 'District of Columbia Water and Sewer Authority'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9714622</data>
+  <data key="d2">-77.4438348</data>
+</node>
+<node id="pwr_1223">
+  <data key="d6">3c9a0baf-c93b-3151-a1d9-ab07254fefd4</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w373849137@4', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9381123</data>
+  <data key="d2">-77.4309269</data>
+</node>
+<node id="pwr_1285">
+  <data key="d6">aa3bc13b-654e-3330-a8bc-e577c46e7fd8</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w821957907@2', 'update_time': '2020-08-14T17:42:29.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '305'], ['location', 'underground'], ['man_made', 'pipeline'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9648058</data>
+  <data key="d2">-77.4250218</data>
+</node>
+<node id="pwr_1322">
+  <data key="d6">a6d76f03-5f03-310a-87e0-39cc7d91042e</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w262931607@6', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9381204</data>
+  <data key="d2">-77.4320642</data>
+</node>
+<node id="pwr_1359">
+  <data key="d6">10d426fe-f3b0-3049-9408-d870040ad645</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w821957909@3', 'update_time': '2021-01-11T21:18:04.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Potomac Interceptor', 'common': None, 'rules': None}</data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '610'], ['location', 'underground'], ['man_made', 'pipeline'], ['note', '24"'], ['operator', 'District of Columbia Water and Sewer Authority'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9656563</data>
+  <data key="d2">-77.4294765</data>
+</node>
+<node id="pwr_1566">
+  <data key="d6">a57df7ee-6869-368e-be8c-9be853737c15</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w373849138@4', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9391003</data>
+  <data key="d2">-77.4309129</data>
+</node>
+<node id="pwr_1777">
+  <data key="d6">cfed6591-498e-30d3-890b-c64a61473851</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w821957906@1', 'update_time': '2022-01-21T19:49:45.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Horsepen Run Parallel Sewer', 'common': None, 'rules': None}</data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['location', 'underground'], ['man_made', 'pipeline'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9787229</data>
+  <data key="d2">-77.4502995</data>
+</node>
+<node id="pwr_1812">
+  <data key="d6">253be24b-1ed3-3bdc-9717-ae0f53492d3c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w821957905@1', 'update_time': '2020-07-01T19:58:53.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['location', 'underground'], ['man_made', 'pipeline'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9648994</data>
+  <data key="d2">-77.4619025</data>
+</node>
+<node id="pwr_1947">
+  <data key="d6">ca8f392b-7d2a-32f0-aab4-8adb75d8cec3</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w706750510@1', 'update_time': '2019-07-23T17:34:59.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['location', 'underground'], ['man_made', 'pipeline']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9414454</data>
+  <data key="d2">-77.43271</data>
+</node>
+<node id="pwr_2053">
+  <data key="d6">1413f5d2-ce4e-38a8-88b2-e6fdb827500d</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1023085245@1', 'update_time': '2022-01-21T00:00:20.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'yes'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9476071</data>
+  <data key="d2">-77.4667883</data>
+</node>
+<node id="pwr_2478">
+  <data key="d6">7709ad8e-4edf-3d89-ac92-5178a485ebc3</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1023085247@1', 'update_time': '2022-01-21T00:00:20.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'yes'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9481895</data>
+  <data key="d2">-77.4665176</data>
+</node>
+<node id="pwr_2815">
+  <data key="d6">e83e47ed-a898-3eeb-b5bd-6a5974f5606f</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w706750508@1', 'update_time': '2019-07-23T17:34:59.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['man_made', 'pipeline']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9409282</data>
+  <data key="d2">-77.4327119</data>
+</node>
+<node id="pwr_2938">
+  <data key="d6">36aab61b-ba55-3063-b8ae-23e888a7e1fe</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w820841097@6', 'update_time': '2025-12-22T01:48:01.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Potomac Interceptor', 'common': None, 'rules': None}</data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '762'], ['location', 'underground'], ['man_made', 'pipeline'], ['note', '30"'], ['operator', 'District of Columbia Water and Sewer Authority'], ['operator:wikidata', 'Q5283435'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9563797</data>
+  <data key="d2">-77.4312499</data>
+</node>
+<node id="pwr_2960">
+  <data key="d6">e41d425b-e126-3134-8527-b68855cf8617</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1023085246@1', 'update_time': '2022-01-21T00:00:20.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'yes'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9480266</data>
+  <data key="d2">-77.4665844</data>
+</node>
+<node id="pwr_3035">
+  <data key="d6">4408cc81-5007-3813-a279-dc3f112678ba</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w374573677@5', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9440518</data>
+  <data key="d2">-77.4309315</data>
+</node>
+<node id="pwr_3063">
+  <data key="d6">b7deaf49-5829-3550-b210-4133ddd6655f</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w373849139@4', 'update_time': '2022-09-27T19:15:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['building', 'storage_tank'], ['content', 'fuel'], ['man_made', 'storage_tank']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">storage_tank</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9401274</data>
+  <data key="d2">-77.430492</data>
+</node>
+<node id="pwr_3360">
+  <data key="d6">c7139136-92d6-3812-8a2a-eafe53235d40</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w821957908@2', 'update_time': '2020-08-14T17:42:29.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">-2.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '610'], ['location', 'underground'], ['man_made', 'pipeline'], ['note', '24"'], ['substance', 'sewage']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.9679465</data>
+  <data key="d2">-77.4262678</data>
+</node>
+<node id="pwr_3423">
+  <data key="d6">1434024a-fe3c-3023-b8f7-562c5def5248</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w691780002@16', 'update_time': '2024-08-26T15:33:57.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Cove Point Pipeline', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '914'], ['location', 'underground'], ['man_made', 'pipeline'], ['note', 'DMT 36"'], ['operator', 'Dominion Energy'], ['substance', 'gas']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.810631</data>
+  <data key="d2">-77.4108653</data>
+</node>
+<node id="pwr_3424">
+  <data key="d6">2203d7a8-09bd-3749-b1d6-798191f08b5d</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w734230993@9', 'update_time': '2025-05-15T23:32:26.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Colonial Pipeline', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '6.63"'], ['location', 'underground'], ['man_made', 'pipeline'], ['operator', 'Colonial Pipeline'], ['operator:wikidata', 'Q107145391'], ['ref', 'CPC 0028BA'], ['substance', 'fuel'], ['usage', 'transmission']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.8578917</data>
+  <data key="d2">-77.3669034</data>
+</node>
+<node id="pwr_3425">
+  <data key="d6">6bea6b34-94a5-36cb-b0a4-807adada3275</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w625343548@11', 'update_time': '2025-11-03T22:01:08.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'PPL Pipeline', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '6.625"'], ['location', 'underground'], ['man_made', 'pipeline'], ['oneway', '-1'], ['operator', 'Products (SE) Pipe Line Corporation'], ['operator:wikidata', 'Q130233116'], ['ref', 'PPL 6DA'], ['substance', 'fuel'], ['usage', 'transmission']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">38.8025575</data>
+  <data key="d2">-77.350491</data>
+</node>
+<node id="pwr_3426">
+  <data key="d6">cc03b4b5-ad48-3ab4-afb6-de3b0af910df</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w878209278@4', 'update_time': '2024-07-06T14:49:02.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Transcontinental Gas Pipeline - Line D', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '42"'], ['location', 'underground'], ['man_made', 'pipeline'], ['oneway', 'reversible'], ['operator', 'Transcontinental Gas Pipe Line Company, LLC'], ['ref', 'MAIN-D-T-T-T'], ['substance', 'gas'], ['usage', 'transmission']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">39.0460692</data>
+  <data key="d2">-77.2231975</data>
+</node>
+<node id="pwr_3427">
+  <data key="d6">715c8e86-99c6-302d-a298-39a8e59a1acf</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1064359348@3', 'update_time': '2024-01-01T08:59:53.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Transcontinental Gas Pipeline - Line C', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '36"'], ['location', 'underground'], ['man_made', 'pipeline'], ['oneway', 'reversible'], ['operator', 'Transcontinental Gas Pipe Line Company, LLC'], ['ref', 'MAIN-C-T-T-T'], ['substance', 'gas'], ['usage', 'transmission']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">39.0426393</data>
+  <data key="d2">-77.2227307</data>
+</node>
+<node id="pwr_3428">
+  <data key="d6">3392bbd4-2361-3383-ae59-dfc6d2ebab3f</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1064359349@5', 'update_time': '2025-08-20T14:29:44.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Transcontinental Gas Pipeline - Line A', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '30"'], ['location', 'underground'], ['man_made', 'pipeline'], ['oneway', 'reversible'], ['operator', 'Transcontinental Gas Pipe Line Company, LLC'], ['ref', 'MAIN-A-T-T-T'], ['start_date', '1951'], ['substance', 'gas'], ['usage', 'transmission']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">39.0428197</data>
+  <data key="d2">-77.2224422</data>
+</node>
+<node id="pwr_3429">
+  <data key="d6">847b0fa6-9e57-34e8-babb-6092523cf485</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w62097009@15', 'update_time': '2025-03-20T01:52:13.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Transcontinental Gas Pipeline - Line B', 'common': None, 'rules': None}</data>
+  <data key="d9">-1.0</data>
+  <data key="d10"></data>
+  <data key="d11">[['diameter', '30"'], ['location', 'underground'], ['man_made', 'pipeline'], ['oneway', 'reversible'], ['operator', 'Transcontinental Gas Pipe Line Company, LLC'], ['ref', 'MAIN-B-T-T-T'], ['substance', 'gas'], ['usage', 'transmission']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">39.0749001</data>
+  <data key="d2">-77.1840464</data>
+</node>
+<node id="res_200">
+  <data key="d6">5a4eae42-8e33-32cb-bcdf-b5ea50c20b33</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'r15323973@1', 'update_time': '2025-09-02T15:23:09.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential'], ['type', 'multipolygon']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">1</data>
+  <data key="d0">residential</data>
+  <data key="d1">38.9498793</data>
+  <data key="d2">-77.4244591</data>
+</node>
+<node id="com_87">
+  <data key="d6">abbdfd8b-8b2d-35d4-a1bf-3e15edbd8614</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1132611761@1', 'update_time': '2023-01-17T01:56:50.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial'], ['source', 'Fairfax County open GIS']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.9511486</data>
+  <data key="d2">-77.4229121</data>
+</node>
+<node id="com_111">
+  <data key="d6">24f7dcca-e7a8-34cf-90fc-f56baebb259a</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w329605528@5', 'update_time': '2022-01-19T02:43:58.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Hertz/Dollar/Thrifty Car Rental', 'common': None, 'rules': None}</data>
+  <data key="d10"></data>
+  <data key="d11">[['addr:city', 'Dulles'], ['addr:housenumber', '23540'], ['addr:postcode', '20166'], ['addr:state', 'VA'], ['addr:street', 'Autopilot Drive'], ['landuse', 'commercial']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.9658986</data>
+  <data key="d2">-77.4482702</data>
+</node>
+<node id="com_158">
+  <data key="d6">2a922986-570c-3ba7-b22c-e9469ca36c65</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1132611760@1', 'update_time': '2023-01-17T01:56:50.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial'], ['source', 'Fairfax County open GIS']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.949349</data>
+  <data key="d2">-77.4278506</data>
+</node>
+<node id="com_284">
+  <data key="d6">bf3ce713-d8e8-34e3-aa6e-6be25b951183</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w696955225@3', 'update_time': '2022-10-15T02:59:09.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.969396</data>
+  <data key="d2">-77.448219</data>
+</node>
+<node id="com_304">
+  <data key="d6">a001d661-df73-3ca6-becf-6626bd3fdae7</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1132611766@1', 'update_time': '2023-01-17T01:56:50.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial'], ['source', 'Fairfax County open GIS']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.9577167</data>
+  <data key="d2">-77.4252996</data>
+</node>
+<node id="com_361">
+  <data key="d6">4095824c-f7fa-36b6-9c5e-f49503198487</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w41442343@12', 'update_time': '2021-10-04T20:28:15.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Rental Cars', 'common': None, 'rules': None}</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.968644</data>
+  <data key="d2">-77.4482292</data>
+</node>
+<node id="com_390">
+  <data key="d6">c0687184-15f0-36b1-8afa-d83d28ffc7e6</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1132611763@1', 'update_time': '2023-01-17T01:56:50.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial'], ['source', 'Fairfax County open GIS']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.9535553</data>
+  <data key="d2">-77.4245398</data>
+</node>
+<node id="com_506">
+  <data key="d6">12051803-39cf-374b-86f7-4c42bd04fb66</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1131138214@1', 'update_time': '2023-01-12T11:23:16.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial'], ['source', 'Fairfax County open GIS']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.9344126</data>
+  <data key="d2">-77.428254</data>
+</node>
+<node id="com_533">
+  <data key="d6">fa4ccce5-e71f-3ed2-9dc6-99946870865c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1132611768@1', 'update_time': '2023-01-17T01:56:50.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial'], ['source', 'Fairfax County open GIS']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.9554348</data>
+  <data key="d2">-77.4238077</data>
+</node>
+<node id="com_639">
+  <data key="d6">b3aff57f-754d-3ea7-b81f-9819ce14e618</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w250649001@3', 'update_time': '2022-01-21T00:00:20.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'National/Alamo/Enterprise Rental Cars', 'common': None, 'rules': None}</data>
+  <data key="d10"></data>
+  <data key="d11">[['addr:city', 'Dulles'], ['addr:housenumber', '23430'], ['addr:postcode', '20166'], ['addr:state', 'VA'], ['addr:street', 'Autopilot Drive'], ['landuse', 'commercial']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d16">nan</data>
+  <data key="d14"></data>
+  <data key="d15">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">38.968368</data>
+  <data key="d2">-77.4482335</data>
+</node>
+<edge source="noVA_aws_001" target="pwr_2938" id="0">
+  <data key="d17">near_power</data>
+  <data key="d18">1.5472</data>
+</edge>
+<edge source="noVA_aws_001" target="pwr_2478" id="0">
+  <data key="d17">near_power</data>
+  <data key="d18">1.6398</data>
+</edge>
+<edge source="noVA_aws_001" target="pwr_2960" id="0">
+  <data key="d17">near_power</data>
+  <data key="d18">1.6498</data>
+</edge>
+</graph></graphml>

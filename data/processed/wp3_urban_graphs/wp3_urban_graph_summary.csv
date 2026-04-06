@@ -1,0 +1,4 @@
+facility_id,city,country,bbox,nodes_datacenter,nodes_substation,nodes_water,nodes_residential,nodes_commercial,edges_near_power,edges_near_water,edges_adj_residential,status
+noVA_aws_001,Ashburn,United States,"(np.float64(-77.47126904908554), 38.933681981981984, np.float64(-77.42493095091446), 38.96971801801802)",1,36,0,1,10,3,0,0,ok
+ams_equinix_001,Amsterdam,Netherlands,"(np.float64(4.8745909568274755), 52.349581981981984, np.float64(4.933609043172524), 52.38561801801802)",1,2,0,61,23,2,0,16,ok
+dub_digitalrealty_001,Dublin,Ireland,"(np.float64(-6.290484573091691), 53.33178198198198, np.float64(-6.230115426908309), 53.36781801801802)",1,301,0,361,228,3,0,61,ok

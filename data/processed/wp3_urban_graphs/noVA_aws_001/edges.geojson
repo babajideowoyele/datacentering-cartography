@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "edges",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "source": "noVA_aws_001", "target": "pwr_2938", "edge_type": "near_power", "distance_km": 1.5472 }, "geometry": { "type": "LineString", "coordinates": [ [ -77.4481, 38.9517 ], [ -77.4312499, 38.9563797 ] ] } },
+{ "type": "Feature", "properties": { "source": "noVA_aws_001", "target": "pwr_2478", "edge_type": "near_power", "distance_km": 1.6398 }, "geometry": { "type": "LineString", "coordinates": [ [ -77.4481, 38.9517 ], [ -77.4665176, 38.9481895 ] ] } },
+{ "type": "Feature", "properties": { "source": "noVA_aws_001", "target": "pwr_2960", "edge_type": "near_power", "distance_km": 1.6498 }, "geometry": { "type": "LineString", "coordinates": [ [ -77.4481, 38.9517 ], [ -77.4665844, 38.9480266 ] ] } }
+]
+}

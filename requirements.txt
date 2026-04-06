@@ -15,8 +15,10 @@ wikipedia-api            # pip install wikipedia-api
 nltk
 spacy                    # after install run: python -m spacy download en_core_web_sm
 
-# Graph / network analysis (WP1 facility link network)
+# Graph / network analysis (WP1 facility link network, WP3 urban graphs)
 networkx
+city2graph>=0.3.1        # heterogeneous urban graphs from Overture Maps
+pyproj                   # CRS projection for accurate centroid computation (WP3)
 
 # Image analysis (WP2)
 Pillow

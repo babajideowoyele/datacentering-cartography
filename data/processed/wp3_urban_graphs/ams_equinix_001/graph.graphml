@@ -1,0 +1,1393 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d18" for="edge" attr.name="distance_km" attr.type="float"/>
+<key id="d17" for="edge" attr.name="edge_type" attr.type="string"/>
+<key id="d16" for="node" attr.name="version" attr.type="long"/>
+<key id="d15" for="node" attr.name="surface" attr.type="string"/>
+<key id="d14" for="node" attr.name="height" attr.type="double"/>
+<key id="d13" for="node" attr.name="class" attr.type="string"/>
+<key id="d12" for="node" attr.name="subtype" attr.type="string"/>
+<key id="d11" for="node" attr.name="source_tags" attr.type="string"/>
+<key id="d10" for="node" attr.name="wikidata" attr.type="string"/>
+<key id="d9" for="node" attr.name="level" attr.type="double"/>
+<key id="d8" for="node" attr.name="names" attr.type="string"/>
+<key id="d7" for="node" attr.name="sources" attr.type="string"/>
+<key id="d6" for="node" attr.name="id" attr.type="string"/>
+<key id="d5" for="node" attr.name="operator" attr.type="string"/>
+<key id="d4" for="node" attr.name="country" attr.type="string"/>
+<key id="d3" for="node" attr.name="city" attr.type="string"/>
+<key id="d2" for="node" attr.name="lon" attr.type="double"/>
+<key id="d1" for="node" attr.name="lat" attr.type="double"/>
+<key id="d0" for="node" attr.name="node_type" attr.type="string"/>
+<graph edgedefault="directed"><node id="ams_equinix_001">
+  <data key="d0">datacenter</data>
+  <data key="d1">52.3676</data>
+  <data key="d2">4.9041</data>
+  <data key="d3">Amsterdam</data>
+  <data key="d4">Netherlands</data>
+  <data key="d5">equinix</data>
+</node>
+<node id="pwr_2523">
+  <data key="d6">fcdee790-dafe-3779-bfbb-83354be84aa3</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w762248049@1', 'update_time': '2020-01-10T13:35:48.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['man_made', 'pipeline']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14">nan</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">52.3764465</data>
+  <data key="d2">4.9129448</data>
+</node>
+<node id="pwr_6958">
+  <data key="d6">63095ca8-0c1f-3a6a-9af9-e5680de0042e</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w762248045@1', 'update_time': '2020-01-10T13:35:48.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['man_made', 'pipeline']]</data>
+  <data key="d12">utility</data>
+  <data key="d13">pipeline</data>
+  <data key="d14">nan</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">substation</data>
+  <data key="d1">52.3764401</data>
+  <data key="d2">4.912867</data>
+</node>
+<node id="res_67">
+  <data key="d6">e9208311-1b06-3776-bd7c-d8edf5464407</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w462850796@3', 'update_time': '2022-09-30T08:11:40.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Dubbeltjespanden', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q112226782</data>
+  <data key="d11">[['landuse', 'residential'], ['note', 'Mauritskade 29-54'], ['website', 'http://www.dubbeltjespanden.nl'], ['wikimedia_commons', 'File:De Dubbeltjespanden aan de Mauritskade.jpg'], ['wikipedia', 'nl:Dubbeltjespanden']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3614334</data>
+  <data key="d2">4.9172446</data>
+</node>
+<node id="res_73">
+  <data key="d6">b9cf1583-a739-34f3-8566-cc52196a0ff9</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27304565@28', 'update_time': '2024-09-05T20:05:14.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Middenmeer', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q109911064</data>
+  <data key="d11">[['landuse', 'residential'], ['wikipedia', 'nl:Middenmeer (Amsterdam)']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.35292</data>
+  <data key="d2">4.9386835</data>
+</node>
+<node id="res_78">
+  <data key="d6">c515de51-706e-33f4-93e9-a1fdf26e6092</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w461731086@3', 'update_time': '2025-11-05T17:59:44.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Hodshon-Dedelhof', 'common': None, 'rules': [{'variant': 'alternate', 'language': None, 'perspectives': None, 'value': 'Hodshon-Dedelhofje', 'between': None, 'side': None}]}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q17308178</data>
+  <data key="d11">[['alt_name', 'Hodshon-Dedelhofje'], ['heritage', '2'], ['heritage:operator', 'rce'], ['landuse', 'residential'], ['note', '1e Weteringdwarsstraat 83 - 105.'], ['ref:rce', '6350'], ['wikimedia_commons', 'Category:Hodshon-Dedelhofje']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3618174</data>
+  <data key="d2">4.8903079</data>
+</node>
+<node id="res_80">
+  <data key="d6">2a8e5f5d-1fa2-3307-9ec8-11e1b92d4390</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w888969853@2', 'update_time': '2021-10-02T04:23:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3697629</data>
+  <data key="d2">4.9100488</data>
+</node>
+<node id="res_92">
+  <data key="d6">2d422af1-6766-3c0f-811c-dc8308e5532a</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419780856@10', 'update_time': '2024-08-08T18:22:33.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['boundary', 'place'], ['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3480294</data>
+  <data key="d2">4.875906</data>
+</node>
+<node id="res_93">
+  <data key="d6">3467f621-cf3b-3a5a-a075-5f4afc96a51b</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752297@7', 'update_time': '2025-02-17T22:08:24.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3634473</data>
+  <data key="d2">4.8717016</data>
+</node>
+<node id="res_216">
+  <data key="d6">ebf2c901-9f43-3025-ba17-f2626f8a53b9</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752313@8', 'update_time': '2024-01-12T23:33:32.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3651456</data>
+  <data key="d2">4.8677648</data>
+</node>
+<node id="res_231">
+  <data key="d6">07703ba2-4ef2-383f-a239-9657453cf714</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752304@18', 'update_time': '2025-01-25T08:40:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3518285</data>
+  <data key="d2">4.8954858</data>
+</node>
+<node id="res_306">
+  <data key="d6">e1dedac4-5f4f-3909-8c56-d67da3d979eb</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w92056151@2', 'update_time': '2017-04-12T21:31:33.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Groenmarkt', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3709665</data>
+  <data key="d2">4.8758726</data>
+</node>
+<node id="res_314">
+  <data key="d6">bd1037b1-ab7d-3eb7-88dc-399210c04310</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w888972320@2', 'update_time': '2021-10-02T04:23:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3691911</data>
+  <data key="d2">4.907105</data>
+</node>
+<node id="res_388">
+  <data key="d6">cf784f5c-afd1-36dc-b5d0-cdcdc9728c96</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27128142@2', 'update_time': '2016-05-20T21:15:05.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3735498</data>
+  <data key="d2">4.9052552</data>
+</node>
+<node id="res_400">
+  <data key="d6">4cde9e5b-0a0c-34cb-9966-d797f012c77c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'r17920099@1', 'update_time': '2025-11-03T16:17:17.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Museumkwartier', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q2242438</data>
+  <data key="d11">[['boundary', 'place'], ['landuse', 'residential'], ['place', 'quarter'], ['type', 'boundary'], ['wikipedia', 'nl:Museumkwartier (Amsterdam)']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">1</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.356231</data>
+  <data key="d2">4.8780217</data>
+</node>
+<node id="res_542">
+  <data key="d6">93c1de41-6729-3659-a6e1-8bb146f95103</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752289@3', 'update_time': '2021-01-29T14:17:59.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3701114</data>
+  <data key="d2">4.8719632</data>
+</node>
+<node id="res_571">
+  <data key="d6">9aae7526-1009-3771-a65b-1a1ca7e2815b</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w229973025@30', 'update_time': '2025-10-21T08:07:51.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential'], ['note', 'De Weteringschans']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3612619</data>
+  <data key="d2">4.8923186</data>
+</node>
+<node id="res_578">
+  <data key="d6">65ed9688-c4ce-3bc6-b88a-62cd699eaddf</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752291@18', 'update_time': '2024-08-11T20:38:59.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3507103</data>
+  <data key="d2">4.9022155</data>
+</node>
+<node id="res_591">
+  <data key="d6">e33c6685-0643-38da-8e85-2726062a7113</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w26991958@25', 'update_time': '2020-12-02T19:20:34.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3745571</data>
+  <data key="d2">4.9402301</data>
+</node>
+<node id="res_682">
+  <data key="d6">54866c25-6941-3235-a779-3822b317a5cc</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w29396290@22', 'update_time': '2025-05-25T22:08:46.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Oostenburgereiland', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential'], ['place', 'islet']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3717514</data>
+  <data key="d2">4.92753</data>
+</node>
+<node id="res_709">
+  <data key="d6">cbb5b4ad-1017-3177-b91b-17c2b7ffafdc</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w45463132@38', 'update_time': '2024-07-14T20:47:10.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Frankendael', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3473064</data>
+  <data key="d2">4.9344688</data>
+</node>
+<node id="res_812">
+  <data key="d6">e6c28dca-dcee-399e-813e-44000b9061b5</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w57376379@8', 'update_time': '2025-03-12T14:16:36.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Dapperbuurt', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q2636261</data>
+  <data key="d11">[['landuse', 'residential'], ['wikimedia_commons', 'Category:Dapperbuurt'], ['wikipedia', 'nl:Dapperbuurt']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3620257</data>
+  <data key="d2">4.9279809</data>
+</node>
+<node id="res_816">
+  <data key="d6">0b2af2b0-7b51-3da5-9984-4a326a2c348a</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w884405324@2', 'update_time': '2021-10-02T04:23:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3707738</data>
+  <data key="d2">4.9110946</data>
+</node>
+<node id="res_852">
+  <data key="d6">96c2e981-22c5-32c8-a833-866e6de67238</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w888969854@3', 'update_time': '2021-12-04T16:57:43.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.370664</data>
+  <data key="d2">4.908894</data>
+</node>
+<node id="res_945">
+  <data key="d6">aee70f2d-b81f-3fe4-80ee-8b1dbcd2f973</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w884180510@2', 'update_time': '2021-10-02T04:23:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3720736</data>
+  <data key="d2">4.9078531</data>
+</node>
+<node id="res_949">
+  <data key="d6">f939de4a-34b0-3005-84e9-c67c85cb6d41</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w274541043@9', 'update_time': '2023-09-12T18:41:33.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Oostpoort', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q3119620</data>
+  <data key="d11">[['landuse', 'residential'], ['place', 'neighbourhood'], ['wikimedia_commons', 'Category:Oostpoort, Amsterdam'], ['wikipedia', 'nl:Oostpoort (Amsterdam)']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3573194</data>
+  <data key="d2">4.9315951</data>
+</node>
+<node id="res_961">
+  <data key="d6">8306247b-fcb7-3c93-b958-d04fc8f0de7d</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w33736838@11', 'update_time': '2023-09-30T18:34:24.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Burgwallen-Nieuwe Zijde', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q2116506</data>
+  <data key="d11">[['landuse', 'residential'], ['wikipedia', 'nl:Nieuwezijde']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3739681</data>
+  <data key="d2">4.8910073</data>
+</node>
+<node id="res_1100">
+  <data key="d6">51be2d91-ff69-3865-8b90-36ef7d407a44</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27147984@31', 'update_time': '2025-02-26T13:16:58.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3641337</data>
+  <data key="d2">4.9093121</data>
+</node>
+<node id="res_1115">
+  <data key="d6">9998151e-f5cd-32ee-943d-d40a900acc71</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27147917@22', 'update_time': '2025-04-03T19:05:08.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3699039</data>
+  <data key="d2">4.9256846</data>
+</node>
+<node id="res_1127">
+  <data key="d6">f87fbd73-e3f5-33e2-a295-2f9287bdc704</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752307@10', 'update_time': '2025-02-05T12:50:39.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3706753</data>
+  <data key="d2">4.9022393</data>
+</node>
+<node id="res_1129">
+  <data key="d6">6ecb148d-eabc-3799-a036-e0e4e8b100b6</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752314@6', 'update_time': '2024-10-11T08:00:22.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3614896</data>
+  <data key="d2">4.8742172</data>
+</node>
+<node id="res_1217">
+  <data key="d6">30351de7-e002-3cb9-8b58-23777e8b0a54</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752302@7', 'update_time': '2020-12-17T07:59:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3676148</data>
+  <data key="d2">4.919273</data>
+</node>
+<node id="res_1227">
+  <data key="d6">e6f9ff08-b741-3fa8-8dc8-1bd8802656c1</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w296862694@3', 'update_time': '2016-11-27T17:36:13.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'St Jacob', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential'], ['note', 'Woonzorgcentrum Sint Jacob, closed in 2015.'], ['operator', 'Amstelring']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3648408</data>
+  <data key="d2">4.9145224</data>
+</node>
+<node id="res_1239">
+  <data key="d6">66a57b87-ea8a-3747-9198-3431e595965c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1019256709@1', 'update_time': '2022-01-07T22:43:39.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Bakkershofje', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential'], ['residential', 'urban']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3736949</data>
+  <data key="d2">4.87794</data>
+</node>
+<node id="res_1292">
+  <data key="d6">e9f09ba3-296e-3cc7-b57a-67d5cac0d821</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752301@8', 'update_time': '2024-08-10T11:20:58.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3748322</data>
+  <data key="d2">4.8808369</data>
+</node>
+<node id="res_1333">
+  <data key="d6">7ddb1fce-f7f5-3e55-ac8c-1af7e15c7f7f</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752299@4', 'update_time': '2026-02-21T15:30:20.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">1</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3478317</data>
+  <data key="d2">4.9042962</data>
+</node>
+<node id="res_1354">
+  <data key="d6">95ee962d-3267-36ee-b412-eefe7cfeda8c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752295@11', 'update_time': '2025-02-05T12:50:39.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3689629</data>
+  <data key="d2">4.8900709</data>
+</node>
+<node id="res_1383">
+  <data key="d6">c7a945e1-9638-36ae-97b2-7ce9d5adf329</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752294@6', 'update_time': '2025-02-21T11:20:12.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3764905</data>
+  <data key="d2">4.8736702</data>
+</node>
+<node id="res_1390">
+  <data key="d6">23d4e024-88cb-3e3c-a67f-a48473773181</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27253111@17', 'update_time': '2016-12-26T21:22:45.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.372636</data>
+  <data key="d2">4.9196625</data>
+</node>
+<node id="res_1497">
+  <data key="d6">70021a39-ac98-3c70-8e70-9716243a50ee</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752292@8', 'update_time': '2024-10-11T07:24:18.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3533793</data>
+  <data key="d2">4.8845836</data>
+</node>
+<node id="res_1499">
+  <data key="d6">43be6cd0-eff5-3d60-8bb5-c2ead31bcd02</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27714543@72', 'update_time': '2025-11-03T16:17:17.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['boundary', 'place'], ['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.356231</data>
+  <data key="d2">4.8780217</data>
+</node>
+<node id="res_1602">
+  <data key="d6">0de98706-8279-3608-a1e0-5c5c1b1ad2e0</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27304566@16', 'update_time': '2025-08-20T21:34:08.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3629299</data>
+  <data key="d2">4.9401902</data>
+</node>
+<node id="res_1722">
+  <data key="d6">18771d75-aa43-38c7-a58f-157e2fd298cc</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w461635508@1', 'update_time': '2016-12-25T00:41:56.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Hofjes', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3772457</data>
+  <data key="d2">4.8842603</data>
+</node>
+<node id="res_1751">
+  <data key="d6">303ae92b-4152-3d5e-8b01-abc74120821c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w884180508@2', 'update_time': '2021-10-02T04:23:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3722785</data>
+  <data key="d2">4.9073016</data>
+</node>
+<node id="res_1800">
+  <data key="d6">6b5c8df4-7b23-330c-bdf8-69f7ac19d9b2</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27304638@19', 'update_time': '2025-04-07T10:14:48.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Oosterparkbuurt', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q2024869</data>
+  <data key="d11">[['landuse', 'residential'], ['wikipedia', 'nl:Oosterparkbuurt (Amsterdam)']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3581328</data>
+  <data key="d2">4.9167672</data>
+</node>
+<node id="res_1812">
+  <data key="d6">88e34062-f39e-3907-a17d-d89b8634e221</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w332118097@14', 'update_time': '2025-11-21T17:47:02.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Weesperzijde', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q95177588</data>
+  <data key="d11">[['landuse', 'residential'], ['wikipedia', 'nl:Weesperzijde (wijk)']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3544298</data>
+  <data key="d2">4.9107668</data>
+</node>
+<node id="res_1817">
+  <data key="d6">9dcd7897-2b9a-37e2-bc87-a112163cb140</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w888972318@2', 'update_time': '2021-10-02T04:23:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.368488</data>
+  <data key="d2">4.9075158</data>
+</node>
+<node id="res_1818">
+  <data key="d6">0a871bdd-20bf-3ae0-9a2f-f33082a241d5</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w57376380@7', 'update_time': '2023-09-12T18:41:33.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Transvaalbuurt', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q1911617</data>
+  <data key="d11">[['landuse', 'residential'], ['wikimedia_commons', 'Category:Transvaalbuurt (Amsterdam)'], ['wikipedia', 'nl:Transvaalbuurt (Amsterdam)']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3539773</data>
+  <data key="d2">4.9208154</data>
+</node>
+<node id="res_1831">
+  <data key="d6">5caa2a73-1933-320d-92d1-4ee0934fb423</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w884180509@2', 'update_time': '2021-10-02T04:23:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.371818</data>
+  <data key="d2">4.9073165</data>
+</node>
+<node id="res_1841">
+  <data key="d6">cc10a36d-454a-3c72-a655-8b42370b25a6</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w884180507@4', 'update_time': '2021-12-04T16:57:43.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3715967</data>
+  <data key="d2">4.9091082</data>
+</node>
+<node id="res_1913">
+  <data key="d6">6c62d9c5-50a5-3031-b99a-d84bf4c0f3df</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752308@14', 'update_time': '2025-09-20T00:15:07.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3560142</data>
+  <data key="d2">4.8945134</data>
+</node>
+<node id="res_1924">
+  <data key="d6">7d0b9e6c-d435-3f01-9d7d-91fe731df27d</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w888972319@2', 'update_time': '2025-08-06T19:03:45.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3674672</data>
+  <data key="d2">4.9055197</data>
+</node>
+<node id="res_1965">
+  <data key="d6">ac22306e-a48c-312d-af83-c410b9fdc4c1</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w33736718@4', 'update_time': '2023-01-25T15:12:30.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3785167</data>
+  <data key="d2">4.8959909</data>
+</node>
+<node id="res_1983">
+  <data key="d6">f0691614-6c6c-35e7-83b6-4119742ddb1f</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w884180506@2', 'update_time': '2021-10-02T04:23:27.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3711907</data>
+  <data key="d2">4.9084684</data>
+</node>
+<node id="res_2082">
+  <data key="d6">58d3f257-1aa8-3d4e-9e37-3aa8d24aec41</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w473458850@5', 'update_time': '2023-12-03T23:12:58.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3826657</data>
+  <data key="d2">4.9166679</data>
+</node>
+<node id="res_2093">
+  <data key="d6">fb631a27-7777-3b68-87e4-0780854dd106</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1212390509@3', 'update_time': '2023-10-20T19:39:37.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3845981</data>
+  <data key="d2">4.9077247</data>
+</node>
+<node id="res_2124">
+  <data key="d6">698961b0-4c35-3209-b336-4f3514202988</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w215546310@12', 'update_time': '2025-11-12T13:19:46.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3866688</data>
+  <data key="d2">4.9025476</data>
+</node>
+<node id="res_2198">
+  <data key="d6">9ce96dea-21b6-3163-93a3-f8b16864988c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w28658987@18', 'update_time': '2023-10-21T20:00:54.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Volewijck', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3892355</data>
+  <data key="d2">4.9107786</data>
+</node>
+<node id="res_2205">
+  <data key="d6">78d2309e-d124-3fbf-807d-5eb3462a62f8</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w159246293@9', 'update_time': '2025-08-12T16:02:51.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.385973</data>
+  <data key="d2">4.8885185</data>
+</node>
+<node id="res_2245">
+  <data key="d6">71146a1b-fff7-3739-b37a-4c93356c5023</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752296@9', 'update_time': '2025-08-10T14:29:00.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Haarlemmerbuurt', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q988082</data>
+  <data key="d11">[['landuse', 'residential'], ['postal_code', '1013'], ['wikimedia_commons', 'Category:Haarlemmerbuurt'], ['wikipedia', 'nl:Haarlemmerbuurt (Amsterdam)']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3821332</data>
+  <data key="d2">4.8878916</data>
+</node>
+<node id="res_2255">
+  <data key="d6">7718b033-e84c-350e-bceb-1d1ea31d81cf</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w456582578@3', 'update_time': '2022-06-22T00:53:49.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Planciusbuurt', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential'], ['postal_code', '1013']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3867247</data>
+  <data key="d2">4.884925</data>
+</node>
+<node id="res_2362">
+  <data key="d6">f7e8585c-9d18-39e5-b53b-f86c22589658</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w473458848@18', 'update_time': '2023-12-23T14:25:24.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Vogelbuurt', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3868287</data>
+  <data key="d2">4.9200532</data>
+</node>
+<node id="res_2390">
+  <data key="d6">fd38db81-0a55-3b1c-b65a-e20f38c2359c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w419752310@10', 'update_time': '2025-03-23T09:55:10.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3824771</data>
+  <data key="d2">4.8731885</data>
+</node>
+<node id="res_2459">
+  <data key="d6">875811ff-8e7f-39a2-abaa-322e10dd89f5</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w669956605@4', 'update_time': '2025-05-15T21:23:12.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Hamerstraatgebied', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'residential']]</data>
+  <data key="d12">residential</data>
+  <data key="d13">residential</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">residential</data>
+  <data key="d1">52.3831955</data>
+  <data key="d2">4.9230078</data>
+</node>
+<node id="com_56">
+  <data key="d6">de5bd665-1471-3061-bfa4-5bb2c58faedc</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w227559743@5', 'update_time': '2022-07-14T03:17:48.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.35293</data>
+  <data key="d2">4.8909339</data>
+</node>
+<node id="com_128">
+  <data key="d6">4c56da95-9763-360a-ad2a-2cfa61b9fcd4</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w227202224@1', 'update_time': '2013-06-24T18:00:47.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3589861</data>
+  <data key="d2">4.9258046</data>
+</node>
+<node id="com_253">
+  <data key="d6">11e2e5ed-3b54-36dd-b5f3-089027217caa</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'r17947340@1', 'update_time': '2024-08-18T06:46:06.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'De 9 Straatjes', 'common': None, 'rules': [{'variant': 'alternate', 'language': None, 'perspectives': None, 'value': 'De Negen Straatjes', 'between': None, 'side': None}, {'variant': 'alternate', 'language': None, 'perspectives': None, 'value': 'De 9 Straatjes', 'between': None, 'side': None}]}</data>
+  <data key="d9">nan</data>
+  <data key="d10">Q1980981</data>
+  <data key="d11">[['alt_name', 'De Negen Straatjes'], ['int_name', 'De 9 Straatjes'], ['landuse', 'commercial'], ['type', 'multipolygon'], ['wikimedia_commons', 'Category:De Negen Straatjes'], ['wikipedia', 'nl:De 9 Straatjes']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d15"></data>
+  <data key="d16">1</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3704992</data>
+  <data key="d2">4.8854641</data>
+</node>
+<node id="com_271">
+  <data key="d6">5697ac3d-e34c-3cf3-bdfe-e837bf90666c</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w227210534@2', 'update_time': '2014-04-25T19:03:47.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3594323</data>
+  <data key="d2">4.8792279</data>
+</node>
+<node id="com_454">
+  <data key="d6">dd3ca3d0-680e-30ef-a2b1-1b23ae21a1d8</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1155085894@1', 'update_time': '2023-03-17T18:31:59.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.351625</data>
+  <data key="d2">4.8948044</data>
+</node>
+<node id="com_494">
+  <data key="d6">e3b859ed-521e-33d7-9aef-2300c843a6cc</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'r17019147@1', 'update_time': '2024-01-12T23:33:32.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Kinkerstraat', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail'], ['type', 'multipolygon']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">1</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3661312</data>
+  <data key="d2">4.8679669</data>
+</node>
+<node id="com_741">
+  <data key="d6">640e5457-85f1-3a32-b19d-735a4a1fb2e9</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w225993752@2', 'update_time': '2018-10-10T22:22:47.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3636632</data>
+  <data key="d2">4.9348728</data>
+</node>
+<node id="com_790">
+  <data key="d6">c9b3ee16-ba66-3067-a9a6-87c198abedcd</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w499976943@4', 'update_time': '2019-05-30T13:40:00.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3654858</data>
+  <data key="d2">4.8854398</data>
+</node>
+<node id="com_900">
+  <data key="d6">29a8db8d-c65d-3479-aeed-ea96d33dd89e</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w274541346@3', 'update_time': '2017-01-04T10:27:19.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Winkelcentrum Oostpoort', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3570125</data>
+  <data key="d2">4.9295929</data>
+</node>
+<node id="com_972">
+  <data key="d6">459064c5-6bb5-3203-b9a2-31d2afbbe6ca</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w225993753@9', 'update_time': '2025-02-03T21:41:02.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3628716</data>
+  <data key="d2">4.9272931</data>
+</node>
+<node id="com_1066">
+  <data key="d6">ce11bde2-6ac3-32b1-b1e0-4dc4b25e4693</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w227202580@2', 'update_time': '2021-12-21T17:55:29.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3543524</data>
+  <data key="d2">4.9297016</data>
+</node>
+<node id="com_1107">
+  <data key="d6">25238010-c00c-35e1-aacc-87e8f89291ce</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w33736691@6', 'update_time': '2016-11-12T12:48:25.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3783659</data>
+  <data key="d2">4.8953631</data>
+</node>
+<node id="com_1357">
+  <data key="d6">33391e77-e94a-3385-b806-ec44dca05227</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w499976942@2', 'update_time': '2017-06-12T20:18:15.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3663846</data>
+  <data key="d2">4.8873403</data>
+</node>
+<node id="com_1366">
+  <data key="d6">d4681ce3-7c58-320e-a03e-5aecd74eb8e5</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w60225289@5', 'update_time': '2025-09-01T14:55:46.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8">{'primary': 'Parooldriehoek', 'common': None, 'rules': None}</data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'commercial']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">commercial</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3544598</data>
+  <data key="d2">4.9127336</data>
+</node>
+<node id="com_1433">
+  <data key="d6">7ddb0718-952a-3de8-9535-6f190f56cbaf</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w499976944@2', 'update_time': '2017-06-12T20:18:16.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.364652</data>
+  <data key="d2">4.8836826</data>
+</node>
+<node id="com_1435">
+  <data key="d6">22010e99-17de-30ee-b53c-4eb1f014526a</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w27128199@21', 'update_time': '2023-12-13T16:46:25.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3756807</data>
+  <data key="d2">4.8946714</data>
+</node>
+<node id="com_1475">
+  <data key="d6">d3f4c53f-d2b2-3cd8-92a9-980b134cf8e5</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w227202534@5', 'update_time': '2016-12-07T22:25:44.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3563508</data>
+  <data key="d2">4.9274232</data>
+</node>
+<node id="com_1645">
+  <data key="d6">cc74355e-163b-3fd5-88bb-44a87bc058c6</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w227992127@7', 'update_time': '2025-01-02T14:07:53.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3567356</data>
+  <data key="d2">4.9140233</data>
+</node>
+<node id="com_1706">
+  <data key="d6">1e70c8b5-b3de-3e2e-b045-dcb54c534114</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w227202533@2', 'update_time': '2013-06-29T20:26:54.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3545334</data>
+  <data key="d2">4.9210531</data>
+</node>
+<node id="com_1930">
+  <data key="d6">dd434cc0-cdda-3807-85bc-67c678d890d8</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1302104496@3', 'update_time': '2024-07-17T19:36:09.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3487084</data>
+  <data key="d2">4.9262705</data>
+</node>
+<node id="com_1994">
+  <data key="d6">ecdaac94-85e6-3d5f-8e00-114f2e4fc193</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w33440374@17', 'update_time': '2025-01-23T18:51:20.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail'], ['owner', 'Achmea Real Estate']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3697504</data>
+  <data key="d2">4.891585</data>
+</node>
+<node id="com_2219">
+  <data key="d6">63c8bdd8-47d7-35a4-bec3-c79feaef7e15</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w1311276658@2', 'update_time': '2024-08-26T14:58:16.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3828508</data>
+  <data key="d2">4.9201767</data>
+</node>
+<node id="com_2524">
+  <data key="d6">b7600a47-8620-38a6-b281-2e69ae2d5a85</data>
+  <data key="d7">[{'property': '', 'dataset': 'OpenStreetMap', 'license': 'ODbL-1.0', 'record_id': 'w33739094@9', 'update_time': '2024-05-16T16:04:03.000Z', 'confidence': None, 'between': None}]</data>
+  <data key="d8"></data>
+  <data key="d9">nan</data>
+  <data key="d10"></data>
+  <data key="d11">[['landuse', 'retail'], ['tourism', 'attraction']]</data>
+  <data key="d12">developed</data>
+  <data key="d13">retail</data>
+  <data key="d15"></data>
+  <data key="d16">0</data>
+  <data key="d0">commercial</data>
+  <data key="d1">52.3818121</data>
+  <data key="d2">4.8888136</data>
+</node>
+<edge source="ams_equinix_001" target="pwr_6958" id="0">
+  <data key="d17">near_power</data>
+  <data key="d18">1.1491</data>
+</edge>
+<edge source="ams_equinix_001" target="pwr_2523" id="0">
+  <data key="d17">near_power</data>
+  <data key="d18">1.1525</data>
+</edge>
+<edge source="ams_equinix_001" target="res_80" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.4701</data>
+</edge>
+<edge source="ams_equinix_001" target="res_314" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.27</data>
+</edge>
+<edge source="ams_equinix_001" target="res_388" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.6662</data>
+</edge>
+<edge source="ams_equinix_001" target="res_816" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.5917</data>
+</edge>
+<edge source="ams_equinix_001" target="res_852" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.4712</data>
+</edge>
+<edge source="ams_equinix_001" target="res_945" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.5589</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1100" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.5233</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1127" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.3645</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1227" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.7713</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1354" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.9645</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1751" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.5638</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1817" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.2521</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1831" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.5174</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1841" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.5596</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1924" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.0975</data>
+</edge>
+<edge source="ams_equinix_001" target="res_1983" id="0">
+  <data key="d17">adjacent_residential</data>
+  <data key="d18">0.4974</data>
+</edge>
+</graph></graphml>
