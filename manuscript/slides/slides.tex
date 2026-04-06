@@ -183,7 +183,7 @@ Data center assemblages = \alert{multi-actor, nonlinear, emergent}
 \midrule
 WP1 & Conceptual   & Operator websites, Wikipedia       & Imaginary divergence \\
 WP2 & Conceptual   & Satellite + corporate imagery      & Abstraction score    \\
-WP3 & Structural   & OpenCorporates, REIT filings       & Ownership network    \\
+WP3 & Structural   & OpenCorporates, REIT filings; Overture Maps (city2graph) & Ownership + urban graph \\
 WP4 & Temporal     & News, planning records, social media & Signal-to-response lag \\
 \bottomrule
 \end{tabular}
@@ -232,16 +232,30 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 \end{frame}
 
 %% ------------------------------------------------------------------
+%% SLIDE 7b — WP1 first results
+\begin{frame}{WP1 First Results: ECI Divergence (Seed Run, April 2026)}
+\begin{center}
+  \includegraphics[width=0.92\textwidth]{../figures/wp1_eci_divergence}
+\end{center}
+\vspace{-0.3em}
+\begin{center}
+  \small AWS corporate ECI \alert{120$\times$} higher than Wikipedia --- imaginary production under zero disclosure pressure.\\
+  Equinix WAF-blocked: strategic opacity enacted at the \textit{technical} layer.
+\end{center}
+\end{frame}
+
+%% ------------------------------------------------------------------
 %% SLIDE 8 — WP3 + WP4
 \begin{frame}{WP3 \& WP4: Structural and Temporal Dimensions}
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
   \metroset{block=fill}
-  \begin{block}{WP3 — Ownership Cartography}
+  \begin{block}{WP3 — Structural Cartography}
     \begin{itemize}
       \item OpenCorporates + REIT filings
       \item \textbf{REIT structure} disperses accountability
-      \item Ownership network + actor typology
+      \item Overture Maps + city2graph: urban embeddedness graphs
+      \item \alert{Ashburn: 36 power nodes, 1 res.\ zone (exurban)}
     \end{itemize}
   \end{block}
 \end{column}
@@ -263,6 +277,31 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 \end{frame}
 
 %% ------------------------------------------------------------------
+%% SLIDE 8b — WP3 urban embeddedness results
+\begin{frame}{WP3 First Results: Urban Embeddedness (Seed Run, April 2026)}
+\begin{center}
+  \includegraphics[width=0.88\textwidth]{../figures/wp3_urban_embeddedness}
+\end{center}
+\vspace{-0.3em}
+\begin{center}
+  \small Ashburn: dense power grid, \alert{near-zero residential adjacency} --- spatial segregation at the land-use level.\\
+  Amsterdam/Dublin: 16--61 residential-adjacency edges --- embedded in the urban fabric governance must negotiate.
+\end{center}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 8c — WP3 spatial urban graphs
+\begin{frame}{WP3: Urban Graphs as Spatial Evidence}
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{../figures/wp3_urban_graphs_map}
+\end{center}
+\vspace{-0.4em}
+\begin{center}
+  \small Red = data center \quad Blue = power infra \quad Green = residential \quad Lines = proximity edges
+\end{center}
+\end{frame}
+
+%% ------------------------------------------------------------------
 %% SLIDE 9 — Virginia vs Amsterdam
 \begin{frame}{Illustrative Comparison: Virginia vs Amsterdam}
 \begin{center}
@@ -273,6 +312,7 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 Ownership          & REIT-dominated, dispersed  & Mixed; operator-owned, cooperative \\
 Governance counterparty & None identifiable     & Municipality + named operators \\
 Territorial imaginary   & Placeless            & Contested, partially negotiated \\
+Urban embeddedness      & 36 power / 1 res.\ zone (exurban) & 61 res.\ zones; 16 adj.\ edges (embedded) \\
 Contestation intensity  & \alert{High}         & \alert{High} \\
 Regime response         & \textbf{None}        & \textbf{Moratorium 2019--2022} \\
 \midrule
