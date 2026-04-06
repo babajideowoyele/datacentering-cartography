@@ -10,9 +10,21 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{multirow}
 \usepackage{lineno}
 \usepackage{microtype}
 \usepackage{cleveref}
+\usepackage{pdflscape}
+
+%% Table colour palette
+\definecolor{dcblue}{RGB}{31,73,125}
+\definecolor{dclightblue}{RGB}{189,215,238}
+\definecolor{dcaccent}{RGB}{192,80,77}
+\definecolor{dclightyellow}{RGB}{255,248,220}
+\definecolor{dcgray}{RGB}{240,240,240}
+\definecolor{dcmidgray}{RGB}{200,200,200}
 
 \modulolinenumbers[5]
 
@@ -43,7 +55,6 @@ datacentering \sep digital infrastructure \sep complex adaptive systems \sep mul
 
 \linenumbers
 
-\input{sections/tables}
 \input{sections/01-introduction}
 \input{sections/02-background}
 \input{sections/03-conceptual-dimensions}
@@ -54,5 +65,8 @@ datacentering \sep digital infrastructure \sep complex adaptive systems \sep mul
 \input{sections/08-conclusion}
 
 \bibliography{references}
+
+\appendix
+\input{sections/appendix}
 
 \end{document}

@@ -1,70 +1,163 @@
-%% Tables — referenced from methodology and case sections
+%% Inline tables — called from within body sections
+
+%% ============================================================
+%% Table 1 — Literature silos (called from sec:introduction)
+%% ============================================================
 
 \begin{table}[ht]
 \centering
-\caption{Three disconnected silos in the data center literature (OpenAlex, 2010--2025, $n = 4{,}757$)}
+\caption{Three disconnected silos in the data center literature (OpenAlex, 2010--2025, $n = 4{,}757$).
+         Representative works indicate the most-cited papers within each silo.
+         The zero-paper row for innovation studies is the starting point of this research agenda.}
 \label{tab:silos}
-\begin{tabularx}{\textwidth}{lXrl}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\textwidth}{>{\bfseries}lXrX}
 \toprule
-\textbf{Silo} & \textbf{Focus} & \textbf{$\approx$ Papers} & \textbf{Absent} \\
+\rowcolor{dcblue}
+\textcolor{white}{\textbf{Silo}} &
+\textcolor{white}{\textbf{Core focus}} &
+\textcolor{white}{\textbf{$\approx n$}} &
+\textcolor{white}{\textbf{Representative works}} \\
 \midrule
-Technical efficiency & Cooling infrastructure, power usage effectiveness, hardware lifecycle, workload scheduling & 279 & Actors, governance, contestation \\
-\addlinespace
-Environmental impact & Carbon footprint, energy sourcing, scope 2 emissions, PPA markets & 114 & Regime dynamics, community voice \\
-\addlinespace
-Socio-political & Ethnography, planning disputes, cultural politics of infrastructure & 15 & Innovation frameworks, comparative analysis \\
-\addlinespace
-\textit{Innovation studies} & \textit{MLP, TIS, SNM, sociotechnical regimes} & \textit{0} & \textit{---} \\
+Technical efficiency &
+  Cooling infrastructure, power usage effectiveness (PUE), hardware lifecycle, workload scheduling, heat reuse &
+  279 &
+  \citet{dayarathna2015data}; Koomey (2011); \citet{masanet2020recalibrating} \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+Environmental impact &
+  Carbon footprint, scope 2 emissions, renewable energy PPAs, water withdrawal intensity &
+  114 &
+  \citet{iea2024electricity}; Jones (2018); Mytton \& Ashtine (2022) \\
+\addlinespace[2pt]
+Socio-political &
+  Ethnography of infrastructure, planning disputes, cultural politics, local community impact &
+  15 &
+  \citet{blum2012tubes}; \citet{holt2015vonderau}; \citet{vonderau2019storing} \\
+\addlinespace[4pt]
+\rowcolor{dcaccent!12}
+\textit{Innovation studies} &
+  \textit{MLP, TIS, SNM, sociotechnical regimes, transition governance} &
+  \textcolor{dcaccent}{\textbf{0}} &
+  \textit{--- this paper ---} \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-%% ------------------------------------------------------------------
+%% ============================================================
+%% Table 2 — Work packages (called from sec:introduction or sec:conceptual)
+%% ============================================================
 
 \begin{table}[ht]
 \centering
-\caption{Work packages, data modalities, CAS dimensions, and analytical outputs}
+\caption{The four work packages: CAS dimensions, data modalities, analytical outputs, and current implementation status.
+         ``Seed'' denotes a pilot run against the three-operator facility index; ``design'' denotes a work package
+         whose pipeline architecture is specified but not yet implemented.}
 \label{tab:wps}
-\begin{tabularx}{\textwidth}{llXl}
+\setlength{\tabcolsep}{5.5pt}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\textwidth}{c>{\bfseries}lllXl}
 \toprule
-\textbf{WP} & \textbf{CAS Dimension} & \textbf{Data Sources} & \textbf{Key Output} \\
+\rowcolor{dcblue}
+\textcolor{white}{\textbf{WP}} &
+\textcolor{white}{\textbf{CAS Dimension}} &
+\textcolor{white}{\textbf{Primary method}} &
+\textcolor{white}{\textbf{Data sources}} &
+\textcolor{white}{\textbf{Key analytical output}} &
+\textcolor{white}{\textbf{Status}} \\
 \midrule
-WP1 & Conceptual & Operator websites, city Wikipedia pages & Imaginary divergence score \\
-\addlinespace
-WP2 & Conceptual & Sentinel-2 satellite imagery, corporate photography & Visual abstraction score \\
-\addlinespace
-WP3 & Structural & OpenCorporates, REIT filings, Crunchbase; Overture Maps infrastructure + land use (city2graph) & Ownership network; urban embeddedness graph; actor typology \\
-\addlinespace
-WP4 & Structural + Temporal & News archives, planning records, social media & Signal-to-response lag \\
+\textbf{1} & Conceptual &
+  NLP / keyword scoring &
+  Corporate websites; city Wikipedia &
+  Environmental Claim Index (ECI); imaginary divergence score per operator--city pair &
+  Seed run \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+\textbf{2} & Conceptual &
+  Computer vision (CLIP) &
+  Sentinel-2 satellite imagery; corporate photography &
+  Visual abstraction score; satellite--corporate imagery divergence &
+  Design \\
+\addlinespace[2pt]
+\textbf{3} & Structural &
+  Network analysis; spatial graph &
+  OpenCorporates; REIT filings; Overture Maps (city2graph) &
+  Ownership network + actor typology; urban embeddedness graph &
+  Seed run \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+\textbf{4} & Structural + Temporal &
+  Topic modelling (BERTopic); event detection &
+  News archives (GDELT/NewsAPI); planning records; social media &
+  Signal-to-response lag; comparative contestation trajectory &
+  Design \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-%% ------------------------------------------------------------------
+%% ============================================================
+%% Table 3 — Virginia vs Amsterdam comparison
+%% (called from sec:case)
+%% ============================================================
 
 \begin{table}[ht]
 \centering
-\caption{Comparative dimensions: Northern Virginia and Amsterdam}
+\caption{Comparative dimensions: Northern Virginia (Loudoun County) and Amsterdam.
+         Both markets exhibit high community contestation intensity.
+         The decisive variable differentiating regime responses is not signal strength
+         but the structural architecture of the receiving system.
+         ECI figures from WP1 seed run (April 2026); urban embeddedness from WP3 seed run (April 2026).}
 \label{tab:comparison}
-\begin{tabularx}{\textwidth}{lXX}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\bfseries\small}lXX}
 \toprule
-\textbf{Dimension} & \textbf{Northern Virginia (Loudoun County)} & \textbf{Amsterdam} \\
+\rowcolor{dcblue}
+\textcolor{white}{\textbf{Dimension}} &
+\textcolor{white}{\textbf{Northern Virginia (Loudoun County)}} &
+\textcolor{white}{\textbf{Amsterdam}} \\
 \midrule
-Ownership structure & REIT-dominated; beneficial ownership dispersed across pension funds and retail investors & Mixed; operator-owned campuses, cooperative exchange (AMS-IX), some sovereign wealth \\
-\addlinespace
-Governance counterparty & None identifiable; operating and asset entities legally separated & Municipal authority with legal competence; named operator counterparties \\
-\addlinespace
-Urban embeddedness (2km) & 36 power nodes; 1 residential zone; 0 residential-adjacency edges --- exurban spatial segregation & 61 residential zones; 16 residential-adjacency edges within 1km --- deeply embedded in urban fabric \\
-\addlinespace
-Territorial imaginary & Opportunity framing; placeless; high ECI divergence & Contested; partially negotiated under regulatory pressure; lower ECI divergence \\
-\addlinespace
-Visual regime & High abstraction; hyperscale anonymity; low disclosure & Lower abstraction; higher disclosure requirements \\
-\addlinespace
-Contestation intensity & High; community campaigns, planning hearings, state-level water concerns & High; sustained public and political mobilisation \\
-\addlinespace
-Regime response & None; no moratorium & Moratorium declared 2019, lifted 2022 under differentiated conditions \\
-\addlinespace
-Explanatory variable & Dispersed ownership insulates system from governance pressure & Concentrated, accountable ownership enables binding negotiation \\
+Operator type &
+  Hyperscale (AWS, Microsoft, Google, Meta) + colocation (Equinix, Digital Realty, CyrusOne) &
+  Hyperscale + colocation (Equinix AMS campus) + cooperative exchange (AMS-IX) \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+Ownership structure &
+  REIT-dominated; beneficial ownership dispersed across global pension funds and retail investors &
+  Mixed; operator-owned campuses, cooperative exchange, concentrated sovereign wealth fund positions \\
+\addlinespace[2pt]
+Governance counterparty &
+  None identifiable; operating entity legally separated from asset-owning REIT &
+  Municipality (Amsterdam) with legal planning competence; named operator counterparties \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+Urban embeddedness (2~km) &
+  36 power-infra nodes; \textbf{1} residential zone; \textbf{0} adjacency edges~--- exurban spatial segregation &
+  2 power nodes; \textbf{61} residential zones; \textbf{16} adjacency edges~--- embedded in urban fabric \\
+\addlinespace[2pt]
+Territorial imaginary &
+  Opportunity framing; placeless; ECI divergence \textbf{165.7} (corp 167.1 vs.\ wiki 1.4) &
+  Contested, partially negotiated; lower ECI divergence; regulatory vocabulary absorbed \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+Visual regime &
+  High abstraction; hyperscale anonymity; near-zero facility-level disclosure &
+  Lower abstraction; higher regulatory disclosure requirements; urban-context imagery \\
+\addlinespace[2pt]
+Contestation intensity &
+  High; community campaigns, planning hearing backlogs, state-level water studies &
+  High; sustained municipal and civic mobilisation, media coverage, moratorium petitions \\
+\addlinespace[2pt]
+\rowcolor{dcgray}
+Regime response &
+  None; no moratorium; operator-accommodating state permitting environment &
+  Moratorium declared 2019; enforced 2019--2022; lifted under differentiated energy/water criteria \\
+\addlinespace[4pt]
+\rowcolor{dclightyellow}
+\multicolumn{1}{>{\bfseries\small\color{dcaccent}}l}{Explanatory variable} &
+  \textcolor{dcaccent}{Dispersed ownership and absent governance counterparty insulate regime from community pressure} &
+  \textcolor{dcblue}{Concentrated, accountable ownership + empowered municipal authority enable binding negotiation} \\
 \bottomrule
 \end{tabularx}
 \end{table}
