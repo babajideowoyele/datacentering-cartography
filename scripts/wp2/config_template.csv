@@ -1,0 +1,4 @@
+facility_id,operator_name,lat,lon,country,jurisdiction_disclosure_level,satellite_image_date
+noVA_aws_001,amazon_web_services,38.9517,-77.4481,United States,low,2024-06-15
+ams_equinix_001,equinix,52.3676,4.9041,Netherlands,high,2024-07-22
+dub_digitalrealty_001,digital_realty,53.3498,-6.2603,Ireland,medium,2024-08-10

@@ -1,0 +1,42 @@
+# Core data & analysis
+pandas
+numpy
+scipy
+
+# HTTP / web scraping (WP1 & WP2 collection)
+requests
+beautifulsoup4
+lxml
+
+# WP1 — Wikipedia scraping
+wikipedia-api            # pip install wikipedia-api
+
+# WP1 — NLP / text analysis
+nltk
+spacy                    # after install run: python -m spacy download en_core_web_sm
+
+# Graph / network analysis (WP1 facility link network)
+networkx
+
+# Image analysis (WP2)
+Pillow
+
+# Satellite imagery (WP2)
+earthengine-api          # Google Earth Engine; run: earthengine authenticate
+sentinelsat              # Copernicus Open Access Hub fallback
+shapely                  # Geometry utilities used by sentinelsat
+
+# Computer vision / image classification (WP2, optional)
+# Uncomment or install separately if you want content tagging:
+# torchvision             # pip install torchvision  (requires torch)
+# transformers            # pip install transformers  (HuggingFace CLIP)
+# torch                   # pip install torch
+
+# Visualisation
+matplotlib
+seaborn
+
+# Notebooks
+jupyter
+notebook
+ipykernel
