@@ -1,0 +1,4 @@
+operator_name,city_name,country,corp_total_tokens,corp_ttr,corp_datacenter_mentions,corp_sentiment_compound,corp_sentiment_positive,corp_sentiment_negative,corp_eci,wiki_total_tokens,wiki_ttr,wiki_datacenter_mentions,wiki_sentiment_compound,wiki_sentiment_positive,wiki_sentiment_negative,wiki_eci,eci_divergence_corp_minus_wiki,sentiment_divergence_corp_minus_wiki,dc_mention_gap_wiki_minus_corp
+amazon_web_services,Ashburn,United States,829,0.5424,5,0.9994,0.198,0.013,167.0688,1804,0.5021,5,0.1316,0.0307,0.0175,1.3858,165.683,0.8678,0
+equinix,Amsterdam,Netherlands,0,,0,,,,,12819,0.3954,0,0.3799,0.0508,0.026,1.6772,,,0
+digital_realty,Dallas,United States,1571,0.5758,22,0.9962,0.1897,0.0123,75.7479,13181,0.3466,0,0.5071,0.0639,0.02,3.1105,72.6374,0.4891,-22
