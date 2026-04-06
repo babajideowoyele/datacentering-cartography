@@ -2,13 +2,14 @@
 %% Research Policy 11th Online ECR Conference, 27 April 2026
 %% Theme: Metropolis
 
-\documentclass[aspectratio=169,12pt]{beamer}
+\documentclass[aspectratio=169,11pt]{beamer}
 
 \usetheme{metropolis}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{tikz}
+\usepackage{graphicx}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds}
 
 %% Metropolis colour overrides
@@ -21,6 +22,9 @@
 \setbeamercolor{progress bar}{fg=dcaccent}
 \setbeamercolor{alerted text}{fg=dcaccent}
 \setbeamercolor{example text}{fg=dcblue}
+
+%% Tighter frame margins to gain vertical space
+\setbeamersize{text margin left=5mm, text margin right=5mm}
 
 \title{Towards a Cartography of Datacentering}
 \subtitle{A Multimodal Research Agenda}
@@ -36,12 +40,13 @@
 
 %% ------------------------------------------------------------------
 %% SLIDE 2 — The Empirical Provocation
-\begin{frame}{The Empirical Provocation}
+\begin{frame}[shrink=8]{The Empirical Provocation}
 \begin{columns}[T]
 \begin{column}{0.5\textwidth}
-  \textbf{4,757 papers on data centers} (OpenAlex, 2010--2025)\\[0.4em]
-  Growth: \alert{372\%} in 15 years\\[0.6em]
+  \textbf{4,757 papers on data centers} (OpenAlex, 2010--2025)\\[0.3em]
+  Growth: \alert{372\%} in 15 years\\[0.4em]
 
+  \small
   \begin{tabular}{lr}
   \toprule
   Silo & Papers \\
@@ -55,22 +60,21 @@
   \end{tabular}
 \end{column}
 \begin{column}{0.46\textwidth}
-  \vspace{0.2em}
   \begin{center}
-  \begin{tikzpicture}[scale=0.82,every node/.style={font=\footnotesize}]
+  \begin{tikzpicture}[scale=0.72,every node/.style={font=\footnotesize}]
     \node[draw=dcblue,fill=dclightblue!40,rounded corners,
-          minimum width=3.2cm,minimum height=0.7cm,
+          minimum width=3.2cm,minimum height=0.65cm,
           text centered] (s1) {Technical efficiency};
     \node[draw=dcblue,fill=dclightblue!40,rounded corners,
-          minimum width=3.2cm,minimum height=0.7cm,
-          text centered,below=0.3cm of s1] (s2) {Environmental impact};
+          minimum width=3.2cm,minimum height=0.65cm,
+          text centered,below=0.25cm of s1] (s2) {Environmental impact};
     \node[draw=dcblue,fill=dclightblue!40,rounded corners,
-          minimum width=3.2cm,minimum height=0.7cm,
-          text centered,below=0.3cm of s2] (s3) {Socio-political};
+          minimum width=3.2cm,minimum height=0.65cm,
+          text centered,below=0.25cm of s2] (s3) {Socio-political};
     \node[draw=dcaccent,thick,fill=dcaccent!10,rounded corners,
-          minimum width=3.2cm,minimum height=0.7cm,
+          minimum width=3.2cm,minimum height=0.65cm,
           text centered,text=dcaccent,
-          font=\footnotesize\bfseries,below=0.3cm of s3] (s4)
+          font=\footnotesize\bfseries,below=0.25cm of s3] (s4)
           {Innovation studies = 0};
     \draw[->,thick,dcgray,dashed] (s1) -- (s2);
     \draw[->,thick,dcgray,dashed] (s2) -- (s3);
@@ -84,17 +88,18 @@
 %% SLIDE 3 — What the Cloud Conceals
 \begin{frame}{What ``The Cloud'' Conceals}
 \begin{columns}[T]
-\begin{column}{0.55\textwidth}
-  The word \alert{``cloud''} does ideological work:\\[0.4em]
-  \begin{itemize}
-    \item Naturalises infrastructure — makes it weightless, placeless
-    \item Conceals: water, land, power, fibre, diesel
-    \item \textbf{$\approx 400$ TWh/year} globally — fastest-growing OECD electricity user
+\begin{column}{0.57\textwidth}
+  \alert{``Cloud''} does ideological work:\\[0.3em]
+  \begin{itemize}\small
+    \item Naturalises infrastructure --- makes it weightless, placeless
+    \item Conceals: water, land, power, fibre, diesel generators
+    \item \textbf{$\approx 400$ TWh/yr} globally --- fastest-growing OECD electricity user
   \end{itemize}
-  \vspace{0.5em}
-  Make it visible and you find: actors, contestation, governance, regime change
+  \vspace{0.3em}
+  \small Make it visible: actors, contestation, governance, regime change
 \end{column}
-\begin{column}{0.4\textwidth}
+\begin{column}{0.38\textwidth}
+  \small
   \begin{tabular}{ll}
   \toprule
   Resource & Scale \\
@@ -119,21 +124,21 @@
   infrastructure is continuously assembled, contested, and reproduced
 \end{block}
 
-\vspace{0.6em}
+\vspace{0.4em}
 \begin{columns}[T]
 \begin{column}{0.48\textwidth}
-  \textbf{Why a gerund?}
+  \textbf{Why a gerund?}\small
   \begin{itemize}
     \item Process over static object
     \item Who is doing the datacentering?
-    \item What is being assembled or foreclosed?
+    \item What is assembled or foreclosed?
   \end{itemize}
 \end{column}
 \begin{column}{0.48\textwidth}
-  \textbf{Theoretical grounding}
+  \textbf{Theoretical grounding}\small
   \begin{itemize}
     \item Orlikowski (2007): sociomaterial entanglement
-    \item Jasanoff \& Kim (2015): imaginaries co-produce material facts
+    \item Jasanoff \& Kim (2015): imaginaries co-produce facts
     \item ``Cloud'' suppresses what datacentering names
   \end{itemize}
 \end{column}
@@ -147,15 +152,15 @@
 \begin{center}
 \begin{tikzpicture}[
   box/.style={draw=dcblue,fill=dclightblue!40,rounded corners,
-              minimum width=3.0cm,minimum height=1.0cm,
+              minimum width=2.8cm,minimum height=0.95cm,
               text centered,font=\small,inner sep=4pt},
   arr/.style={->,>=stealth,thick,dcblue}
 ]
   \node[box] (c) at (0,0)   {\textbf{Conceptual}\newline{\footnotesize Imaginaries}};
-  \node[box] (s) at (4.2,0) {\textbf{Structural}\newline{\footnotesize Ownership, actors}};
-  \node[box] (t) at (8.4,0) {\textbf{Temporal}\newline{\footnotesize Contestation}};
+  \node[box] (s) at (4.0,0) {\textbf{Structural}\newline{\footnotesize Ownership, actors}};
+  \node[box] (t) at (8.0,0) {\textbf{Temporal}\newline{\footnotesize Contestation}};
   \node[box,draw=dcaccent,fill=dcaccent!10,text=dcaccent,font=\small] (dc)
-        at (4.2,-2.2) {\textbf{Datacentering}\newline assemblage};
+        at (4.0,-2.0) {\textbf{Datacentering}\newline assemblage};
   \draw[arr] (c) -- (s);
   \draw[arr] (s) -- (t);
   \draw[arr] (c) -- (dc);
@@ -164,9 +169,8 @@
 \end{tikzpicture}
 \end{center}
 
-\par\medskip
 \begin{center}
-\small After \textbf{Phillips \& Ritala (2019)} --- sensemaking lens, not a formal model\par\smallskip
+\small After \textbf{Phillips \& Ritala (2019)} --- sensemaking lens, not a formal model\\[0.2em]
 Data center assemblages = \alert{multi-actor, nonlinear, emergent}
 \end{center}
 
@@ -176,24 +180,26 @@ Data center assemblages = \alert{multi-actor, nonlinear, emergent}
 %% SLIDE 6 — Multimodal Methodology
 \begin{frame}{A Multimodal Research Agenda}
 
+\vspace{-0.2em}
 \begin{center}
-\begin{tabular}{llll}
+\small
+\begin{tabularx}{0.97\textwidth}{>{\bfseries}lllX}
 \toprule
-\textbf{WP} & \textbf{CAS Dimension} & \textbf{Data} & \textbf{Output} \\
+WP & CAS Dimension & Data & Output \\
 \midrule
-WP1 & Conceptual   & Operator websites, Wikipedia       & Imaginary divergence \\
-WP2 & Conceptual   & Satellite + corporate imagery      & Abstraction score    \\
-WP3 & Structural   & OpenCorporates, REIT filings; Overture Maps (city2graph) & Ownership + urban graph \\
-WP4 & Temporal     & News, planning records, social media & Signal-to-response lag \\
+WP1 & Conceptual   & Operator websites, Wikipedia        & Imaginary divergence (ECI) \\
+WP2 & Conceptual   & Satellite + corporate imagery       & Visual abstraction score \\
+WP3 & Structural   & OpenCorporates, REIT, Overture Maps & Ownership + urban graph \\
+WP4 & Temporal     & News, planning, social media        & Signal-to-response lag \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
-\vspace{0.5em}
+\vspace{0.4em}
 \metroset{block=fill}
 \begin{block}{Why multimodal?}
-  Strategic opacity is a \textit{sociotechnical fact} — not a data gap.\\
-  \small A firm that won't publish is still in a REIT filing, a Sentinel-2 image, and a planning record.
+\small Strategic opacity is a \textit{sociotechnical fact} --- not a data gap.
+A firm that won't publish is still in a REIT filing, a satellite image, and a planning record.
 \end{block}
 
 \end{frame}
@@ -205,10 +211,10 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 \begin{column}{0.48\textwidth}
   \metroset{block=fill}
   \begin{block}{WP1 — Territorial Imaginaries}
+    \small
     \begin{itemize}
       \item Corporate websites vs.\ city Wikipedia
-      \item Keyword asymmetry diagnostic
-      \item \textbf{ECI divergence score}
+      \item ECI divergence score
       \item High sustainability / low community\\= placelessness production
     \end{itemize}
   \end{block}
@@ -216,18 +222,18 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 \begin{column}{0.48\textwidth}
   \metroset{block=fill}
   \begin{block}{WP2 — Strategic Invisibility}
+    \small
     \begin{itemize}
       \item Sentinel-2 satellite imagery
       \item Corporate photography (CLIP)
-      \item \textbf{Visual abstraction score}
-      \item Abstract imagery performs\\the cloud imaginary
+      \item Visual abstraction score
     \end{itemize}
   \end{block}
 \end{column}
 \end{columns}
-\vspace{0.6em}
+\vspace{0.5em}
 \begin{center}
-  \textit{How do actors construct imaginaries that make datacentering \textbf{legible or illegible}?}
+  \small\textit{How do actors construct imaginaries that make datacentering \textbf{legible or illegible}?}
 \end{center}
 \end{frame}
 
@@ -235,12 +241,11 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 %% SLIDE 7b — WP1 first results
 \begin{frame}{WP1 First Results: ECI Divergence (Seed Run, April 2026)}
 \begin{center}
-  \includegraphics[width=0.92\textwidth]{../figures/wp1_eci_divergence}
+  \includegraphics[width=0.86\textwidth,height=0.68\textheight,keepaspectratio]{../figures/wp1_eci_divergence}
 \end{center}
-\vspace{-0.3em}
 \begin{center}
-  \small AWS corporate ECI \alert{120$\times$} higher than Wikipedia --- imaginary production under zero disclosure pressure.\\
-  Equinix WAF-blocked: strategic opacity enacted at the \textit{technical} layer.
+  \footnotesize AWS ECI \alert{120$\times$} higher than Wikipedia.
+  Equinix WAF-blocked: strategic opacity at the \textit{technical} layer.
 \end{center}
 \end{frame}
 
@@ -248,31 +253,33 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 %% SLIDE 8 — WP3 + WP4
 \begin{frame}{WP3 \& WP4: Structural and Temporal Dimensions}
 \begin{columns}[T]
-\begin{column}{0.48\textwidth}
+\begin{column}{0.50\textwidth}
   \metroset{block=fill}
   \begin{block}{WP3 — Structural Cartography}
+    \small
     \begin{itemize}
       \item OpenCorporates + REIT filings
       \item \textbf{REIT structure} disperses accountability
-      \item Overture Maps + city2graph: urban embeddedness graphs
-      \item \alert{Ashburn: 36 power nodes, 1 res.\ zone (exurban)}
+      \item Overture Maps + city2graph: urban graphs
+      \item \alert{Ashburn: 36 power nodes, 1 res.\ zone}
     \end{itemize}
   \end{block}
 \end{column}
-\begin{column}{0.48\textwidth}
+\begin{column}{0.46\textwidth}
   \metroset{block=fill}
   \begin{block}{WP4 — Contestation Signals}
+    \small
     \begin{itemize}
-      \item News archives, planning records
+      \item News, planning records, social media
       \item BERTopic + event detection
       \item \textbf{Signal-to-response lag}
     \end{itemize}
   \end{block}
 \end{column}
 \end{columns}
-\vspace{0.6em}
+\vspace{0.4em}
 \begin{center}
-  \textit{Who does the datacentering, in what legal form, and what happens when communities resist?}
+  \small\textit{Who does the datacentering, in what legal form, and what happens when communities resist?}
 \end{center}
 \end{frame}
 
@@ -280,12 +287,11 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 %% SLIDE 8b — WP3 urban embeddedness results
 \begin{frame}{WP3 First Results: Urban Embeddedness (Seed Run, April 2026)}
 \begin{center}
-  \includegraphics[width=0.88\textwidth]{../figures/wp3_urban_embeddedness}
+  \includegraphics[width=0.84\textwidth,height=0.66\textheight,keepaspectratio]{../figures/wp3_urban_embeddedness}
 \end{center}
-\vspace{-0.3em}
 \begin{center}
-  \small Ashburn: dense power grid, \alert{near-zero residential adjacency} --- spatial segregation at the land-use level.\\
-  Amsterdam/Dublin: 16--61 residential-adjacency edges --- embedded in the urban fabric governance must negotiate.
+  \footnotesize Ashburn: \alert{near-zero residential adjacency} despite dense power grid.
+  Amsterdam/Dublin: 16--61 adjacency edges --- embedded in the urban fabric.
 \end{center}
 \end{frame}
 
@@ -293,36 +299,37 @@ WP4 & Temporal     & News, planning records, social media & Signal-to-response l
 %% SLIDE 8c — WP3 spatial urban graphs
 \begin{frame}{WP3: Urban Graphs as Spatial Evidence}
 \begin{center}
-  \includegraphics[width=0.95\textwidth]{../figures/wp3_urban_graphs_map}
+  \includegraphics[width=0.90\textwidth,height=0.70\textheight,keepaspectratio]{../figures/wp3_urban_graphs_map}
 \end{center}
-\vspace{-0.4em}
 \begin{center}
-  \small Red = data center \quad Blue = power infra \quad Green = residential \quad Lines = proximity edges
+  \footnotesize\textcolor{dcaccent}{$\bullet$ data center}\quad
+  \textcolor{dcblue}{$\bullet$ power infra}\quad
+  \textcolor{green!60!black}{$\bullet$ residential}\quad
+  lines = proximity edges
 \end{center}
 \end{frame}
 
 %% ------------------------------------------------------------------
 %% SLIDE 9 — Virginia vs Amsterdam
 \begin{frame}{Illustrative Comparison: Virginia vs Amsterdam}
+\vspace{-0.3em}
 \begin{center}
-\begin{tabular}{lll}
+\footnotesize
+\begin{tabularx}{0.97\textwidth}{lXX}
 \toprule
 \textbf{Dimension} & \textbf{Northern Virginia} & \textbf{Amsterdam} \\
 \midrule
-Ownership          & REIT-dominated, dispersed  & Mixed; operator-owned, cooperative \\
-Governance counterparty & None identifiable     & Municipality + named operators \\
-Territorial imaginary   & Placeless            & Contested, partially negotiated \\
-Urban embeddedness      & 36 power / 1 res.\ zone (exurban) & 61 res.\ zones; 16 adj.\ edges (embedded) \\
-Contestation intensity  & \alert{High}         & \alert{High} \\
-Regime response         & \textbf{None}        & \textbf{Moratorium 2019--2022} \\
+Ownership      & REIT-dominated, dispersed       & Mixed; operator-owned, AMS-IX coop \\
+Counterparty   & None identifiable               & Municipality + named operators \\
+Urban (2~km)   & 36 power / \alert{1 res.\ zone} & 2 power / \alert{61 res.\ zones} \\
+ECI divergence & \alert{+165.7} (corp 120$\times$ wiki) & Lower; regulatory vocab absorbed \\
+Contestation   & High                            & High \\
+Regime response& \textbf{None}                   & \textbf{Moratorium 2019--2022} \\
 \midrule
-\textbf{Key variable} & \multicolumn{2}{l}{Not signal strength — \alert{regime structure}} \\
+\textbf{Key variable} & \multicolumn{2}{X}{Not signal strength ---
+  \alert{ownership structure + governance counterparty}} \\
 \bottomrule
-\end{tabular}
-\end{center}
-\vspace{0.3em}
-\begin{center}
-  \small This is the question MLP was built to answer — and the existing literature cannot.
+\end{tabularx}
 \end{center}
 \end{frame}
 
@@ -330,30 +337,30 @@ Regime response         & \textbf{None}        & \textbf{Moratorium 2019--2022} 
 %% SLIDE 10 — Open Cartography Invitation
 \begin{frame}{Building the Cartography Together}
 \begin{columns}[T]
-\begin{column}{0.55\textwidth}
-  \textbf{Why open exchange is a theoretical necessity}\\[0.4em]
-  Datacentering is CAS-like: too large, too distributed, too opaque for any single team.\\[0.4em]
-  The research commons is the methodological response to the complexity of the object.\\[0.6em]
-  \textbf{What we are sharing:}
+\begin{column}{0.54\textwidth}
+  \small\textbf{Why open exchange is a theoretical necessity}\\[0.3em]
+  Datacentering is CAS-like: too large, too distributed, too opaque for any single team.
+  The research commons is the methodological response.\\[0.3em]
+  \textbf{What we share:}\small
   \begin{itemize}
     \item Community facility index (CC BY 4.0)
     \item NLP / CV / network pipelines (MIT)
-    \item Open data, open workflows
+    \item Open data and open workflows
   \end{itemize}
 \end{column}
 \begin{column}{0.42\textwidth}
-  \textbf{Concrete asks:}
+  \small\textbf{Concrete asks:}
   \begin{itemize}
-    \item Local knowledge of disputes, moratoriums, unreported facilities
-    \item National company registry or REIT data access
+    \item Local knowledge: disputes, unreported facilities
+    \item Company registry or REIT data access
     \item Methodological critique
     \item Replication in other languages
   \end{itemize}
 \end{column}
 \end{columns}
-\vspace{0.5em}
+\vspace{0.3em}
 \begin{center}
-  \large\textit{The cloud is not a metaphor. It is infrastructure.\\And infrastructure can be mapped.}
+  \textit{The cloud is not a metaphor. It is infrastructure.\\And infrastructure can be mapped.}
 \end{center}
 \end{frame}
 
