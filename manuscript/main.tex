@@ -1,10 +1,16 @@
 %% Towards a Cartography of Datacentering: A Multimodal Research Agenda
-%% Target: Technological Forecasting and Social Change / Research Policy
-%% Class: elsarticle
+%% Class: tufte-handout
 
-\documentclass[review,12pt,authoryear]{elsarticle}
+%% Pass hyperref options before tufte-handout loads it
+\PassOptionsToPackage{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}{hyperref}
 
-\usepackage{hyperref}
+\documentclass[a4paper,justified,notoc]{tufte-handout}
+
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -13,13 +19,13 @@
 \usepackage{colortbl}
 \usepackage{xcolor}
 \usepackage{multirow}
-\usepackage{lineno}
 \usepackage{microtype}
-\usepackage{cleveref}
 \usepackage{pdflscape}
 \usepackage{adjustbox}
+\usepackage{cleveref}
+\usepackage{natbib}
+\usepackage{caption}
 
-%% Give LaTeX extra stretch budget for long unbreakable strings (\texttt paths etc.)
 \setlength{\emergencystretch}{3em}
 
 %% Table colour palette
@@ -30,34 +36,25 @@
 \definecolor{dcgray}{RGB}{240,240,240}
 \definecolor{dcmidgray}{RGB}{200,200,200}
 
-\modulolinenumbers[5]
-
-\journal{Technological Forecasting and Social Change}
-
 \bibliographystyle{elsarticle-harv}
+
+\title{\texorpdfstring{Towards a Cartography of Datacentering:\\[0.3em]A Multimodal Research Agenda}{Towards a Cartography of Datacentering: A Multimodal Research Agenda}}
+\author{Babajide Owoyele}
+\date{Erasmus University Rotterdam\newline
+      \small Research Policy 11\textsuperscript{th} Online ECR Conference, 27 April 2026}
 
 \begin{document}
 
-\begin{frontmatter}
-
-\title{Towards a Cartography of Datacentering: A Multimodal Research Agenda}
-
-\author[eur]{Babajide Owoyele\corref{cor1}}
-\cortext[cor1]{Corresponding author}
-\affiliation[eur]{organization={Erasmus University Rotterdam},
-                  country={Netherlands}}
+\maketitle
+\renewcommand{\plaintitle}{Towards a Cartography of Datacentering: A Multimodal Research Agenda}
 
 \begin{abstract}
 \input{sections/00-abstract}
 \end{abstract}
 
-\begin{keyword}
-datacentering \sep digital infrastructure \sep complex adaptive systems \sep multimodal methodology \sep socio-material assemblage \sep financialisation \sep strategic invisibility \sep open research infrastructure
-\end{keyword}
+\noindent\smallskip\textit{Keywords:} datacentering · digital infrastructure · complex adaptive systems · multimodal methodology · socio-material assemblage · financialisation · strategic invisibility · open research infrastructure
 
-\end{frontmatter}
-
-\linenumbers
+\bigskip
 
 \input{sections/01-introduction}
 \input{sections/02-background}

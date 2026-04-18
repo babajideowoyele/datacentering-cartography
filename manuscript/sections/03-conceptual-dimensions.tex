@@ -16,12 +16,12 @@ The USA--Europe comparison sharpens the diagnostic. In Northern Virginia, operat
 
 A preliminary pipeline run against the three seed facilities (April 2026) produces ECI scores of 167.1 for AWS/Ashburn and 75.7 for Digital Realty/Dallas against Wikipedia ECI scores of 1.4 and 3.1 respectively, yielding divergence gaps of 165.7 and 72.6 (\Cref{fig:eci_divergence}). Equinix's corporate site returned no data, having blocked the scraper with a WAF --- itself a data point: strategic invisibility enacted at the technical layer. The magnitude of the AWS divergence is analytically striking: a corporate ECI more than 120 times the Wikipedia score is not consistent with genuine territorial embedding; it is consistent with imaginary production under low disclosure pressure.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/wp1_eci_divergence}
-\caption{WP1 seed results: Environmental Claim Index (ECI) for corporate websites versus Wikipedia articles (left), and ECI divergence gap per operator (right). A high divergence score indicates an operator constructing environmental claims that are decoupled from territorial accountability. Equinix's corporate site was blocked by a WAF, itself a finding. Data: pipeline run, April 2026.}
+\begin{fullwidth}
+\includegraphics[width=\linewidth]{figures/wp1_eci_divergence}
+\vspace{0.4em}
+\captionof{figure}{WP1 seed results: Environmental Claim Index (ECI) for corporate websites versus Wikipedia articles (left), and ECI divergence gap per operator (right). A high divergence score indicates an operator constructing environmental claims that are decoupled from territorial accountability. Equinix's corporate site was blocked by a WAF, itself a finding. Data: pipeline run, April 2026.}
 \label{fig:eci_divergence}
-\end{figure}
+\end{fullwidth}
 
 \subsection{WP2: Visual and Strategic Invisibility}
 
@@ -39,19 +39,19 @@ The VIIRS time series produces a structurally revealing pattern. Ashburn shows a
 
 The LST maps (\Cref{fig:lst_map}) make the thermal body of the assemblage visible at the site level. Cooling towers and server exhaust produce identifiable heat plumes extending beyond the facility perimeter — physical evidence of the energy flows that the cloud imaginary renders placeless. The contrast between the thermal profile of the Ashburn cluster --- an isolated heat source in an otherwise low-temperature exurban landscape --- and the Amsterdam facility --- whose thermal signature blends into the urban heat island, making it less legible as a discrete actor --- mirrors the governance contrast: physical embeddedness shapes the conditions under which communities can identify, attribute, and contest the infrastructure's impacts.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.92\textwidth]{figures/wp2_nightlights_timeseries}
-\caption{VIIRS nighttime lights: annual mean radiance (nW/cm\textsuperscript{2}/sr) within a 10\,km radius of each seed facility, 2014--2024 (NOAA VIIRS DNB Monthly V1, 500\,m resolution, Google Earth Engine). Ashburn is the only jurisdiction with net radiance growth ($+8.7\%$), consistent with data center cluster expansion in a low-background exurban context. Amsterdam's decrease ($-9.2\%$) reflects LED street lighting transition, a measurement confound that is more severe in dense urban environments. Data: GEE pipeline run, April 2026.}
+\begin{fullwidth}
+\includegraphics[width=\linewidth]{figures/wp2_nightlights_timeseries}
+\vspace{0.4em}
+\captionof{figure}{VIIRS nighttime lights: annual mean radiance (nW/cm\textsuperscript{2}/sr) within a 10\,km radius of each seed facility, 2014--2024 (NOAA VIIRS DNB Monthly V1, 500\,m resolution, Google Earth Engine). Ashburn is the only jurisdiction with net radiance growth ($+8.7\%$), consistent with data center cluster expansion in a low-background exurban context. Amsterdam's decrease ($-9.2\%$) reflects LED street lighting transition, a measurement confound that is more severe in dense urban environments. Data: GEE pipeline run, April 2026.}
 \label{fig:nightlights_ts}
-\end{figure}
+\end{fullwidth}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/wp2_lst_map}
-\caption{Land Surface Temperature (LST) maps for the three seed facilities, summer 2024 composite (Landsat 8/9 Collection 2 Level-2, ST\_B10 band, June--August, $\leq 20\%$ cloud cover, 30\,m resolution, 3\,km bounding box). Red crosshairs mark facility centroids. The Ashburn facility sits within a discrete heat plume isolated from the surrounding low-temperature exurban landscape; Amsterdam and Dublin thermal signatures are embedded in the urban heat island. Data: GEE pipeline run, April 2026.}
+\begin{fullwidth}
+\includegraphics[width=\linewidth]{figures/wp2_lst_map}
+\vspace{0.4em}
+\captionof{figure}{Land Surface Temperature (LST) maps for the three seed facilities, summer 2024 composite (Landsat 8/9 Collection 2 Level-2, ST\_B10 band, June--August, $\leq 20\%$ cloud cover, 30\,m resolution, 3\,km bounding box). Red crosshairs mark facility centroids. The Ashburn facility sits within a discrete heat plume isolated from the surrounding low-temperature exurban landscape; Amsterdam and Dublin thermal signatures are embedded in the urban heat island. Data: GEE pipeline run, April 2026.}
 \label{fig:lst_map}
-\end{figure}
+\end{fullwidth}
 
 The satellite record is, in this sense, the second measurement of the same gap that WP1 identifies in the textual record. Where WP1 finds a corporate ECI more than 120 times the Wikipedia score for Ashburn, WP2 finds a growing heat scar in the Virginia landscape that no corporate image catalogue contains. The operator narrates sustainability; the satellite records the thermal consequence of round-the-clock cooling. These are not independent findings that happen to be consistent: they are two modalities reaching the same sociotechnical fact --- the deliberate production of invisibility in one register does not alter the physical signature detectable in another. The divergence between what is claimed (clean, weightless, renewable infrastructure) and what is visible (an isolated, energy-intensive, thermally anomalous cluster) is the central analytical object of this work package, and it is only accessible through the juxtaposition of modalities that neither the textual nor the satellite record can achieve alone.
 
