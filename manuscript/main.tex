@@ -25,6 +25,24 @@
 \usepackage{cleveref}
 \usepackage{natbib}
 \usepackage{caption}
+\usepackage[most]{tcolorbox}
+
+%% Box style — understated Tufte-compatible frame
+\tcbset{
+  datacenterbox/.style={
+    enhanced,
+    colback=dcgray,
+    colframe=dcblue,
+    boxrule=0.6pt,
+    arc=2pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    fonttitle=\small\bfseries\sffamily,
+    coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=6pt},
+    boxed title style={colback=dcblue, arc=2pt, boxrule=0pt,
+                       left=4pt, right=4pt, top=2pt, bottom=2pt},
+  }
+}
 
 \setlength{\emergencystretch}{3em}
 
