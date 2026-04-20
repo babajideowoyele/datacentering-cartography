@@ -1,0 +1,479 @@
+%% Beamer slides: Towards a Cartography of Datacentering
+%% Research Policy 11th Online ECR Conference, 27 April 2026
+%% Theme: Metropolis + IBM Carbon (Plex Sans) fonts
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usetheme{metropolis}
+
+%% IBM Plex fonts — Carbon design system
+\usepackage[sfdefault,light]{plex-sans}
+\usepackage{plex-mono}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds}
+
+%% IBM Carbon palette — #161616 near-black, pure white, gray scale
+\definecolor{carbonblack}{RGB}{22,22,22}   % Carbon $gray-100 = #161616
+\definecolor{dcblue}{RGB}{22,22,22}
+\definecolor{dcaccent}{RGB}{22,22,22}
+\definecolor{dclightblue}{RGB}{218,218,218}
+\definecolor{dcgray}{RGB}{110,110,110}
+\definecolor{dcbg}{RGB}{255,255,255}
+\definecolor{dcgreen}{RGB}{20,20,20}
+
+\setbeamercolor{frametitle}{bg=black!88,fg=white}
+\setbeamercolor{progress bar}{fg=black!55}
+\setbeamercolor{alerted text}{fg=black!88}
+\setbeamercolor{example text}{fg=black!70}
+\setbeamercolor{normal text}{fg=black!88,bg=white}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamerfont{alerted text}{series=\bfseries}
+\setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}  % Plex Sans SemiBold
+\setbeamerfont{title}{size=\large,series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize,series=\mdseries}
+\setbeamerfont{institute}{size=\footnotesize,series=\mdseries}
+\setbeamerfont{date}{size=\footnotesize,series=\mdseries}
+\setbeamerfont{block title}{size=\small,series=\bfseries}
+
+\setbeamersize{text margin left=6mm, text margin right=6mm}
+\hfuzz=5pt   %% suppress sub-5pt hbox warnings (invisible at presentation resolution)
+
+%% Icon shorthand
+\newcommand{\icon}[1]{\textcolor{dcblue}{\faIcon{#1}}\enspace}
+\newcommand{\iconfull}[2]{\textcolor{#1}{\faIcon{#2}}}
+
+\title{Towards a Cartography of Datacentering}
+\subtitle{A Multimodal Research Agenda}
+\author{Babajide Owoyele}
+\institute{Erasmus University Rotterdam}
+\date{Research Policy ECR Conference \\ 27 April 2026}
+
+%% Show notes in presenter view
+\setbeameroption{hide notes}  % change to show notes for presenter PDF
+
+%% ==================================================================
+\begin{document}
+
+%% SLIDE 1 — Title
+\begin{frame}[shrink=4]
+\titlepage
+\end{frame}
+\note{Welcome. 15 minutes. Title: Towards a Cartography of Datacentering. I'm going to argue that data centers are a blind spot in innovation studies — and show you a research agenda that starts to fix that.}
+
+%% ------------------------------------------------------------------
+%% ------------------------------------------------------------------
+%% SLIDE 2 — Scale provocation
+\begin{frame}{\iconfull{dcaccent}{chart-line}\enspace How Big Is This?}
+
+\begin{columns}[T]
+\begin{column}{0.50\textwidth}
+  \includegraphics[width=\textwidth,height=0.72\textheight,keepaspectratio]%
+    {../figures/megaprojects_capex}
+\end{column}
+\begin{column}{0.46\textwidth}
+  \vspace{0.8em}
+  {\large\textbf{\$930B}} in 6 years of data center capex\\[0.6em]
+
+  \begin{tabular}{@{}ll@{}}
+    \iconfull{dcblue}{bolt}        & 400 TWh/yr globally \\[0.3em]
+    \iconfull{dcblue}{tint}        & Millions L/day cooling \\[0.3em]
+    \iconfull{dcblue}{industry}    & Land: small-town scale \\[0.3em]
+    \iconfull{dcblue}{money-bill-wave} & REIT, PE, SWF capital \\
+  \end{tabular}
+
+  \vspace{0.8em}
+  \small\textcolor{dcgray}{%
+  \textit{But: private recurring capex $\neq$ one-off public programme.
+  The comparison does rhetorical work.}
+  }
+\end{column}
+\end{columns}
+\note{The chart is from Fin Moorhouse / Epoch AI. I use it not as authoritative evidence but as a genre claim — this is how the infrastructure is being talked about in policy circles. Private recurring capex isn't the same as the Apollo programme — I make that argument explicitly in the paper. The key point here is scale and speed: this is happening faster than any comparable infrastructure regime.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 3 — The literature gap
+\begin{frame}{\iconfull{dcblue}{book-open}\enspace 4{,}757 Papers. One Blind Spot.}
+
+\begin{columns}[T]
+\begin{column}{0.52\textwidth}
+  \vspace{0.4em}
+  \begin{tabular}{@{}llr@{}}
+    \iconfull{dcblue}{cog}          & Technical efficiency & $\approx 279$ \\[0.4em]
+    \iconfull{dcblue}{leaf}         & Environmental impact & $\approx 114$ \\[0.4em]
+    \iconfull{dcblue}{users}        & Socio-political      & $\approx 15$  \\[0.6em]
+    \iconfull{dcaccent}{times-circle} & \textbf{\alert{Innovation studies}} & \alert{\textbf{0}} \\
+  \end{tabular}
+
+  \vspace{0.6em}
+  \small No MLP. No TIS. No SNM.\\
+  No sociotechnical regime analysis.\\[0.3em]
+  \textbf{372\% growth} in 15 years —\\
+  and the field has not noticed.
+\end{column}
+\begin{column}{0.44\textwidth}
+  \vspace{0.3em}
+  \begin{tikzpicture}[scale=0.78,every node/.style={font=\footnotesize}]
+    \node[draw=dcblue,fill=dclightblue!40,rounded corners,
+          minimum width=3.4cm,minimum height=0.6cm,
+          text centered] (s1) {Technical efficiency};
+    \node[draw=dcblue,fill=dclightblue!40,rounded corners,
+          minimum width=3.4cm,minimum height=0.6cm,
+          text centered,below=0.22cm of s1] (s2) {Environmental impact};
+    \node[draw=dcblue,fill=dclightblue!40,rounded corners,
+          minimum width=3.4cm,minimum height=0.6cm,
+          text centered,below=0.22cm of s2] (s3) {Socio-political};
+    \node[draw=dcaccent,thick,fill=dcaccent!10,rounded corners,
+          minimum width=3.4cm,minimum height=0.6cm,
+          text centered,text=dcaccent,font=\footnotesize\bfseries,
+          below=0.35cm of s3] (s4) {\faTimesCircle\; Innovation studies = 0};
+    \node[draw=dcgray,dashed,rounded corners,
+          fit=(s1)(s2)(s3),inner sep=4pt,label=right:{\tiny silos}] {};
+  \end{tikzpicture}
+\end{column}
+\end{columns}
+\note{4,757 papers. 372\% growth. And zero — literally zero — papers engaging MLP, TIS, SNM, or sociotechnical regimes. This is the bibliometric proof of the gap. The question for this audience is: why hasn't our field noticed? And what follows if we do?}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 4 — Datacentering
+\begin{frame}{\iconfull{dcblue}{server}\enspace Introducing ``Datacentering''}
+
+\metroset{block=fill}
+\begin{block}{}
+  \centering
+  \textbf{Datacentering} = the active, contested, socio-material process of
+  assembling, operating, and reproducing digital infrastructure in place
+\end{block}
+
+\vspace{0.5em}
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+  \icon{question-circle}\textbf{Why a gerund?}
+  \begin{itemize}\small
+    \item Process, not static object
+    \item \textit{Who} is doing it? \textit{For whom}?
+    \item What is assembled — and foreclosed?
+  \end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+  \icon{layer-group}\textbf{Theoretical grounding}
+  \begin{itemize}\small
+    \item Orlikowski (2007): sociomaterial entanglement
+    \item Jasanoff \& Kim (2015): imaginaries co-produce facts
+    \item ``Cloud'' \textit{suppresses} what datacentering names
+  \end{itemize}
+\end{column}
+\end{columns}
+\note{Why a gerund? Because "data center" treats the thing as fixed and technical. "Datacentering" asks: who is doing this, for whom, under what conditions, and who gets to contest it? It's the same move STS makes with "technoscience" — the suffix matters because it names a process that can go otherwise.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 5 — CAS framework
+\begin{frame}{\iconfull{dcblue}{project-diagram}\enspace CAS as a Sensemaking Lens}
+
+\vspace{-0.2em}
+\begin{center}
+\begin{tikzpicture}[
+  dim/.style={draw=dcblue,fill=dclightblue!50,rounded corners=4pt,
+              minimum width=2.7cm,minimum height=1.0cm,
+              align=center,font=\small,inner sep=4pt},
+  wp/.style={draw=dcaccent!70,fill=dcaccent!8,rounded corners=4pt,
+             minimum width=1.6cm,minimum height=0.6cm,
+             align=center,font=\scriptsize,text=dcaccent},
+  arr/.style={->,>=stealth,thick,dcblue!60}
+]
+  \node[dim] (c) at (0,0)   {\faEye\\\textbf{Conceptual}\\\scriptsize Imaginaries};
+  \node[dim] (s) at (3.7,0) {\faNetworkWired\\\textbf{Structural}\\\scriptsize Ownership};
+  \node[dim] (t) at (7.4,0) {\faChartLine\\\textbf{Temporal}\\\scriptsize Contestation};
+
+  \node[wp]  (w1) at (0,-1.85)   {WP1+2};
+  \node[wp]  (w3) at (3.7,-1.85) {WP3};
+  \node[wp]  (w4) at (7.4,-1.85) {WP4};
+
+  \draw[arr] (c) -- (s);
+  \draw[arr] (s) -- (t);
+  \draw[arr,dcaccent!60] (c) -- (w1);
+  \draw[arr,dcaccent!60] (s) -- (w3);
+  \draw[arr,dcaccent!60] (t) -- (w4);
+\end{tikzpicture}
+\end{center}
+\vspace{0.3em}
+\begin{center}
+  \small After \textbf{Phillips \& Ritala (2019)} — sensemaking lens, not a formal model\\
+  \textcolor{dcgray}{Multi-actor · nonlinear · emergent}
+\end{center}
+\note{Phillips and Ritala 2019 give us three dimensions: conceptual, structural, temporal. I use these not as a formal model but as a sensemaking scaffold. The key CAS insight: the same contestation intensity produces moratorium in Amsterdam but nothing in Virginia. That's a nonlinear, structure-dependent outcome — exactly what CAS thinking predicts.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 6 — Methodology overview
+\begin{frame}{\iconfull{dcblue}{layer-group}\enspace A Multimodal Research Agenda}
+
+\vspace{0.2em}
+{\small
+\begin{tabularx}{\textwidth}{@{}c>{\raggedright}p{2.6cm}>{\raggedright}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{WP} & \textbf{Method} & \textbf{Data} & \textbf{Key output} \\
+\midrule
+\textbf{1} & \iconfull{dcblue}{file-alt}\enspace Text NLP
+           & Operator websites; Wikipedia
+           & ECI divergence \\[0.2em]
+\textbf{2} & \iconfull{dcblue}{satellite}\enspace Satellite + CV
+           & Sentinel-2; Landsat LST; VIIRS
+           & Visual abstraction; thermal footprint \\[0.2em]
+\textbf{3} & \iconfull{dcblue}{network-wired}\enspace Networks
+           & SEC EDGAR; REIT filings; Overture Maps
+           & Ownership graph; urban graph \\[0.2em]
+\textbf{4} & \iconfull{dcblue}{newspaper}\enspace Event detection
+           & GDELT; planning records; social media
+           & Signal-to-response lag \\
+\bottomrule
+\end{tabularx}
+}
+
+\vspace{0.5em}
+\metroset{block=fill}
+\begin{block}{}
+\small\icon{eye-slash}%
+Strategic opacity is a \textit{sociotechnical fact}, not a data gap.
+A firm that won't publish is still in a REIT filing, a satellite image, and a planning record.
+\end{block}
+\note{Four work packages, four modalities. The strategic opacity line is the key methodological claim: operators that refuse to disclose are still visible in REIT filings, satellite thermal images, and planning records. Multimodal isn't just methodological pluralism — it's a direct response to designed opacity.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 7 — WP1 ECI result
+\begin{frame}{\iconfull{dcblue}{file-alt}\enspace WP1: The Imaginary in Numbers}
+\begin{columns}[T]
+\begin{column}{0.58\textwidth}
+  \includegraphics[width=\textwidth,height=0.70\textheight,keepaspectratio]%
+    {../figures/wp1_eci_divergence}
+\end{column}
+\begin{column}{0.38\textwidth}
+  \vspace{1em}
+  \icon{search}\textbf{ECI divergence}\\[0.3em]
+  \small
+  AWS Ashburn: corporate ECI \alert{120$\times$} Wikipedia\\[0.4em]
+
+  Equinix: WAF-blocked the scraper\\
+  \textcolor{dcgray}{\textit{Strategic opacity at the \textbf{technical} layer}}\\[0.4em]
+
+  High corporate ECI + low Wikipedia ECI\\
+  = placelessness production\\[0.6em]
+
+  \icon{lightbulb}\textit{The sustainability claim and the territorial fact are decoupled by design.}
+\end{column}
+\end{columns}
+\note{AWS Ashburn corporate ECI is 167, Wikipedia ECI is 1.4 — a divergence of 165.7. Corporate sustainability claims are completely decoupled from what the territorial encyclopaedic record says. Equinix blocked the scraper with a WAF — that's not a data gap, that's a finding about strategic opacity enacted at the technical layer.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 8 — WP2 satellite
+\begin{frame}{\iconfull{dcblue}{satellite}\enspace WP2: What Satellites See}
+\begin{columns}[T]
+\begin{column}{0.50\textwidth}
+  \includegraphics[width=\textwidth,height=0.63\textheight,keepaspectratio]%
+    {../figures/wp2_lst_map}
+  \begin{center}
+    \scriptsize\textcolor{dcgray}{LST thermal maps — Landsat 8/9, summer 2024}
+  \end{center}
+\end{column}
+\begin{column}{0.46\textwidth}
+  \includegraphics[width=\textwidth,height=0.50\textheight,keepaspectratio]%
+    {../figures/wp2_nightlights_timeseries}
+  \vspace{0.2em}
+  \small
+  \icon{bolt}Ashburn: \alert{+8.7\%} radiance 2014--2024\\
+  Only jurisdiction with net growth\\[0.3em]
+  \icon{lightbulb}Amsterdam: $-9.2\%$\\
+  LED transition — measurement confound\\[0.3em]
+  \textcolor{dcgray}{\scriptsize\textit{%
+  Isolated heat plume in exurban Virginia;\\ thermal signature invisible to neighbours.}}
+\end{column}
+\end{columns}
+\note{The LST maps are from Landsat 8/9, summer 2024. Ashburn shows an isolated heat plume — physically identifiable and spatially separated from any residential area. Amsterdam's thermal signature blends into the urban heat island. VIIRS nightlights: Ashburn is the only jurisdiction with net radiance growth. The operator narrates sustainability; the satellite records the thermal consequence of round-the-clock cooling.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 9 — WP3 ownership
+\begin{frame}{\iconfull{dcblue}{network-wired}\enspace WP3a: Who Actually Owns This?}
+\begin{columns}[T]
+\begin{column}{0.52\textwidth}
+  \includegraphics[width=\textwidth,height=0.66\textheight,keepaspectratio]%
+    {../figures/wp3_ownership_network}
+  \begin{center}
+    \scriptsize
+    $\blacksquare$ REIT holding\;
+    $\square$ operating\;
+    $\circ$ subsidiary\;
+    $\bullet$ investor
+  \end{center}
+\end{column}
+\begin{column}{0.44\textwidth}
+  \vspace{0.8em}
+  \icon{money-bill-wave}\textbf{REIT structure}\\[0.3em]
+  \small
+  Vanguard, BlackRock, State Street\\
+  each hold 6--10\% across \textit{all three} REITs\\[0.5em]
+
+  \icon{times-circle}\textbf{No governance counterparty}\\[0.3em]
+  Operating entity legally separated\\
+  from asset-owning REIT\\[0.5em]
+
+  \icon{exclamation-triangle}\textit{%
+  When communities contest, there is\\
+  no single actor that can make\\
+  a binding commitment.}
+\end{column}
+\end{columns}
+\note{REIT structure: the operating entity is legally distinct from the asset-holding REIT, which is one fund among many, whose beneficiaries are spatially dispersed pension holders. When a municipal authority wants to negotiate with the "owner" about energy sourcing or capacity limits — there is no such person. The REIT structure dissolves governance surface area as a side-effect of tax optimisation.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 10 — WP3 urban embeddedness
+\begin{frame}{\iconfull{dcblue}{map-marked-alt}\enspace WP3b: Where It Sits in the City}
+\begin{columns}[T]
+\begin{column}{0.50\textwidth}
+  \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]%
+    {../figures/wp3_urban_graphs_map}
+\end{column}
+\begin{column}{0.46\textwidth}
+  \vspace{0.6em}
+  \small
+  \begin{tabular}{@{}lrr@{}}
+    & \textbf{Ashburn} & \textbf{Amsterdam} \\
+    \midrule
+    Power nodes   & 36    & 2   \\
+    Res.\ zones   & \alert{1} & \alert{61}  \\
+    Adj.\ edges   & \alert{0} & \alert{16}  \\
+  \end{tabular}
+
+  \vspace{0.5em}
+  \icon{map-marker-alt}Ashburn: dense power grid,\\
+  \textbf{zero residential adjacency}\\[0.4em]
+  \icon{city}Amsterdam/Dublin: embedded\\
+  in urban fabric\\[0.4em]
+  \textcolor{dcgray}{\scriptsize\textit{%
+  Spatial separation is not accidental —\\
+  it is a governance design choice.}}
+\end{column}
+\end{columns}
+\note{Ashburn: 36 power-infrastructure nodes within 2km, and one — literally one — residential zone. Amsterdam: 61 residential zones, 16 adjacency edges. This is not data sparsity; Overture Maps coverage in Loudoun County is comprehensive. It is deliberate land-use segregation — a spatial enactment of the placelessness imaginary.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 11 — WP4 contestation
+\begin{frame}{\iconfull{dcblue}{newspaper}\enspace WP4: When Communities Resist}
+\begin{columns}[T]
+\begin{column}{0.56\textwidth}
+  \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]%
+    {../figures/wp4_contestation_signal}
+\end{column}
+\begin{column}{0.40\textwidth}
+  \vspace{0.6em}
+  \small
+  \icon{calendar-check}Seed corpus: \textbf{58 events}, 4 cities\\[0.4em]
+
+  \icon{bell}Dublin: \alert{81\% negative-tone}\\
+  EirGrid grid cap + An Bord Pleanála\\[0.4em]
+
+  \icon{hourglass-half}Amsterdam moratorium:\\
+  signal onset → response \textbf{$<$ 1 year}\\[0.4em]
+
+  \icon{ban}Ashburn: comparable signal,\\
+  \alert{zero regime response}\\[0.5em]
+
+  \textcolor{dcgray}{\scriptsize\textit{%
+  The variable is not signal strength.\\
+  It is the structure of the receiving system.}}
+\end{column}
+\end{columns}
+\note{58 events, 4 cities, 2007--2025. Dublin shows the highest sustained negativity — 81\% negative-tone events — consistent with EirGrid grid-capacity constraints and An Bord Pleanála's high refusal rate. Amsterdam: moratorium declared within months of threshold crossing. Ashburn: comparable cumulative signal, no moratorium. The variable is not how loud communities shout — it is whether the system has a counterparty that can hear.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 12 — Comparison
+\begin{frame}{\iconfull{dcblue}{balance-scale}\enspace Same Signal, Different System}
+\vspace{-0.3em}
+{\scriptsize\setlength{\tabcolsep}{3pt}%
+\begin{tabularx}{0.99\textwidth}{>{\raggedright}p{2.0cm}XX}
+\toprule
+\rowcolor{dcblue!90}
+\textcolor{white}{\textbf{Dimension}} &
+\textcolor{white}{\textbf{N. Virginia}} &
+\textcolor{white}{\textbf{Amsterdam}} \\
+\midrule
+\iconfull{dcblue}{network-wired}\enspace Ownership
+  & REIT-dominated; dispersed        & Mixed; operator-owned, AMS-IX coop \\
+\rowcolor{dcblue!8}
+\iconfull{dcblue}{handshake}\enspace Counterparty
+  & \alert{None}                     & Municipality + operators \\
+\iconfull{dcblue}{map}\enspace Urban (2\,km)
+  & 36 power / \alert{1 res.}        & 2 power / \alert{61 res.} \\
+\rowcolor{dcblue!8}
+\iconfull{dcblue}{file-alt}\enspace ECI gap
+  & \alert{+165.7}                   & Lower; regulatory vocab absorbed \\
+\iconfull{dcblue}{bell}\enspace Signal
+  & High                             & High \\
+\rowcolor{dcblue!8}
+\iconfull{dcblue}{gavel}\enspace Response
+  & \textbf{None}                    & \textbf{Moratorium 2019--2022} \\
+\midrule
+\rowcolor{dcaccent!15}
+\multicolumn{3}{>{\raggedright\arraybackslash}p{0.94\textwidth}}{%
+  \textcolor{dcaccent}{\textbf{\faKey\enspace
+  Key variable: ownership structure + governance counterparty}}} \\
+\bottomrule
+\end{tabularx}}
+\note{This is the comparative table in one slide. Both cities have high contestation. The decisive variable is ownership structure and the presence or absence of a governance counterparty. Amsterdam had identifiable actors, concentrated enough to enter binding commitments. Virginia had dispersed REIT ownership — no counterparty, no moratorium.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 13 — Open cartography
+\begin{frame}{\iconfull{dcblue}{map}\enspace Building the Cartography Together}
+\begin{columns}[T]
+\begin{column}{0.52\textwidth}
+  \small\icon{share-alt}\textbf{Why open is a theoretical necessity}\\[0.2em]
+  \footnotesize
+  CAS-like phenomena are too distributed, too opaque\\
+  for any single team. The commons \textit{is} the method.\\[0.4em]
+
+  \small\icon{folder-open}\textbf{What we share}
+  \begin{itemize}\footnotesize
+    \item Facility index (CC BY 4.0)
+    \item NLP / CV / network pipelines (MIT)
+    \item \footnotesize\texttt{github.com/babayyy/}\\\texttt{datacentering-cartography}
+  \end{itemize}
+\end{column}
+\begin{column}{0.44\textwidth}
+  \vspace{0.2em}
+  \small\icon{hands-helping}\textbf{Concrete asks}
+  \begin{itemize}\footnotesize
+    \item Local knowledge: disputes, unreported sites
+    \item Company registry or REIT data access
+    \item Methodological critique
+    \item Replication in other jurisdictions
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{center}
+    \small\textit{``The cloud is not a metaphor.\\
+    It is infrastructure.\\
+    And infrastructure can be mapped.''}
+  \end{center}
+\end{column}
+\end{columns}
+\note{The open cartography is theoretically motivated — not just an open-science gesture. If the phenomena are genuinely CAS-like, then the knowledge needed to map them is itself distributed: local knowledge about disputes, linguistic access to non-English planning records, company registry expertise. The distributed observatory is the methodological response to the distributed object. Come build it with us.}
+\end{frame}
+
+\end{document}
