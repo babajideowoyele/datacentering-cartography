@@ -15,19 +15,21 @@
 \usepackage{xcolor}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds}
 
-%% Colour palette
-\definecolor{dcblue}{RGB}{31,73,125}
-\definecolor{dcaccent}{RGB}{192,80,77}
-\definecolor{dclightblue}{RGB}{189,215,238}
-\definecolor{dcgray}{RGB}{89,89,89}
-\definecolor{dcbg}{RGB}{250,248,243}
-\definecolor{dcgreen}{RGB}{60,120,80}
+%% Black and white palette
+\definecolor{dcblue}{RGB}{20,20,20}
+\definecolor{dcaccent}{RGB}{20,20,20}
+\definecolor{dclightblue}{RGB}{218,218,218}
+\definecolor{dcgray}{RGB}{110,110,110}
+\definecolor{dcbg}{RGB}{255,255,255}
+\definecolor{dcgreen}{RGB}{20,20,20}
 
-\setbeamercolor{frametitle}{bg=dcblue,fg=white}
-\setbeamercolor{progress bar}{fg=dcaccent}
-\setbeamercolor{alerted text}{fg=dcaccent}
-\setbeamercolor{example text}{fg=dcblue}
-\setbeamercolor{normal text}{fg=black!85}
+\setbeamercolor{frametitle}{bg=black!88,fg=white}
+\setbeamercolor{progress bar}{fg=black!55}
+\setbeamercolor{alerted text}{fg=black!88}
+\setbeamercolor{example text}{fg=black!70}
+\setbeamercolor{normal text}{fg=black!88,bg=white}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamerfont{alerted text}{series=\bfseries}
 \setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}
 \setbeamerfont{title}{size=\large,series=\bfseries}
 \setbeamerfont{subtitle}{size=\normalsize}
@@ -303,10 +305,10 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
     {../figures/wp3_ownership_network}
   \begin{center}
     \scriptsize
-    \textcolor{red!70!black}{$\bullet$ REIT holding}\;
-    \textcolor{blue}{$\bullet$ operating}\;
-    \textcolor{cyan!70!black}{$\bullet$ subsidiary}\;
-    \textcolor{dcgreen}{$\bullet$ investor}
+    $\blacksquare$ REIT holding\;
+    $\square$ operating\;
+    $\circ$ subsidiary\;
+    $\bullet$ investor
   \end{center}
 \end{column}
 \begin{column}{0.44\textwidth}
