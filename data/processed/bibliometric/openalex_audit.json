@@ -1,0 +1,26 @@
+{
+  "query_date": "2026-04-20",
+  "source": "OpenAlex API",
+  "corpus": {
+    "data_center_US_2010_2025": 19165,
+    "data_centre_UK_2010_2025": 4805
+  },
+  "growth": {
+    "2010": 462,
+    "2024": 1403,
+    "2025_partial": 2120,
+    "growth_pct_2010_to_2024": 204
+  },
+  "silos": {
+    "technical_CS_engineering": 18180,
+    "environmental": 2097,
+    "social_political": 2979
+  },
+  "innovation_studies_cooccurrence": {
+    "multi-level perspective": 16,
+    "technological innovation system": 22,
+    "strategic niche management": 1,
+    "sociotechnical regime": 0,
+    "sustainability transition": 56
+  }
+}

@@ -7,11 +7,13 @@
 \bigskip
 \begin{fullwidth}
 \footnotesize
-\captionof{table}{Three disconnected silos in the data center literature (OpenAlex, 2010--2025,
-         $n = 4{,}757$; ``data center'' in title). $n$ values are title-search counts;
-         the critical/STS/geography literature is substantially larger but dispersed across
-         venues that do not use ``data center'' as a title keyword (see $\dagger$).
-         The zero-paper row for innovation studies is the starting point of this
+\captionof{table}{Three disconnected silos in the data center literature (OpenAlex API, April 2026;
+         \texttt{title.search:"data centre"}, 2010--2025; $n = 4{,}805$; US spelling adds ${\approx}19{,}000$).
+         Silo $n$ values are approximate concept-filtered counts from the combined corpus; categories overlap
+         (a paper may hold multiple concepts). Critical/STS/geography literature is
+         substantially larger but dispersed across venues not using ``data center''
+         as a title keyword (see $\dagger$).
+         The zero-engagement row for innovation studies is the starting point of this
          research agenda.\label{tab:silos}}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.25}
@@ -25,23 +27,23 @@
 \midrule
 Technical efficiency &
   Cooling infrastructure, PUE, hardware lifecycle, workload scheduling &
-  279 &
+  ${\approx}18{,}000$ &
   \citet{dayarathna2015data}; \citet{masanet2020recalibrating} \\
 \addlinespace[2pt]
 \rowcolor{dcgray}
 Environmental impact &
   Carbon footprint, scope 2 emissions, renewable energy PPAs, water withdrawal &
-  114 &
+  ${\approx}2{,}100$ &
   \citet{iea2024electricity} \\
 \addlinespace[2pt]
 Socio-political$^\dagger$ &
   Ethnography, planning disputes, cultural politics of infrastructure &
-  15$^\dagger$ &
+  ${\approx}3{,}000^\dagger$ &
   \citet{blum2012tubes}; \citet{vonderau2019storing} \\
 \addlinespace[4pt]
 \rowcolor{dcaccent!12}
 \textit{Innovation studies} &
-  \textit{MLP, TIS, SNM, sociotechnical regimes, transition governance} &
+  \textit{MLP, TIS, SNM, sociotechnical regime analysis (as applied frameworks)} &
   \textcolor{dcaccent}{\textbf{0}} &
   \textit{--- this paper ---} \\
 \bottomrule
