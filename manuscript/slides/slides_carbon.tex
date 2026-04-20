@@ -71,8 +71,44 @@
 \note{Welcome. 15 minutes. Title: Towards a Cartography of Datacentering. I'm going to argue that data centers are a blind spot in innovation studies — and show you a research agenda that starts to fix that.}
 
 %% ------------------------------------------------------------------
+%% SLIDE 2 — Why Research Policy?
+\begin{frame}{\iconfull{dcaccent}{university}\enspace Why Should \textit{This Room} Care?}
+\begin{columns}[T]
+\begin{column}{0.50\textwidth}
+  \small\textbf{\$930B infrastructure wave — no RP framework to steer it}\\[0.5em]
+  \footnotesize
+  \begin{itemize}
+    \item Innovation governance \& sectoral systems: \textit{which actors set the rules?}
+    \item Sustainability transitions: \textit{is this a niche, a regime, or neither?}
+    \item Policy design: \textit{what levers exist when ownership is dispersed globally?}
+  \end{itemize}
+  \vspace{0.5em}
+  \small\textbf{A regime forming in real time — rare opportunity}\\[0.3em]
+  \footnotesize
+  Most RP work reconstructs transitions post-hoc from archives.\\
+  Here the regulatory windows are \alert{open now}.
+\end{column}
+\begin{column}{0.46\textwidth}
+  \small\textbf{What RP brings that engineering literature lacks}\\[0.5em]
+  \footnotesize
+  \begin{tabular}{@{}ll@{}}
+    \iconfull{dcblue}{network-wired} & Actor constellation analysis \\[0.3em]
+    \iconfull{dcblue}{balance-scale} & Comparative governance cases \\[0.3em]
+    \iconfull{dcblue}{comments}      & Discourse \& imaginary framing \\[0.3em]
+    \iconfull{dcblue}{clock}         & Temporal dynamics of regime change \\
+  \end{tabular}
+  \vspace{0.6em}
+  \textcolor{dcgray}{\footnotesize\textit{Amsterdam's moratorium (2019--2022) shows\\
+  governance is possible — but time-bounded.\\
+  The field that doesn't build the framework\\
+  leaves policy actors to improvise without one.}}
+\end{column}
+\end{columns}
+\note{I want to earn 30 seconds of your patience before the data. This is not a paper for computer science — it's a paper for this room. Research Policy has the tools for this: sectoral systems, transition governance, discourse analysis. The question is whether we apply them before or after the regulatory window closes. Amsterdam closed a moratorium in 2022. Virginia never opened one. That difference is what RP frameworks can explain — and potentially help replicate.}
+\end{frame}
+
 %% ------------------------------------------------------------------
-%% SLIDE 2 — Scale provocation
+%% SLIDE 3 — Scale provocation
 \begin{frame}{\iconfull{dcaccent}{chart-line}\enspace How Big Is This?}
 
 \begin{columns}[T]
@@ -474,6 +510,151 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
 \end{column}
 \end{columns}
 \note{The open cartography is theoretically motivated — not just an open-science gesture. If the phenomena are genuinely CAS-like, then the knowledge needed to map them is itself distributed: local knowledge about disputes, linguistic access to non-English planning records, company registry expertise. The distributed observatory is the methodological response to the distributed object. Come build it with us.}
+\end{frame}
+
+%% ==================================================================
+%% APPENDIX — Q&A backup slides (not counted in slide total)
+%% ==================================================================
+\appendix
+
+\begin{frame}[noframenumbering]{\faIcon{question-circle}\enspace Q: Why CAS and not MLP / TIS / SNM?}
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+  \small\textbf{The honest answer: they are complementary}\\[0.4em]
+  \footnotesize
+  MLP excels when a niche is visible and a regime is identifiable. Here:\\[0.3em]
+  \begin{itemize}
+    \item No stable niche — hyperscalers \textit{are} the incumbent
+    \item No clear landscape pressure — it \textit{is} the landscape
+    \item Regime boundaries dissolve across planning, energy, finance
+  \end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+  \small\textbf{Why CAS as sensemaking lens}\\[0.4em]
+  \footnotesize
+  \begin{itemize}
+    \item Emergent outcomes no single actor controls
+    \item Non-linear feedback (moratorium → relocation → new contestation)
+    \item Heterogeneous agents: grids, aquifers, pension funds, planning laws
+    \item CAS doesn't replace MLP — it flags \textit{why} MLP categories keep slipping
+  \end{itemize}
+  \vspace{0.3em}
+  \textcolor{dcgray}{\textit{Future work: operationalise regime boundaries using the contestation corpus.}}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[noframenumbering]{\faIcon{question-circle}\enspace Q: Three facilities is not a sample}
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+  \small\textbf{Agreed — and by design}\\[0.4em]
+  \footnotesize
+  This is a research agenda paper, not a findings paper.\\[0.3em]
+  The seed results serve two functions:
+  \begin{itemize}
+    \item Demonstrate \textit{analytical tractability} — methods work on real data
+    \item Surface \textit{puzzles} that motivate the agenda (Virginia vs Amsterdam)
+  \end{itemize}
+  \vspace{0.3em}
+  N=3 is explicitly described as illustrative, not representative.
+\end{column}
+\begin{column}{0.48\textwidth}
+  \small\textbf{The scaling path}\\[0.4em]
+  \footnotesize
+  \begin{itemize}
+    \item Facility index: 400+ sites already indexed (CC BY 4.0)
+    \item ECI pipeline: automated; scales to any operator with public web presence
+    \item Ownership network: DCD + company registry data, 40+ nodes in next iteration
+    \item Contestation corpus: OpenAlex + news API — 200+ events targetted
+  \end{itemize}
+  \vspace{0.3em}
+  \textcolor{dcgray}{\textit{Open cartography is precisely the mechanism for scaling N.}}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[noframenumbering]{\faIcon{question-circle}\enspace Q: Amsterdam and Virginia differ in more than ownership}
+\small\textbf{Yes — and the paper doesn't claim monocausality}\\[0.4em]
+\footnotesize
+Confounds explicitly acknowledged: planning law system (common law vs civil), national energy policy, urban density, data center age profile, EU regulatory environment.\\[0.6em]
+
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Potential confound} & \textbf{Amsterdam} & \textbf{N. Virginia} \\
+\midrule
+National energy policy & EU Green Deal pressure & Federal non-intervention \\
+Planning law & Civil / municipal discretion & Common law / NIMBY fragmented \\
+Urban density & High (residential proximity) & Low (Ashburn exurban) \\
+EU AI Act / GDPR & Regulatory visibility & Absent \\
+\midrule
+\multicolumn{3}{l}{\textit{Claim: ownership structure is \textbf{a} key variable, not \textbf{the only} variable.}} \\
+\bottomrule
+\end{tabular}\\[0.4em]
+\textcolor{dcgray}{The governance counterparty argument is falsifiable: find a REIT-dominated market with a moratorium, or an operator-owned market without one.}
+\end{frame}
+
+\begin{frame}[noframenumbering]{\faIcon{question-circle}\enspace Q: Positive corporate claims vs Wikipedia — isn't that obvious?}
+\begin{columns}[T]
+\begin{column}{0.52\textwidth}
+  \small\textbf{The finding is the \textit{magnitude} and \textit{divergence}}\\[0.4em]
+  \footnotesize
+  Yes, corporate comms skew positive — everyone knows that.\\[0.3em]
+  What the ECI adds:
+  \begin{itemize}
+    \item \textit{Systematic measurement} across 10 operators, 3 jurisdictions
+    \item \textit{Divergence score}: +165.7 means the gap is not uniform — it varies by operator and by claim type (water vs carbon vs land)
+    \item \textit{Temporal dynamics}: gap widens \textit{after} contestation events
+    \item \textit{Jurisdiction delta}: same operator, different ECI score in different markets
+  \end{itemize}
+\end{column}
+\begin{column}{0.44\textwidth}
+  \small\textbf{The governance implication}\\[0.4em]
+  \footnotesize
+  The ECI is an \textit{accountability instrument}, not a sentiment scorer.\\[0.3em]
+  A regulator can ask: ``Your website says net-zero water by 2030. Your ECI divergence on water claims is +140. Explain the gap.''\\[0.4em]
+  \textcolor{dcgray}{\textit{The obvious becomes actionable when it is indexed, tracked, and attributed.}}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[noframenumbering]{\faIcon{question-circle}\enspace Q: This is a research agenda — where's the actual finding?}
+\small\textbf{Three findings, not zero}\\[0.4em]
+\footnotesize
+\begin{enumerate}
+  \item \textbf{Bibliometric finding}: 4,757 papers, zero MLP/TIS/SNM engagement. That is a finding — it characterises a field's blind spot with precision.
+  \item \textbf{Empirical finding}: Amsterdam moratorium follows signal onset by $<$1 year; Virginia, with comparable signal intensity, produces no response. The difference is governance structure, not community mobilisation. That is a causal claim, not an agenda item.
+  \item \textbf{Methodological finding}: ECI, ownership network, and contestation signal pipeline are demonstrated as tractable on real data — they \textit{can} be built, not merely proposed.
+\end{enumerate}
+\vspace{0.3em}
+\textcolor{dcgray}{\textit{The agenda is what comes next. The findings are the proof of concept.}}
+\end{frame}
+
+\begin{frame}[noframenumbering]{\faIcon{question-circle}\enspace Q: Open cartography — who quality-controls it?}
+\begin{columns}[T]
+\begin{column}{0.52\textwidth}
+  \small\textbf{The challenge is real}\\[0.4em]
+  \footnotesize
+  Crowd-sourced facility indices risk:
+  \begin{itemize}
+    \item Operator-biased contributions (operators have incentive to shape their profile)
+    \item Inconsistent verification standards across jurisdictions
+    \item Coverage gaps in non-English-language markets
+    \item Data decay (closures, ownership changes)
+  \end{itemize}
+\end{column}
+\begin{column}{0.44\textwidth}
+  \small\textbf{Governance mechanisms planned}\\[0.4em]
+  \footnotesize
+  \begin{itemize}
+    \item Tiered sourcing: primary (planning docs, company registry) $>$ secondary (DCD, trade press) $>$ community
+    \item Versioned, attributed edits (git-backed)
+    \item Cross-validation against satellite imagery (WP2 pipeline)
+    \item Editorial board: researchers, not operators
+  \end{itemize}
+  \vspace{0.3em}
+  \textcolor{dcgray}{\textit{Same QC challenge as Wikipedia — solved by protocol, not perfection.}}
+\end{column}
+\end{columns}
 \end{frame}
 
 \end{document}
