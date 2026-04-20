@@ -29,8 +29,13 @@
 \setbeamercolor{example text}{fg=dcblue}
 \setbeamercolor{normal text}{fg=black!85}
 \setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamerfont{title}{size=\large,series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize}
+\setbeamerfont{institute}{size=\footnotesize}
+\setbeamerfont{date}{size=\footnotesize}
 
 \setbeamersize{text margin left=6mm, text margin right=6mm}
+\hfuzz=5pt   %% suppress sub-5pt hbox warnings (invisible at presentation resolution)
 
 %% Icon shorthand
 \newcommand{\icon}[1]{\textcolor{dcblue}{\faIcon{#1}}\enspace}
@@ -49,7 +54,9 @@
 \begin{document}
 
 %% SLIDE 1 — Title
-\maketitle
+\begin{frame}[shrink=4]
+\titlepage
+\end{frame}
 \note{Welcome. 15 minutes. Title: Towards a Cartography of Datacentering. I'm going to argue that data centers are a blind spot in innovation studies — and show you a research agenda that starts to fix that.}
 
 %% ------------------------------------------------------------------
@@ -164,24 +171,24 @@
 %% SLIDE 5 — CAS framework
 \begin{frame}{\iconfull{dcblue}{project-diagram}\enspace CAS as a Sensemaking Lens}
 
-\vspace{-0.3em}
+\vspace{-0.2em}
 \begin{center}
 \begin{tikzpicture}[
   dim/.style={draw=dcblue,fill=dclightblue!50,rounded corners=4pt,
-              minimum width=3.0cm,minimum height=1.1cm,
-              align=center,font=\small,inner sep=5pt},
+              minimum width=2.7cm,minimum height=1.0cm,
+              align=center,font=\small,inner sep=4pt},
   wp/.style={draw=dcaccent!70,fill=dcaccent!8,rounded corners=4pt,
-             minimum width=1.8cm,minimum height=0.7cm,
+             minimum width=1.6cm,minimum height=0.6cm,
              align=center,font=\scriptsize,text=dcaccent},
   arr/.style={->,>=stealth,thick,dcblue!60}
 ]
   \node[dim] (c) at (0,0)   {\faEye\\\textbf{Conceptual}\\\scriptsize Imaginaries};
-  \node[dim] (s) at (4.2,0) {\faNetworkWired\\\textbf{Structural}\\\scriptsize Ownership, actors};
-  \node[dim] (t) at (8.4,0) {\faChartLine\\\textbf{Temporal}\\\scriptsize Contestation};
+  \node[dim] (s) at (3.7,0) {\faNetworkWired\\\textbf{Structural}\\\scriptsize Ownership};
+  \node[dim] (t) at (7.4,0) {\faChartLine\\\textbf{Temporal}\\\scriptsize Contestation};
 
-  \node[wp]  (w1) at (0,-2.1)   {WP1+2};
-  \node[wp]  (w3) at (4.2,-2.1) {WP3};
-  \node[wp]  (w4) at (8.4,-2.1) {WP4};
+  \node[wp]  (w1) at (0,-1.85)   {WP1+2};
+  \node[wp]  (w3) at (3.7,-1.85) {WP3};
+  \node[wp]  (w4) at (7.4,-1.85) {WP4};
 
   \draw[arr] (c) -- (s);
   \draw[arr] (s) -- (t);
@@ -203,24 +210,26 @@
 \begin{frame}{\iconfull{dcblue}{layer-group}\enspace A Multimodal Research Agenda}
 
 \vspace{0.2em}
-\begin{tabular}{@{}clll@{}}
+{\small
+\begin{tabularx}{\textwidth}{@{}c>{\raggedright}p{2.6cm}>{\raggedright}X>{\raggedright\arraybackslash}X@{}}
 \toprule
-\textbf{WP} & \textbf{Icon} & \textbf{Data} & \textbf{Key output} \\
+\textbf{WP} & \textbf{Method} & \textbf{Data} & \textbf{Key output} \\
 \midrule
 \textbf{1} & \iconfull{dcblue}{file-alt}\enspace Text NLP
-           & Operator websites + Wikipedia
-           & ECI imaginary divergence \\[0.3em]
+           & Operator websites; Wikipedia
+           & ECI divergence \\[0.2em]
 \textbf{2} & \iconfull{dcblue}{satellite}\enspace Satellite + CV
-           & Sentinel-2, Landsat LST, VIIRS, corporate photos
-           & Visual abstraction; thermal footprint \\[0.3em]
-\textbf{3} & \iconfull{dcblue}{network-wired}\enspace Network
-           & SEC EDGAR, REIT filings, Overture Maps
-           & Ownership graph; urban embeddedness \\[0.3em]
+           & Sentinel-2; Landsat LST; VIIRS
+           & Visual abstraction; thermal footprint \\[0.2em]
+\textbf{3} & \iconfull{dcblue}{network-wired}\enspace Networks
+           & SEC EDGAR; REIT filings; Overture Maps
+           & Ownership graph; urban graph \\[0.2em]
 \textbf{4} & \iconfull{dcblue}{newspaper}\enspace Event detection
-           & GDELT, planning records, social media
+           & GDELT; planning records; social media
            & Signal-to-response lag \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
+}
 
 \vspace{0.5em}
 \metroset{block=fill}
@@ -384,33 +393,38 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
 
 %% ------------------------------------------------------------------
 %% SLIDE 12 — Comparison
-\begin{frame}{\iconfull{dcblue}{balance-scale}\enspace Virginia vs Amsterdam: Same Signal, Different System}
-\vspace{-0.2em}
-\begin{center}
-\footnotesize
-\begin{tabularx}{0.96\textwidth}{lXX}
+\begin{frame}{\iconfull{dcblue}{balance-scale}\enspace Same Signal, Different System}
+\vspace{-0.3em}
+{\scriptsize\setlength{\tabcolsep}{3pt}%
+\begin{tabularx}{0.99\textwidth}{>{\raggedright}p{2.0cm}XX}
 \toprule
 \rowcolor{dcblue!90}
 \textcolor{white}{\textbf{Dimension}} &
-\textcolor{white}{\textbf{\faMapMarker\; Northern Virginia}} &
-\textcolor{white}{\textbf{\faMapMarker\; Amsterdam}} \\
+\textcolor{white}{\textbf{N. Virginia}} &
+\textcolor{white}{\textbf{Amsterdam}} \\
 \midrule
-\icon{network-wired}Ownership  & REIT-dominated; dispersed        & Mixed; operator-owned, AMS-IX coop \\
+\iconfull{dcblue}{network-wired}\enspace Ownership
+  & REIT-dominated; dispersed        & Mixed; operator-owned, AMS-IX coop \\
 \rowcolor{dcblue!8}
-\icon{handshake}Counterparty   & \alert{None identifiable}        & Municipality + named operators \\
-\icon{map}Urban (2\,km)        & 36 power / \alert{1 res.\ zone}  & 2 power / \alert{61 res.\ zones} \\
+\iconfull{dcblue}{handshake}\enspace Counterparty
+  & \alert{None}                     & Municipality + operators \\
+\iconfull{dcblue}{map}\enspace Urban (2\,km)
+  & 36 power / \alert{1 res.}        & 2 power / \alert{61 res.} \\
 \rowcolor{dcblue!8}
-\icon{file-alt}ECI divergence  & \alert{+165.7} (corp 120$\times$)& Lower; regulatory vocab absorbed \\
-\icon{exclamation-triangle}Signal & High                          & High \\
+\iconfull{dcblue}{file-alt}\enspace ECI gap
+  & \alert{+165.7}                   & Lower; regulatory vocab absorbed \\
+\iconfull{dcblue}{bell}\enspace Signal
+  & High                             & High \\
 \rowcolor{dcblue!8}
-\icon{gavel}Response           & \textbf{None}                    & \textbf{Moratorium 2019--2022} \\
+\iconfull{dcblue}{gavel}\enspace Response
+  & \textbf{None}                    & \textbf{Moratorium 2019--2022} \\
 \midrule
-\rowcolor{dcaccent!12}
-\multicolumn{3}{l}{\textcolor{dcaccent}{\textbf{\faKey\enspace
-  Explanatory variable: ownership structure + presence/absence of governance counterparty}}} \\
+\rowcolor{dcaccent!15}
+\multicolumn{3}{>{\raggedright\arraybackslash}p{0.94\textwidth}}{%
+  \textcolor{dcaccent}{\textbf{\faKey\enspace
+  Key variable: ownership structure + governance counterparty}}} \\
 \bottomrule
-\end{tabularx}
-\end{center}
+\end{tabularx}}
 \note{This is the comparative table in one slide. Both cities have high contestation. The decisive variable is ownership structure and the presence or absence of a governance counterparty. Amsterdam had identifiable actors, concentrated enough to enter binding commitments. Virginia had dispersed REIT ownership — no counterparty, no moratorium.}
 \end{frame}
 
@@ -419,30 +433,28 @@ A firm that won't publish is still in a REIT filing, a satellite image, and a pl
 \begin{frame}{\iconfull{dcblue}{map}\enspace Building the Cartography Together}
 \begin{columns}[T]
 \begin{column}{0.52\textwidth}
-  \icon{share-alt}\textbf{Why open exchange is a theoretical necessity}\\[0.3em]
-  \small
-  Datacentering is CAS-like: too large, too distributed,\\
-  too opaque for any single team.\\
-  The research commons \textit{is} the methodological response.\\[0.5em]
+  \small\icon{share-alt}\textbf{Why open is a theoretical necessity}\\[0.2em]
+  \footnotesize
+  CAS-like phenomena are too distributed, too opaque\\
+  for any single team. The commons \textit{is} the method.\\[0.4em]
 
-  \icon{folder-open}\textbf{What we share}
-  \begin{itemize}\small
-    \item Community facility index (CC BY 4.0)
+  \small\icon{folder-open}\textbf{What we share}
+  \begin{itemize}\footnotesize
+    \item Facility index (CC BY 4.0)
     \item NLP / CV / network pipelines (MIT)
-    \item Open data, open workflows
-    \item This paper: \texttt{github.com/babayyy/datacentering-cartography}
+    \item \footnotesize\texttt{github.com/babayyy/}\\\texttt{datacentering-cartography}
   \end{itemize}
 \end{column}
 \begin{column}{0.44\textwidth}
-  \vspace{0.3em}
-  \icon{hands-helping}\textbf{Concrete asks}
-  \begin{itemize}\small
-    \item \icon{map-pin}Local knowledge: disputes, unreported sites
-    \item \icon{database}Company registry or REIT data access
-    \item \icon{code-branch}Methodological critique
-    \item \icon{language}Replication in other languages / jurisdictions
+  \vspace{0.2em}
+  \small\icon{hands-helping}\textbf{Concrete asks}
+  \begin{itemize}\footnotesize
+    \item Local knowledge: disputes, unreported sites
+    \item Company registry or REIT data access
+    \item Methodological critique
+    \item Replication in other jurisdictions
   \end{itemize}
-  \vspace{0.5em}
+  \vspace{0.4em}
   \begin{center}
     \small\textit{``The cloud is not a metaphor.\\
     It is infrastructure.\\
