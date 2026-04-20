@@ -25,12 +25,14 @@
 \usepackage{cleveref}
 \usepackage{natbib}
 \usepackage{caption}
+\captionsetup{hypcap=false}  %% prevents 163pt overfull hboxes from hyperref anchors in fullwidth
 \usepackage[most]{tcolorbox}
 
 %% Box style — understated Tufte-compatible frame
 \tcbset{
   datacenterbox/.style={
     enhanced,
+    breakable,
     colback=dcgray,
     colframe=dcblue,
     boxrule=0.6pt,
@@ -45,6 +47,7 @@
 }
 
 \setlength{\emergencystretch}{3em}
+\setcounter{secnumdepth}{1}  %% enable section numbers (tufte disables them by default)
 
 %% Table colour palette
 \definecolor{dcblue}{RGB}{31,73,125}

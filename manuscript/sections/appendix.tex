@@ -17,8 +17,7 @@ environment is containerised in the project's \texttt{Dockerfile} and
 \begin{fullwidth}
 \tiny
 \captionof{table}{Research pipeline technical specifications by work package (status: April 2026).
-         All scripts are MIT-licensed and available in the project repository.}
-\label{tab:pipeline}
+         All scripts are MIT-licensed and available in the project repository.\label{tab:pipeline}}
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.1}
 \begin{tabularx}{\linewidth}{%
@@ -161,8 +160,7 @@ as a strategic opacity finding.
 \captionof{table}{WP1 ECI seed results, April 2026. ECI = weighted keyword density.
          Sentiment: VADER compound score ($-1$ to $+1$).
          DC$_n$ = ``data center'' mention count.
-         $\Delta$ECI = corporate minus Wikipedia ECI (positive = imaginary inflation).}
-\label{tab:wp1results}
+         $\Delta$ECI = corporate minus Wikipedia ECI (positive = imaginary inflation).\label{tab:wp1results}}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.35}
 \resizebox{\linewidth}{!}{%
@@ -219,8 +217,7 @@ builds a heterogeneous NetworkX \texttt{MultiDiGraph}. Edge types: \textit{near\
 \begin{fullwidth}
 \footnotesize
 \captionof{table}{WP3 urban embeddedness metrics: seed run, April 2026. Bbox radius: 2\,km.
-         Adjacency threshold: 1\,km. Data: Overture Maps via city2graph v0.3.1.}
-\label{tab:wp3results}
+         Adjacency threshold: 1\,km. Data: Overture Maps via city2graph v0.3.1.\label{tab:wp3results}}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.3}
 \begin{adjustbox}{max width=\linewidth}
@@ -285,8 +282,7 @@ The full network comprises 20 nodes and 35 edges across four actor types.
 \captionof{table}{WP3b ownership network: node inventory by actor type (seed run, April 2026).
          Edge types: \textit{owns} (holding company $\to$ subsidiary/operating company),
          \textit{invests\_in} (institutional investor $\to$ REIT).
-         Data: SEC EDGAR submissions API; seed network with hardcoded structure.}
-\label{tab:wp3bresults}
+         Data: SEC EDGAR submissions API; seed network with hardcoded structure.\label{tab:wp3bresults}}
 \setlength{\tabcolsep}{5pt}
 \renewcommand{\arraystretch}{1.35}
 \begin{adjustbox}{max width=\linewidth}
@@ -337,8 +333,7 @@ Signal onset is defined as the first year with $\geq 3$ events in the corpus.
 \captionof{table}{WP4 seed contestation corpus summary by city (April 2026).
          Negative \% = share of events with negative tone valence.
          Signal onset = first year $\geq 3$ events. Data: documented public record
-         (58 events total); full GDELT corpus deferred to server run.}
-\label{tab:wp4results}
+         (58 events total); full GDELT corpus deferred to server run.\label{tab:wp4results}}
 \setlength{\tabcolsep}{5pt}
 \renewcommand{\arraystretch}{1.4}
 \begin{adjustbox}{max width=\linewidth}
@@ -393,8 +388,7 @@ Contributing guidelines are documented in \texttt{CONTRIBUTING.md}.
 \footnotesize
 \captionof{table}{Facility index field schema. \textbf{Required} fields must be present for a
          record to enter the pipeline; \textit{Optional} fields improve coverage but
-         do not block processing.}
-\label{tab:schema}
+         do not block processing.\label{tab:schema}}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabularx}{\linewidth}{>{\ttfamily\raggedright\hyphenchar\font=`\_}p{4.5cm}>{\raggedright}p{1.0cm}>{\raggedright}p{1.6cm}X}
@@ -447,8 +441,7 @@ removal; multi-word phrases are matched before single-word fallback.
          contribution per normalised occurrence. Higher weights reflect stronger
          environmental performance claims. Negative weights: community and location
          terms reduce the ECI score, reflecting that territorial specificity is
-         analytically distinct from environmental claims.}
-\label{tab:eci}
+         analytically distinct from environmental claims.\label{tab:eci}}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.1}
 \begin{tabularx}{\linewidth}{>{\bfseries\raggedright}p{3.5cm}rX}

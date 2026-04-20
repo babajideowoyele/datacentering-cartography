@@ -28,13 +28,15 @@ from matplotlib.patches import FancyArrowPatch
 
 # Data center capex: annual DC-attributed capex, 2019–2025, projected 2026
 # Derived from Epoch AI / Platformonomics big-5 hyperscaler capex
-dc_years_raw  = [0, 1, 2, 3, 4, 5, 6]          # 2019=0 … 2025=6
-dc_annual     = [60, 80, 110, 150, 200, 250, 330]  # ~DC share, $B
-dc_cumulative = np.cumsum(dc_annual).tolist()      # running total
-dc_cumulative = [0] + dc_cumulative                # start at 0, len=8
-dc_years      = [-0.5] + dc_years_raw              # len=8, solid part
-dc_years_ext  = dc_years + [6.8]                   # len=9, with 2026 planned
-dc_cum_ext    = dc_cumulative + [dc_cumulative[-1] + 380]  # len=9
+dc_years_raw  = [0, 1, 2, 3, 4, 5, 6]                    # 2019=0 … 2025=6
+dc_annual     = [65, 85, 115, 160, 215, 290, 330]         # ~DC share, $B
+# 2019-2024 sum = 930 (≈ Epoch AI / Platformonomics cited figure)
+# 2025 = 330 (company guidance); 2026 = +380 projected
+dc_cumulative = np.cumsum(dc_annual).tolist()
+dc_cumulative = [0] + dc_cumulative                       # len=8, start at 0
+dc_years      = [-0.5] + dc_years_raw                     # len=8, solid part
+dc_years_ext  = dc_years + [6.8]                          # len=9, with 2026 planned
+dc_cum_ext    = dc_cumulative + [dc_cumulative[-1] + 380] # len=9
 
 # Interstate Highway System 1956–1993 (37 yr): $620B total
 # Roughly linear build-out with acceleration in 1960s
