@@ -162,47 +162,49 @@
 
 %% ------------------------------------------------------------------
 %% SLIDE 4 — The pipeline
-\begin{frame}[shrink=5]{\iconfull{dcblue}{project-diagram}\enspace The Analytical Pipeline}
-\vspace{0.2em}
-\begin{center}
-\begin{tikzpicture}[
-  node distance=0.35cm and 0.5cm,
-  box/.style={draw=black!30,rounded corners=2pt,fill=black!4,
-              inner sep=5pt,text width=2.5cm,align=center,font=\scriptsize},
-  arr/.style={-{Stealth[length=4pt]},black!50,thick},
-  label/.style={font=\tiny,text=dcgray,align=center}
-]
-  \node[box] (scrape)  {\textbf{1. Scrape}\\\texttt{scrape\_dcd\_}\\\texttt{listings.py}};
-  \node[box,right=of scrape] (ner)    {\textbf{2. NER + POS}\\GLiNER\\city / org / event};
-  \node[box,right=of ner]    (topic)  {\textbf{3. BERTopic}\\headline\\clusters};
-  \node[box,right=of topic]  (geo)    {\textbf{4. Geocode}\\cities $\to$\\coordinates};
-  \node[box,right=of geo]    (c2g)    {\textbf{5. city2graph}\\urban\\embeddedness};
-
-  \node[box,below=0.7cm of scrape] (ss)   {\textbf{1b. Screenshot}\\Playwright\\+ OCR};
-  \node[box,right=of ss]           (clip) {\textbf{2b. CLIP embed}\\image\\features};
-  \node[box,right=of clip]         (vri)  {\textbf{3b. BERTopic}\\visual\\register};
-  \node[box,right=of vri]          (kggen) {\textbf{4b. KGGen}\\knowledge\\graph};
-
-  \draw[arr] (scrape) -- (ner);
-  \draw[arr] (ner)    -- (topic);
-  \draw[arr] (topic)  -- (geo);
-  \draw[arr] (geo)    -- (c2g);
-
-  \draw[arr] (scrape) -- (ss);
-  \draw[arr] (ss)     -- (clip);
-  \draw[arr] (clip)   -- (vri);
-  \draw[arr] (vri)    -- (kggen);
-
-  \node[label,above=2pt of ner]   {text track};
-  \node[label,above=2pt of vri]   {image track};
-\end{tikzpicture}
-\end{center}
+\begin{frame}[shrink=5]{\iconfull{dcblue}{sitemap}\enspace The Analytical Pipeline}
 \vspace{0.1em}
+
+%% Two-track pipeline: text (top) and image (bottom)
+\begin{center}
+\scalebox{0.88}{%
+\begin{tikzpicture}[
+  node distance=0.28cm and 0.38cm,
+  box/.style={draw=black!30,rounded corners=2pt,fill=black!4,
+              inner sep=4pt,text width=2.15cm,align=center,font=\scriptsize},
+  arr/.style={-{Stealth[length=4pt]},black!40,thick},
+  lbl/.style={font=\tiny,text=dcgray}
+]
+  %% Text track
+  \node[box] (scrape) {\textbf{1. Scrape}\\DCD headlines\\+ dates};
+  \node[box,right=of scrape] (ner)   {\textbf{2. NER}\\GLiNER\\city/org/event};
+  \node[box,right=of ner]    (topic) {\textbf{3. BERTopic}\\topic\\clusters};
+  \node[box,right=of topic]  (geo)   {\textbf{4. Geocode}\\cities $\to$\\coordinates};
+  \node[box,right=of geo]    (c2g)   {\textbf{5. city2graph}\\urban\\graph};
+
+  %% Image track
+  \node[box,below=0.65cm of scrape] (ss)    {\textbf{1b. Screenshot}\\Playwright\\+ OCR};
+  \node[box,right=of ss]            (clip)  {\textbf{2b. CLIP}\\image\\embeddings};
+  \node[box,right=of clip]          (vri)   {\textbf{3b. BERTopic}\\visual\\register};
+  \node[box,right=of vri]           (kggen) {\textbf{4b. KGGen}\\knowledge\\graph};
+
+  %% Arrows
+  \draw[arr] (scrape)--(ner); \draw[arr] (ner)--(topic);
+  \draw[arr] (topic)--(geo);  \draw[arr] (geo)--(c2g);
+  \draw[arr] (scrape)--(ss);
+  \draw[arr] (ss)--(clip); \draw[arr] (clip)--(vri); \draw[arr] (vri)--(kggen);
+
+  %% Track labels
+  \node[lbl,left=3pt of scrape,align=right] {\textbf{Text}\\track};
+  \node[lbl,left=3pt of ss,align=right]     {\textbf{Image}\\track};
+\end{tikzpicture}}
+\end{center}
+\vspace{0.15em}
 \footnotesize\textcolor{dcgray}{%
-  GLiNER: zero-shot NER.\enspace
-  BERTopic: topic modelling (text + multimodal CLIP).\enspace
-  KGGen: knowledge graph extraction.\enspace
-  city2graph: urban graph from Overture Maps.}
+  GLiNER: zero-shot NER \textbar\enspace
+  BERTopic: text + multimodal (CLIP) topic modelling \textbar\enspace
+  KGGen: knowledge graph \textbar\enspace
+  city2graph: Overture Maps urban graphs}
 \note{Two parallel tracks from the same corpus: text NER + BERTopic identifies who, where, what type of event. Image track: Playwright screenshots, CLIP embeddings, BERTopic multimodal clusters reveal the visual register — what operators and trade press choose to show.}
 \end{frame}
 
@@ -339,7 +341,7 @@
 
 %% ------------------------------------------------------------------
 %% SLIDE 9 — Visual register
-\begin{frame}[shrink=5]{\iconfull{dcblue}{images}\enspace The Visual Register of Datacentering}
+\begin{frame}[shrink=5]{\iconfull{dcblue}{photo-video}\enspace The Visual Register of Datacentering}
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
   \small\textbf{What does DCD show?}\\[0.4em]
@@ -395,7 +397,7 @@
 
 %% ------------------------------------------------------------------
 %% SLIDE 10 — Datacentering: what ties it together
-\begin{frame}{\iconfull{dcblue}{link}\enspace Datacentering: The Concept}
+\begin{frame}[shrink=3]{\iconfull{dcblue}{link}\enspace Datacentering: The Concept}
 \begin{columns}[T]
 \begin{column}{0.52\textwidth}
   \vspace{0.3em}
