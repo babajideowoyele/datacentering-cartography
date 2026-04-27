@@ -1,0 +1,110 @@
+\begin{thebibliography}{12}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Book
+\bibitem[{Blum(2012)}]{blum2012tubes}
+\bibinfo{author}{Blum, A.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Tubes: A Journey to the Center of the Internet}.
+\newblock \bibinfo{publisher}{Ecco}.
+%Type = Misc
+\bibitem[{{c2g-dev}(2024)}]{city2graph}
+\bibinfo{author}{{c2g-dev}}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{city2graph: Urban geospatial data as graph
+  structures}.
+\newblock \bibinfo{howpublished}{\url{https://github.com/c2g-dev/city2graph}}.
+\newblock \bibinfo{note}{Accessed April 2026}.
+%Type = Article
+\bibitem[{Dayarathna et~al.(2015)Dayarathna, Wen and Fan}]{dayarathna2015data}
+\bibinfo{author}{Dayarathna, M.}, \bibinfo{author}{Wen, Y.},
+  \bibinfo{author}{Fan, R.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Data center energy consumption modeling: A survey}.
+\newblock \bibinfo{journal}{IEEE Communications Surveys \& Tutorials}
+  \bibinfo{volume}{18}, \bibinfo{pages}{732--794}.
+\newblock \DOIprefix\doi{10.1109/COMST.2015.2481183}.
+%Type = Article
+\bibitem[{Geels(2002)}]{geels2002technological}
+\bibinfo{author}{Geels, F.W.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Technological transitions as evolutionary
+  reconfiguration processes: a multi-level perspective and a case-study}.
+\newblock \bibinfo{journal}{Research Policy} \bibinfo{volume}{31},
+  \bibinfo{pages}{1257--1274}.
+\newblock \DOIprefix\doi{10.1016/S0048-7333(02)00062-8}.
+%Type = Incollection
+\bibitem[{Holt and Vonderau(2015)}]{holt2015vonderau}
+\bibinfo{author}{Holt, J.}, \bibinfo{author}{Vonderau, P.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Where the {Internet} lives: Data centers as cloud
+  infrastructure}, in: \bibinfo{editor}{Parks, L.},
+  \bibinfo{editor}{Starosielski, N.} (Eds.), \bibinfo{booktitle}{Signal
+  Traffic: Critical Studies of Media Infrastructures}.
+  \bibinfo{publisher}{University of Illinois Press}, pp.
+  \bibinfo{pages}{71--93}.
+%Type = Techreport
+\bibitem[{{International Energy Agency}(2024)}]{iea2024electricity}
+\bibinfo{author}{{International Energy Agency}}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Electricity 2024: Analysis and forecast to 2026}.
+\newblock \bibinfo{type}{Technical Report}. IEA. \bibinfo{address}{Paris}.
+%Type = Book
+\bibitem[{Jasanoff and Kim(2015)}]{jasanoff2015dreamscapes}
+\bibinfo{author}{Jasanoff, S.}, \bibinfo{author}{Kim, S.H.},
+  \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Dreamscapes of Modernity: Sociotechnical Imaginaries
+  and the Fabrication of Power}.
+\newblock \bibinfo{publisher}{University of Chicago Press}.
+%Type = Article
+\bibitem[{Masanet et~al.(2020)Masanet, Shehabi, Lei, Smith and
+  Koomey}]{masanet2020recalibrating}
+\bibinfo{author}{Masanet, E.}, \bibinfo{author}{Shehabi, A.},
+  \bibinfo{author}{Lei, N.}, \bibinfo{author}{Smith, S.},
+  \bibinfo{author}{Koomey, J.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Recalibrating global data center energy-use
+  estimates}.
+\newblock \bibinfo{journal}{Science} \bibinfo{volume}{367},
+  \bibinfo{pages}{984--986}.
+\newblock \DOIprefix\doi{10.1126/science.aba3758}.
+%Type = Misc
+\bibitem[{Moorhouse(2026)}]{moorhouse2026megaprojects}
+\bibinfo{author}{Moorhouse, F.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Data centers vs.\ megaprojects: cumulative capex
+  comparison}.
+\newblock \bibinfo{howpublished}{Post on X (Twitter),
+  \url{https://x.com/finmoorhouse/status/2044933442236776794}}.
+\newblock \bibinfo{note}{Data: Epoch AI / Platformonomics; FHWA; NASA; CRS;
+  GAO; Brookings. Accessed April 2026}.
+%Type = Article
+\bibitem[{Orlikowski(2007)}]{orlikowski2007sociomaterial}
+\bibinfo{author}{Orlikowski, W.J.}, \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Sociomaterial practices: Exploring technology at
+  work}.
+\newblock \bibinfo{journal}{Organization Studies} \bibinfo{volume}{28},
+  \bibinfo{pages}{1435--1448}.
+\newblock \DOIprefix\doi{10.1177/0170840607081138}.
+%Type = Article
+\bibitem[{Phillips and Ritala(2019)}]{phillips2019complex}
+\bibinfo{author}{Phillips, M.A.}, \bibinfo{author}{Ritala, P.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{A complex adaptive systems agenda for ecosystem
+  research methodology}.
+\newblock \bibinfo{journal}{Technological Forecasting and Social Change}
+  \bibinfo{volume}{148}, \bibinfo{pages}{119739}.
+\newblock \DOIprefix\doi{10.1016/j.techfore.2019.119739}.
+%Type = Article
+\bibitem[{Vonderau(2019)}]{vonderau2019storing}
+\bibinfo{author}{Vonderau, A.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Storing data, governing territories: Inside the great
+  nordic data center boom}.
+\newblock \bibinfo{journal}{PoLAR: Political and Legal Anthropology Review}
+  \bibinfo{volume}{42}, \bibinfo{pages}{90--108}.
+\newblock \DOIprefix\doi{10.1111/plar.12292}.
+
+\end{thebibliography}

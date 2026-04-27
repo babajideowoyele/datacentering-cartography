@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -rn \"\\\\\\\\\\\\\\\\begin{figure\" sections/)",
+      "Bash(grep -v \"^--$\")",
+      "Bash(pdflatex -interaction=nonstopmode \"\\\\usepackage{plex-sans}\\\\stop\")",
+      "Bash(kpsewhich plex-sans.sty)",
+      "Bash(kpsewhich IBMPlexSans-Regular.otf)",
+      "Bash(pdflatex -interaction=nonstopmode slides_carbon.tex)",
+      "Bash(grep -E \"\\\\.\\(pdf|png|jpg|tex\\)$\")",
+      "Bash(grep -rho \"\\\\\\\\\\\\\\\\cite[pt]*{[^}]*}\" \"c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/\" --include=\"*.tex\")",
+      "Bash(grep -o \"@[a-z]*{[^,]*\" \"c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/references.bib\")",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\label{fig:\" \"c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/sections\"/*.tex)",
+      "Bash(grep -A 3 \"Overfull \\\\\\\\\\\\\\\\hbox\" \"c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/main.log\")",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\captionof\\\\|\\\\\\\\\\\\\\\\label{\" c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/sections/appendix.tex)",
+      "Bash(grep -rn \"^\\\\\\\\\\\\\\\\label{fig:\" c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/sections/)",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\captionof{table}{\" c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/sections/appendix.tex)",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\Cref{sec:\" c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/sections/*.tex)",
+      "Bash(grep -rn \"\\\\\\\\\\\\\\\\Cref{app:\" c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/)",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\section\\\\|\\\\\\\\\\\\\\\\label{app:\" c:/Users/User/Documents/projects/github/datacentering-cartography/manuscript/sections/appendix.tex)",
+      "Bash(python3 -c ' *)",
+      "Bash(python scripts/bibliometric/openalex_audit.py)",
+      "Bash(Rscript -e \"cat\\(R.version.string, '\\\\n'\\); pkgs <- c\\('openalexR','bibliometrix','tidyverse','igraph'\\); for\\(p in pkgs\\) cat\\(p, ':', system.file\\(package=p\\) != '', '\\\\n'\\)\")",
+      "Bash(where Rscript)",
+      "Read(//c/Program Files/**)",
+      "Bash(git commit *)"
+    ]
+  }
+}
