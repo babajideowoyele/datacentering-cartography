@@ -72,12 +72,13 @@
 %% SLIDE 1b — Agenda
 \begin{frame}{\iconfull{dcblue}{list-ol}\enspace Today}
 \vspace{0.3em}
-\begin{enumerate}\setlength\itemsep{0.6em}
+\begin{enumerate}\setlength\itemsep{0.55em}
   \item \textbf{The empirical moment} — why data centers land in Research Policy right now
   \item \textbf{The gap} — what innovation studies is not yet asking
   \item \textbf{An arena of transformation} — theoretical + methodological framework
-  \item \textbf{First results} — 40,824 articles: register shift, topic clusters, actor network
-  \item \textbf{Three contributions} — Cartalog of Actors, Cartalog of Events, open toolkit
+  \item \textbf{Multimodal registerial cartography} — verbal, visual, spatio-relational registers
+  \item \textbf{First results} — 40,824 articles: register shift, actor network, topic clusters
+  \item \textbf{Three contributions + why RP} — open Cartalog, research agenda, methodology
 \end{enumerate}
 \note{Five moves. I'll go fast — all slides are backed by appendix material if questions arise.}
 \end{frame}
@@ -342,18 +343,19 @@
   \textit{``Microsoft expands plans for La Porte, Indiana,}\\
   \textit{data center campus. Company seeks to rezone...``}\\[0.4em]
 
-  \begin{tikzpicture}[font=\scriptsize, node distance=0.25cm and 0.35cm,
+  \begin{tikzpicture}[font=\scriptsize, node distance=0.3cm,
     box/.style={draw=black!25,rounded corners,fill=black!4,
-                inner sep=4pt,text width=2.2cm,align=center}]
-    \node[box] (docs) {headline\\+ intro\\(40,565 docs)};
-    \node[box,right=of docs] (emb)  {sentence\\embeddings\\(SBERT)};
-    \node[box,right=of emb]  (red)  {UMAP\\dimensionality\\reduction};
-    \node[box,below=0.5cm of red] (cl) {HDBSCAN\\clustering};
-    \node[box,left=of cl]    (lbl)  {c-TF-IDF\\topic\\labels};
-    \draw[-{Stealth[length=4pt]},black!40] (docs)--(emb);
-    \draw[-{Stealth[length=4pt]},black!40] (emb)--(red);
-    \draw[-{Stealth[length=4pt]},black!40] (red)--(cl);
-    \draw[-{Stealth[length=4pt]},black!40] (cl)--(lbl);
+                inner sep=5pt,text width=3.6cm,align=center},
+    arr/.style={-{Stealth[length=4pt]},black!40,thick}]
+    \node[box] (docs) {headline + intro \textcolor{dcgray}{(40,565 docs)}};
+    \node[box,below=of docs] (emb)  {SBERT sentence embeddings};
+    \node[box,below=of emb]  (red)  {UMAP dimensionality reduction};
+    \node[box,below=of red]  (cl)   {HDBSCAN clustering};
+    \node[box,below=of cl]   (lbl)  {c-TF-IDF topic labels \textcolor{dcgray}{(73 topics)}};
+    \draw[arr] (docs)--(emb);
+    \draw[arr] (emb)--(red);
+    \draw[arr] (red)--(cl);
+    \draw[arr] (cl)--(lbl);
   \end{tikzpicture}
 \end{column}
 \begin{column}{0.48\textwidth}
