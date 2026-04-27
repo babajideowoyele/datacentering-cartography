@@ -79,10 +79,28 @@ except Exception as e:
     reduced = None
 
 # ── Bar chart (exclude outlier -1 and generic topic 0) ──────────
+TOPIC_COLORS = {
+    "cooling": "#4a7c9e", "liquid": "#4a7c9e", "immersion": "#4a7c9e",
+    "equinix": "#2e4057", "colt": "#2e4057", "rackspace": "#2e4057",
+    "softlayer": "#2e4057", "fabros": "#2e4057",
+    "carbon": "#6b8f71", "renewable": "#6b8f71", "pue": "#6b8f71",
+    "ceo": "#8c7b6b", "appoint": "#8c7b6b", "awards": "#8c7b6b",
+    "jobs": "#c0504d", "union": "#c0504d", "workforce": "#c0504d",
+    "tiktok": "#B85C00", "fcc": "#B85C00", "planning": "#B85C00",
+}
+
+def topic_color(name):
+    nm = name.lower()
+    for kw, col in TOPIC_COLORS.items():
+        if kw in nm:
+            return col
+    return "#6e6e6e"
+
 top20 = info[(info["Topic"] != -1) & (info["Topic"] != 0)].head(20)
 fig, ax = plt.subplots(figsize=(10, 7))
 labels = [n.split("_",1)[1].replace("_"," ")[:40] for n in top20["Name"].values]
-ax.barh(labels[::-1], top20["Count"].values[::-1], color="#141414")
+bar_colors = [topic_color(n) for n in top20["Name"].values]
+ax.barh(labels[::-1], top20["Count"].values[::-1], color=bar_colors[::-1])
 ax.set_xlabel("Documents", fontsize=11)
 ax.set_title("DCD corpus: top 20 BERTopic clusters", fontsize=13, fontweight="bold")
 ax.grid(axis="x", color="#eeeeee", zorder=0)
@@ -101,11 +119,9 @@ try:
 except Exception as e:
     print(f"Intertopic map skipped: {e}")
 
-# ── Hierarchy dendrogram ─────────────────────────────────────────
+# ── Hierarchy dendrogram (no raw docs needed) ────────────────────
 try:
-    hier = model.hierarchical_topics(docs)
-    model.visualize_hierarchy(hierarchical_topics=hier).write_html(
-        str(OUT / "bertopic_hierarchy.html"))
+    model.visualize_hierarchy().write_html(str(OUT / "bertopic_hierarchy.html"))
     print("Saved bertopic_hierarchy.html")
 except Exception as e:
     print(f"Hierarchy skipped: {e}")

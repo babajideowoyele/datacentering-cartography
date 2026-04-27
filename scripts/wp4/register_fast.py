@@ -149,7 +149,11 @@ for _,r in contest:
 fig, ax = plt.subplots(figsize=(8, 4))
 actor_labels = list(actor_counts.keys())
 actor_vals   = [actor_counts[a] for a in actor_labels]
-ax.barh(actor_labels[::-1], actor_vals[::-1], color=C_DARK)
+ACTOR_COLORS = {"Hyperscaler":"#2e4057","Colo/REIT":"#4a7c9e","Regulator":"#B85C00",
+                "Planning body":"#6b8f71","Community":"#c0504d","Court/Legal":"#8c7b6b",
+                "Utility/Grid":"#5a7a5a","Financial":"#7b68a8","Labour":"#b08850","Media/Press":"#aaaaaa"}
+actor_bar_colors = [ACTOR_COLORS.get(l, C_DARK) for l in actor_labels]
+ax.barh(actor_labels[::-1], actor_vals[::-1], color=actor_bar_colors[::-1])
 ax.set_xlabel("Contestation articles mentioning actor type")
 ax.set_title("Actor types in DCD contestation corpus", fontsize=13, fontweight="bold")
 ax.grid(axis="x", color="#eeeeee", zorder=0)
@@ -200,5 +204,5 @@ for p in ptypes:
     c_rate  = c_cnt[p]/c_tot*100
     nc_rate = nc_cnt[p]/nc_tot*100
     diff    = c_rate - nc_rate
-    marker  = "↑↑" if diff > 3 else ("↑" if diff > 1 else ("↓" if diff < -1 else "="))
+    marker  = "++" if diff > 3 else ("+" if diff > 1 else ("-" if diff < -1 else "="))
     print(f"  {p:12s}: contestation={c_rate:.1f}%  non-contest={nc_rate:.1f}%  diff={diff:+.1f}% {marker}")
