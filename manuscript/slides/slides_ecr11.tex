@@ -1,5 +1,5 @@
 %% Towards a Cartography of Datacentering
-%% Research Policy 11th ECR Conference ,	extperiodcentered, 27 April 2026 ,	extperiodcentered, 14:27 BST
+%% Research Policy 11th ECR Conference -- 27 April 2026 -- 14:27 BST
 %% Theme: Metropolis + IBM Plex Sans (Carbon B&W)
 
 \documentclass[aspectratio=169,11pt]{beamer}
@@ -68,36 +68,41 @@
 %% ------------------------------------------------------------------
 %% SLIDE 2 — Empirical Moment  0:45
 \begin{frame}{\iconfull{dcblue}{chart-bar}\enspace The Empirical Moment}
-\begin{columns}[T]
-\begin{column}{0.46\textwidth}
-  \vspace{0.3em}
-  \begin{tabular}{@{}lr@{}}
-    \toprule
-    \textbf{Metric} & \textbf{Value} \\
-    \midrule
-    Hyperscaler capex 2026   & \textbf{\$750B} \\
-    DC electricity 2025      & 485~TWh (+17\%) \\
-    AI-specific growth       & +50\% YoY \\
-    Hyperscaler share 2031   & 67\% of all DC \\
-    \bottomrule
-  \end{tabular}
-  \vspace{0.5em}
+\vspace{0.4em}
 
-  \scriptsize\textcolor{dcgray}{CreditSights Feb 2026; IEA Energy \& AI April 2026;
-  Synergy Research Group}
-\end{column}
-\begin{column}{0.50\textwidth}
-  \vspace{0.5em}
-  \large\textit{``The largest concentrated\\
-  infrastructure build of our\\
-  lifetimes — happening now.''}\\[0.6em]
-  \normalsize
-  Not a future scenario.\\
-  Not a policy proposal.\\[0.4em]
+\begin{tabularx}{\linewidth}{@{}Xr@{}}
+  \toprule
+  \textbf{Metric} & \textbf{Value} \\
+  \midrule
+  \icon{money-bill-wave} Hyperscaler capex 2026
+    & \textbf{\alert{\$750B}} \\[0.3em]
+  \icon{bolt} DC electricity consumption 2025
+    & 485~TWh \textcolor{dcgray}{(+17\% YoY)} \\[0.3em]
+  \icon{microchip} Data center demand growth 2025--26
+    & +50\% YoY \textcolor{dcgray}{\tiny(Goldman Sachs 2026)} \\[0.3em]
+  \icon{server} Hyperscaler share of DC capacity 2031
+    & 67\% of global total \\
+  \bottomrule
+\end{tabularx}
+
+\vspace{0.6em}
+\begin{columns}[T]
+\begin{column}{0.54\textwidth}
+  \normalsize\textit{``The largest concentrated infrastructure\\
+  build of our lifetimes — happening now.''}\\[0.4em]
+  \footnotesize Not a future scenario. Not a policy proposal.\\[0.2em]
   \hl{An arena in formation.}
 \end{column}
+\begin{column}{0.42\textwidth}
+  \vspace{0.1em}
+  \scriptsize\textcolor{dcgray}{%
+  \iconfull{dcgray}{book}\enspace
+  CreditSights (Feb 2026);\\
+  IEA Energy \& AI Report (Apr 2026);\\
+  Synergy Research Group (2025)}
+\end{column}
 \end{columns}
-\note{Lead with the dollar number. Point at the table. Hyperscaler capex is the largest concentrated infrastructure build of our lifetimes. Three years.}
+\note{Lead with the dollar number. Point at the table. Hyperscaler capex is the largest concentrated infrastructure build of our lifetimes.}
 \end{frame}
 
 %% ------------------------------------------------------------------
@@ -107,11 +112,11 @@
 \begin{column}{0.52\textwidth}
   \footnotesize
   \begin{itemize}\setlength\itemsep{0.4em}
-    \item \textbf{Stargate:} \$500B / ${\sim}$7\,GW; OpenAI + Oracle + SoftBank
-    \item \textbf{PJM electricity:} capacity prices \hl{+833\%} in one year
-    \item \textbf{Maine:} first US statewide moratorium, April 2026
-    \item \textbf{Loudoun Co.:} eliminates by-right DC, March 2025
-    \item \textbf{DeepSeek V4-Pro:} re-opens Jevons paradox debate
+    \item \icon{bolt}\textbf{Stargate:} \$500B / ${\sim}$7\,GW committed (OpenAI, Oracle, SoftBank)
+    \item \icon{plug}\textbf{PJM electricity:} capacity prices \hl{+833\%} (2024/25$\to$2025/26); DC = 40\% of auction cost \textcolor{dcgray}{\tiny[PJM Dec 2025]}
+    \item \icon{ban}\textbf{Maine:} legislature passes statewide moratorium bill — governor vetoes, Apr 2026 \textcolor{dcgray}{\tiny[DCD corpus; Mills veto 24 Apr 2026]}
+    \item \icon{map-marker-alt}\textbf{Loudoun Co.:} eliminates by-right DC zoning, March 2025 \textcolor{dcgray}{\tiny[DCD corpus]}
+    \item \icon{robot}\textbf{DeepSeek:} re-opens Jevons paradox debate on AI compute demand
   \end{itemize}
 \end{column}
 \begin{column}{0.44\textwidth}
@@ -211,7 +216,7 @@
 
 %% ------------------------------------------------------------------
 %% SLIDE 6 — Theory: Marres + CITC  0:50
-\begin{frame}{\iconfull{dcblue}{network-wired}\enspace Theory: Issue Mapping + CITC}
+\begin{frame}{\iconfull{dcblue}{tools}\enspace Methodological Framework: Issue Mapping + CITC}
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
   \small\textbf{Marres (2015) — \textit{ST\&HV}}\\[0.3em]
@@ -250,7 +255,119 @@
 \end{frame}
 
 %% ------------------------------------------------------------------
-%% SLIDE 7 — Data: DCD EDA  (0:45)
+%% SLIDE 7 — Registerial cartography + Matthiessen wheel
+\begin{frame}[shrink=3]{\iconfull{dcblue}{language}\enspace Registerial Cartography of Datacentering}
+\begin{columns}[T]
+\begin{column}{0.44\textwidth}
+  %% Redrawn Matthiessen (2015) field-of-activity wheel — B&W version
+  \vspace{0.3em}
+  \begin{tikzpicture}[scale=0.72]
+    %% 8 sectors — uniform gray fill
+    \foreach \angle in {90,45,0,315,270,225,180,135}{
+      \fill[black!12] (\angle:1.1) arc(\angle:\angle-45:1.1)
+                -- (\angle-45:2.2) arc(\angle-45:\angle:2.2) -- cycle;
+      \draw[black!30,line width=0.3pt]
+            (\angle:1.1) -- (\angle:2.2)
+            (\angle-45:1.1) -- (\angle-45:2.2);
+    }
+    \draw[black!35,line width=0.4pt] (0,0) circle(2.2);
+    \draw[black!35,line width=0.4pt] (0,0) circle(1.1);
+    %% Sector labels
+    \foreach \angle/\lbl in {
+      67.5/expounding, 22.5/reporting, 337.5/recreating,
+      292.5/sharing, 247.5/doing, 202.5/recommend-ing,
+      157.5/enabling, 112.5/exploring
+    }{
+      \node[font=\tiny,align=center] at (\angle:1.65) {\lbl};
+    }
+    \node[font=\scriptsize\bfseries,align=center] at (0,0) {field of\\activity};
+    %% Highlight contestation sectors: enabling + exploring
+    \fill[dchighlight,opacity=0.25] (180:1.1) arc(180:135:1.1)
+                -- (135:2.2) arc(135:180:2.2) -- cycle;
+    \fill[dchighlight,opacity=0.25] (135:1.1) arc(135:90:1.1)
+                -- (90:2.2) arc(90:135:2.2) -- cycle;
+    \node[font=\tiny,text=dchighlight,align=center] at (0,-2.7)
+      {contestation register};
+  \end{tikzpicture}
+\end{column}
+\begin{column}{0.52\textwidth}
+  \small\textbf{Matthiessen (2015): registerial cartography}\\[0.3em]
+  \footnotesize
+  Register = functional variety of language\\
+  according to context of use.\\[0.4em]
+  \textbf{Field of activity} = what's going on:\\[0.2em]
+  \begin{tabular}{@{}ll@{}}
+    \textit{doing} & joint social activity \\
+    \textit{enabling} & action modelled via instruction \\
+    \textit{exploring} & public values debated \\
+    \textit{reporting} & events chronicled \\
+  \end{tabular}
+  \vspace{0.4em}
+
+  \textbf{Applied to DCD corpus:}\\[0.2em]
+  \footnotesize
+  Non-contestation: \textit{reporting} + \textit{doing}\\
+  Contestation: \textit{enabling} + \textit{exploring}\\[0.3em]
+  \hl{Verb register shift = governance gap\\
+  made linguistically visible}\\[0.3em]
+  \textcolor{dcgray}{\scriptsize Behavioral +21.5\%,
+  enabling +13.4\% in contestation corpus}
+\end{column}
+\end{columns}
+\note{The Matthiessen wheel maps the eight fields of activity. DCD non-contestation coverage sits in reporting and doing. When contestation events peak, the register shifts to enabling and exploring — regulatory action and public debate. This is the governance gap visible in the verb inventory.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 8 — BERTopic schematic + data
+\begin{frame}[shrink=3]{\iconfull{dcblue}{project-diagram}\enspace BERTopic: What We Run It On}
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+  \small\textbf{Input: 40,565 headlines + intros}\\[0.3em]
+  \footnotesize
+  From \texttt{datacentering\_crawl\_dcd.tsv}:\\
+  \textit{``Microsoft expands plans for La Porte, Indiana,}\\
+  \textit{data center campus. Company seeks to rezone...``}\\[0.4em]
+
+  \begin{tikzpicture}[font=\scriptsize, node distance=0.25cm and 0.35cm,
+    box/.style={draw=black!25,rounded corners,fill=black!4,
+                inner sep=4pt,text width=2.2cm,align=center}]
+    \node[box] (docs) {headline\\+ intro\\(40,565 docs)};
+    \node[box,right=of docs] (emb)  {sentence\\embeddings\\(SBERT)};
+    \node[box,right=of emb]  (red)  {UMAP\\dimensionality\\reduction};
+    \node[box,below=0.5cm of red] (cl) {HDBSCAN\\clustering};
+    \node[box,left=of cl]    (lbl)  {c-TF-IDF\\topic\\labels};
+    \draw[-{Stealth[length=4pt]},black!40] (docs)--(emb);
+    \draw[-{Stealth[length=4pt]},black!40] (emb)--(red);
+    \draw[-{Stealth[length=4pt]},black!40] (red)--(cl);
+    \draw[-{Stealth[length=4pt]},black!40] (cl)--(lbl);
+  \end{tikzpicture}
+\end{column}
+\begin{column}{0.48\textwidth}
+  \small\textbf{Expected topic clusters}\\[0.3em]
+  \footnotesize
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Cluster type} & \textbf{Example terms} \\
+    \midrule
+    Energy / grid       & MW, capacity, power, grid \\
+    Investment / capex  & \$B, funding, lease, REIT \\
+    Planning / planning & council, rezone, permit \\
+    Contestation        & moratorium, oppose, sue \\
+    Cooling / efficiency & PUE, liquid, immersion \\
+    Geography           & Virginia, Ireland, Singapore \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.4em}
+  \footnotesize\textcolor{dcgray}{Results running — will appear\\
+  in updated slides.\\
+  \texttt{data/processed/wp4\_dcd/}\\\texttt{bertopic\_topics.csv}}
+\end{column}
+\end{columns}
+\note{BERTopic runs on 40,565 document strings combining headline and intro text. The pipeline: sentence embeddings (SBERT) → UMAP reduction → HDBSCAN clustering → c-TF-IDF labels. We expect to find energy/grid, investment, planning, contestation, and geography clusters. Results will be added once the run completes.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 9 — Data: DCD EDA  (0:45)
 \begin{frame}{\iconfull{dcblue}{chart-line}\enspace The Arena in Data}
 \begin{columns}[T]
 \begin{column}{0.50\textwidth}
@@ -264,7 +381,7 @@
 \end{columns}
 \vspace{0.15em}
 \scriptsize\textcolor{dcgray}{%
-  37,552 articles ,	extperiodcentered, 1,073 contestation events ,	extperiodcentered, peak 2025.
+  37,552 articles \textbar\ 1,073 contestation events \textbar\ peak 2025.
   \textbf{Headlines + intro text only} — full articles via screenshot/OCR pipeline.
   More coming.}
 \note{This is from the real corpus. 37,552 articles, 2008 to 2026. Peak contestation in 2025. Maine statewide moratorium is in this data. The arena is visible in the trade press record.}
@@ -367,7 +484,51 @@ UK AI Growth Zones, EU AI Factories, France, Saudi HUMAIN, UAE Stargate \\
 \end{frame}
 
 %% ------------------------------------------------------------------
-%% SLIDE 11 — Open cartography  (0:30)
+%% SLIDE 11 — Summary of contributions
+\begin{frame}{\iconfull{dcblue}{star}\enspace Three Contributions}
+\vspace{0.2em}
+\begin{columns}[T]
+\begin{column}{0.32\textwidth}
+  \begin{block}{\icon{map-marked-alt} Cartalog of Actors}
+    \footnotesize
+    Who is in the datacentering arena?\\[0.3em]
+    \textbf{40,565 DCD articles} $\to$ NER\\
+    $\to$ actor typology:\\
+    hyperscalers, planners,\\
+    communities, courts, utilities\\[0.3em]
+    \textcolor{dcgray}{\scriptsize Geocoded, dated, open (CC BY 4.0)}
+  \end{block}
+\end{column}
+\begin{column}{0.32\textwidth}
+  \begin{block}{\icon{calendar-alt} Cartalog of Events}
+    \footnotesize
+    What happens in the arena?\\[0.3em]
+    \textbf{1,036 contestation events}\\
+    $\to$ event type, location,\\
+    date, actors involved\\[0.3em]
+    Register shift: \textit{doing}\\
+    $\to$ \textit{enabling + contesting}\\[0.3em]
+    \textcolor{dcgray}{\scriptsize Peak: 2025 (214 events)}
+  \end{block}
+\end{column}
+\begin{column}{0.32\textwidth}
+  \begin{block}{\icon{code} Methodological Toolkit}
+    \footnotesize
+    How to study the arena?\\[0.3em]
+    Arenas (Jørgensen 2012)\\
+    + Situational maps (Clarke)\\
+    + CITC (Berente et al.\ 2019)\\
+    + Registerial cartography\\
+    \hspace{1em}(Matthiessen 2015)\\[0.3em]
+    \textcolor{dcgray}{\scriptsize Replicable. Open pipelines.}
+  \end{block}
+\end{column}
+\end{columns}
+\note{Three contributions: a cartalog of actors, a cartalog of events, and a methodological toolkit. The first two are data contributions — open and replicable. The third is the theoretical-methodological framework that makes them interpretable.}
+\end{frame}
+
+%% ------------------------------------------------------------------
+%% SLIDE 12 — Open cartography  (0:30)
 \begin{frame}{\iconfull{dcblue}{folder-open}\enspace Building the Cartography Together}
 \begin{columns}[T]
 \begin{column}{0.52\textwidth}

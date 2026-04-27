@@ -12,7 +12,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-CSV  = "datacenterdynamics_rp_final.csv"
+CSV  = "datacentering_crawl_datacenterdynamics.tsv"
 FIGS = Path("manuscript/figures")
 FIGS.mkdir(parents=True, exist_ok=True)
 
@@ -59,7 +59,7 @@ def parse_date(s):
         except: pass
     return None
 
-rows = list(csv.DictReader(open(CSV, encoding="utf-8")))
+rows = list(csv.DictReader(open(CSV, encoding="utf-8"), delimiter="	"))
 dated = [(parse_date(r["card__overlay"]), r) for r in rows]
 dated = [(d,r) for d,r in dated if d]
 print(f"Loaded {len(dated):,} dated articles")

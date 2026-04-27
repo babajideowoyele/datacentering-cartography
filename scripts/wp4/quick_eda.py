@@ -7,14 +7,14 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-CSV   = "datacenterdynamics_rp_final.csv"
+CSV   = "datacentering_crawl_datacenterdynamics.tsv"
 FIGS  = Path("manuscript/figures")
 FIGS.mkdir(parents=True, exist_ok=True)
 
 plt.rcParams.update({"font.family":"serif","axes.spines.top":False,"axes.spines.right":False})
 C_DARK="#141414"; C_MID="#6e6e6e"; C_ACC="#B85C00"; BG="#ffffff"
 
-rows = list(csv.DictReader(open(CSV, encoding="utf-8")))
+rows = list(csv.DictReader(open(CSV, encoding="utf-8"), delimiter="	"))
 print(f"Rows loaded: {len(rows)}")
 
 def parse_date(s):
