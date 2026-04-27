@@ -4,11 +4,17 @@ Run from repo root: python scripts/wp4/run_bertopic.py
 
 Outputs:
   data/processed/wp4_dcd/bertopic_topics.csv
-  data/processed/wp4_dcd/bertopic_map.html
-  manuscript/figures/bertopic_barchart.pdf   (top 20 topics)
+  data/processed/wp4_dcd/embeddings.npy          (sentence-transformer embeddings)
+  data/processed/wp4_dcd/reduced_embeddings.npy  (2-D UMAP)
+  data/processed/wp4_dcd/bertopic_map.html        (intertopic distance)
+  data/processed/wp4_dcd/bertopic_hierarchy.html  (topic dendrogram)
+  data/processed/wp4_dcd/bertopic_documents.html  (Plotly doc scatter)
+  data/processed/wp4_dcd/bertopic_datamap.html    (DataMapPlot doc scatter)
+  manuscript/figures/bertopic_barchart.pdf
 """
 import csv
 from pathlib import Path
+import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -26,10 +32,23 @@ docs = [
 ]
 print(f"Documents: {len(docs):,}")
 
+# ── Embeddings (cache to disk so reruns are fast) ───────────────
+EMB_PATH = OUT / "embeddings.npy"
+if EMB_PATH.exists():
+    print("Loading cached embeddings...")
+    embeddings = np.load(EMB_PATH)
+else:
+    print("Encoding with sentence-transformers all-MiniLM-L6-v2...")
+    from sentence_transformers import SentenceTransformer
+    emb_model = SentenceTransformer("all-MiniLM-L6-v2")
+    embeddings = emb_model.encode(docs, show_progress_bar=True, batch_size=64)
+    np.save(EMB_PATH, embeddings)
+    print(f"Saved embeddings {embeddings.shape}")
+
+# ── BERTopic ────────────────────────────────────────────────────
 from bertopic import BERTopic
 from sklearn.feature_extraction.text import CountVectorizer
 
-# CountVectorizer with English stopwords so topic labels are clean keywords
 vectorizer = CountVectorizer(stop_words="english", ngram_range=(1, 2), min_df=5)
 
 model = BERTopic(
@@ -41,7 +60,7 @@ model = BERTopic(
     verbose=True,
 )
 
-topics, _ = model.fit_transform(docs)
+topics, _ = model.fit_transform(docs, embeddings)
 
 info = model.get_topic_info()
 info.to_csv(OUT / "bertopic_topics.csv", index=False)
@@ -50,24 +69,77 @@ print("\nTop 25 topics:")
 for _, row in info[info["Topic"] != -1].head(25).iterrows():
     print(f"  Topic {row['Topic']:3d} (n={row['Count']:4d}): {row['Name']}")
 
-# Bar chart of top 20 topics
-top20 = info[info["Topic"] != -1].head(20)
+# ── Save 2-D reduced embeddings (UMAP already run inside model) ─
+try:
+    reduced = model.umap_model.embedding_
+    np.save(OUT / "reduced_embeddings.npy", reduced)
+    print(f"Saved reduced_embeddings {reduced.shape}")
+except Exception as e:
+    print(f"Could not extract UMAP embeddings: {e}")
+    reduced = None
+
+# ── Bar chart (exclude outlier -1 and generic topic 0) ──────────
+top20 = info[(info["Topic"] != -1) & (info["Topic"] != 0)].head(20)
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.barh(top20["Name"].values[::-1], top20["Count"].values[::-1], color="#141414")
+labels = [n.split("_",1)[1].replace("_"," ")[:40] for n in top20["Name"].values]
+ax.barh(labels[::-1], top20["Count"].values[::-1], color="#141414")
 ax.set_xlabel("Documents", fontsize=11)
 ax.set_title("DCD corpus: top 20 BERTopic clusters", fontsize=13, fontweight="bold")
 ax.grid(axis="x", color="#eeeeee", zorder=0)
 fig.text(0.98, 0.01,
-         f"n={len(docs):,} articles (2006-2026); BERTopic, min_topic_size=15.",
+         f"n={len(docs):,} articles (2006-2026); BERTopic, min_topic_size=15; topics 0 & -1 excluded.",
          ha="right", fontsize=7, color="#6e6e6e")
 fig.tight_layout()
 fig.savefig(FIGS / "bertopic_barchart.pdf", bbox_inches="tight")
 plt.close()
 print("Saved bertopic_barchart.pdf")
 
+# ── Intertopic distance map ──────────────────────────────────────
 try:
-    fig_html = model.visualize_topics()
-    fig_html.write_html(str(OUT / "bertopic_map.html"))
+    model.visualize_topics().write_html(str(OUT / "bertopic_map.html"))
     print("Saved bertopic_map.html")
 except Exception as e:
-    print(f"HTML map skipped: {e}")
+    print(f"Intertopic map skipped: {e}")
+
+# ── Hierarchy dendrogram ─────────────────────────────────────────
+try:
+    hier = model.hierarchical_topics(docs)
+    model.visualize_hierarchy(hierarchical_topics=hier).write_html(
+        str(OUT / "bertopic_hierarchy.html"))
+    print("Saved bertopic_hierarchy.html")
+except Exception as e:
+    print(f"Hierarchy skipped: {e}")
+
+# ── Document scatter (Plotly) ────────────────────────────────────
+try:
+    kw = {}
+    if reduced is not None:
+        kw["reduced_embeddings"] = reduced
+    else:
+        kw["embeddings"] = embeddings
+    model.visualize_documents(
+        docs, hide_annotations=True, custom_labels=True, **kw
+    ).write_html(str(OUT / "bertopic_documents.html"))
+    print("Saved bertopic_documents.html")
+except Exception as e:
+    print(f"Document scatter skipped: {e}")
+
+# ── Topic similarity heatmap ────────────────────────────────────
+try:
+    model.visualize_heatmap().write_html(str(OUT / "bertopic_heatmap.html"))
+    print("Saved bertopic_heatmap.html")
+except Exception as e:
+    print(f"Heatmap skipped: {e}")
+
+# ── DataMapPlot ──────────────────────────────────────────────────
+try:
+    kw = {}
+    if reduced is not None:
+        kw["reduced_embeddings"] = reduced
+    else:
+        kw["embeddings"] = embeddings
+    fig_dmp = model.visualize_document_datamap(docs, **kw)
+    fig_dmp.savefig(str(OUT / "bertopic_datamap.png"), dpi=150, bbox_inches="tight")
+    print("Saved bertopic_datamap.png")
+except Exception as e:
+    print(f"DataMapPlot skipped: {e}")
