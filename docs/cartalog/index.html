@@ -9,6 +9,7 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -30,8 +31,8 @@
     background: var(--bg);
     color: var(--text);
     font-family: var(--mono);
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
   /* ── Header ───────────────────────────────────────────── */
@@ -48,22 +49,25 @@
   header .wordmark {
     font-family: var(--sans);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 0.04em;
     color: var(--hi);
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   header .sep { color: var(--line); }
   header .corpus {
-    font-size: 11px;
+    font-size: 13px;
     color: var(--text3);
   }
   header .badge {
     margin-left: auto;
-    font-size: 10px;
+    font-size: 11px;
     color: var(--text3);
     border: 1px solid var(--line);
-    padding: 2px 8px;
+    padding: 3px 10px;
   }
 
   /* ── Tabs ─────────────────────────────────────────────── */
@@ -80,11 +84,14 @@
     color: var(--text3);
     cursor: pointer;
     font-family: var(--mono);
-    font-size: 12px;
-    padding: 12px 20px 10px;
+    font-size: 13px;
+    padding: 14px 22px 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     transition: color 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
   }
   nav.tabs button:hover { color: var(--text); }
   nav.tabs button.active {
@@ -100,15 +107,18 @@
 
   h2 {
     font-family: var(--sans);
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
     color: var(--hi);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   .subtitle {
-    font-size: 11px;
+    font-size: 13px;
     color: var(--text3);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
   }
 
   /* ── Cards ────────────────────────────────────────────── */
@@ -126,21 +136,24 @@
     min-width: 160px;
   }
   .card .label {
-    font-size: 10px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text3);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
   }
   .card .value {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 600;
     color: var(--hi);
   }
   .card .sub {
-    font-size: 10px;
+    font-size: 12px;
     color: var(--text3);
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
   }
 
   /* ── Network ──────────────────────────────────────────── */
@@ -172,7 +185,7 @@
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
-    font-size: 11px;
+    font-size: 13px;
     color: var(--text2);
   }
   .legend-dot {
@@ -191,22 +204,22 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 12px;
+    font-size: 13px;
   }
   thead tr {
     border-bottom: 1px solid var(--line);
   }
   th {
     text-align: left;
-    padding: 6px 12px;
-    font-size: 10px;
+    padding: 8px 14px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text3);
     font-weight: 400;
   }
   td {
-    padding: 6px 12px;
+    padding: 8px 14px;
     border-bottom: 1px solid var(--bg3);
     color: var(--text2);
     vertical-align: middle;
@@ -238,10 +251,10 @@
   .note-box {
     background: var(--bg2);
     border-left: 3px solid var(--line);
-    padding: 0.8rem 1rem;
-    font-size: 11px;
+    padding: 1rem 1.2rem;
+    font-size: 13px;
     color: var(--text3);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
   }
   .note-box strong { color: var(--text2); }
   .note-box a { color: var(--text2); }
@@ -338,51 +351,51 @@
 <body>
 
 <header>
-  <span class="wordmark">Cartalog</span>
+  <span class="wordmark"><i data-lucide="map" style="width:18px;height:18px"></i> Cartalog</span>
   <span class="sep">|</span>
   <span class="corpus">Datacentering Cartography · DCD corpus 2006–2026</span>
   <span class="badge">DRIFT / HPI · ECR11 2026</span>
 </header>
 
 <nav class="tabs">
-  <button class="active" onclick="showTab('overview')">Overview</button>
-  <button onclick="showTab('network')">Actor Network</button>
-  <button onclick="showTab('topics')">BERTopic Clusters</button>
-  <button onclick="showTab('register')">Register Analysis</button>
-  <button onclick="showTab('map')">Spatial Map</button>
-  <button onclick="showTab('visual')">Visual Register</button>
+  <button class="active" onclick="showTab('overview')"><i data-lucide="layout-dashboard" style="width:14px;height:14px"></i> Overview</button>
+  <button onclick="showTab('network')"><i data-lucide="share-2" style="width:14px;height:14px"></i> Actor Network</button>
+  <button onclick="showTab('topics')"><i data-lucide="layers" style="width:14px;height:14px"></i> BERTopic Clusters</button>
+  <button onclick="showTab('register')"><i data-lucide="type" style="width:14px;height:14px"></i> Register Analysis</button>
+  <button onclick="showTab('map')"><i data-lucide="globe" style="width:14px;height:14px"></i> Spatial Map</button>
+  <button onclick="showTab('visual')"><i data-lucide="image" style="width:14px;height:14px"></i> Visual Register</button>
 </nav>
 
 <main>
 
 <!-- ── OVERVIEW ───────────────────────────────────────────────── -->
 <section id="panel-overview" class="panel active">
-  <h2>Datacentering Cartography</h2>
+  <h2><i data-lucide="map-pin" style="width:22px;height:22px"></i> Datacentering Cartography</h2>
   <p class="subtitle">A multimodal research agenda for innovation studies — B. A. Owoyele, DRIFT / HPI</p>
 
   <div class="card-row">
     <div class="card">
-      <div class="label">Articles crawled</div>
+      <div class="label"><i data-lucide="database" style="width:11px;height:11px"></i> Articles crawled</div>
       <div class="value">40,824</div>
       <div class="sub">DatacenterDynamics, 2006–2026</div>
     </div>
     <div class="card">
-      <div class="label">Contestation events</div>
+      <div class="label"><i data-lucide="alert-triangle" style="width:11px;height:11px"></i> Contestation events</div>
       <div class="value">1,073</div>
       <div class="sub">Headline-level signal; peak 2025</div>
     </div>
     <div class="card">
-      <div class="label">BERTopic clusters</div>
+      <div class="label"><i data-lucide="layers" style="width:11px;height:11px"></i> BERTopic clusters</div>
       <div class="value">73</div>
       <div class="sub">min_topic_size=15; headline + intro</div>
     </div>
     <div class="card">
-      <div class="label">Actor types detected</div>
+      <div class="label"><i data-lucide="users" style="width:11px;height:11px"></i> Actor types detected</div>
       <div class="value">10</div>
-      <div class="sub">Regex NER on corpus; co-occurrence edges</div>
+      <div class="sub">Regex NER; co-occurrence edges</div>
     </div>
     <div class="card">
-      <div class="label">Contestation rate</div>
+      <div class="label"><i data-lucide="trending-up" style="width:11px;height:11px"></i> Contestation rate</div>
       <div class="value">2.6%</div>
       <div class="sub">0.4% (2006) → 3.7% (2025)</div>
     </div>
@@ -409,7 +422,7 @@
 
 <!-- ── ACTOR NETWORK ──────────────────────────────────────────── -->
 <section id="panel-network" class="panel">
-  <h2>Actor Co-occurrence Network</h2>
+  <h2><i data-lucide="share-2" style="width:22px;height:22px"></i> Actor Co-occurrence Network</h2>
   <p class="subtitle">Which actor types co-appear in the same article? Node size = mention count · Edge weight = co-occurrence frequency</p>
 
   <div class="note-box">
@@ -433,7 +446,7 @@
 
 <!-- ── BERTOPIC ────────────────────────────────────────────────── -->
 <section id="panel-topics" class="panel">
-  <h2>BERTopic Clusters</h2>
+  <h2><i data-lucide="layers" style="width:22px;height:22px"></i> BERTopic Clusters</h2>
   <p class="subtitle">73 topics from 40,565 docs · min_topic_size=15 · headlines + intros only</p>
 
   <div class="note-box">
@@ -507,7 +520,7 @@
 
 <!-- ── REGISTER ───────────────────────────────────────────────── -->
 <section id="panel-register" class="panel">
-  <h2>Register Analysis — Hallidayan Process Types</h2>
+  <h2><i data-lucide="type" style="width:22px;height:22px"></i> Register Analysis — Hallidayan Process Types</h2>
   <p class="subtitle">Regex classification of headline verbs · 40,824 articles · contestation vs non-contestation subset</p>
 
   <div class="note-box">
@@ -523,7 +536,7 @@
 
 <!-- ── SPATIAL MAP ────────────────────────────────────────────── -->
 <section id="panel-map" class="panel">
-  <h2>Spatial Distribution — Location Mentions</h2>
+  <h2><i data-lucide="globe" style="width:22px;height:22px"></i> Spatial Distribution — Location Mentions</h2>
   <p class="subtitle">City-level mentions extracted from 40,824 DCD headlines + intros · Circle area ∝ mention count</p>
 
   <div class="note-box">
@@ -537,7 +550,7 @@
 
 <!-- ── VISUAL REGISTER ────────────────────────────────────────── -->
 <section id="panel-visual" class="panel">
-  <h2>Visual Register Analysis</h2>
+  <h2><i data-lucide="image" style="width:22px;height:22px"></i> Visual Register Analysis</h2>
   <p class="subtitle">34,869 image URLs in DCD corpus · CLIP + Gemma 4 pipeline (next phase) · Jancsary et al. coding scheme</p>
 
   <div class="card-row">
@@ -917,8 +930,9 @@ st.textContent = `.leaflet-tooltip-dark{background:#000;border:1px solid #525252
 document.head.appendChild(st);
 
 
-// Auto-activate tab from URL hash on load
+// Initialise Lucide icons + auto-activate tab from URL hash
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.lucide) lucide.createIcons();
   const hash = location.hash.replace('#','');
   if (hash && ['overview','network','topics','register','map','visual'].includes(hash)) {
     const btn = document.querySelector(`nav.tabs button[onclick="showTab('${hash}')"]`);
