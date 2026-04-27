@@ -27,12 +27,17 @@ docs = [
 print(f"Documents: {len(docs):,}")
 
 from bertopic import BERTopic
+from sklearn.feature_extraction.text import CountVectorizer
+
+# CountVectorizer with English stopwords so topic labels are clean keywords
+vectorizer = CountVectorizer(stop_words="english", ngram_range=(1, 2), min_df=5)
 
 model = BERTopic(
     language="english",
     min_topic_size=15,
     nr_topics="auto",
     calculate_probabilities=False,
+    vectorizer_model=vectorizer,
     verbose=True,
 )
 

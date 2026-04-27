@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-04-27">
+    <creator>NetworkX 3.5</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="weight" type="long" />
+      <attribute id="1" title="color" type="string" />
+    </attributes>
+    <nodes>
+      <node id="Hyperscaler" label="Hyperscaler">
+        <attvalues>
+          <attvalue for="0" value="4934" />
+          <attvalue for="1" value="#2e4057" />
+        </attvalues>
+      </node>
+      <node id="Media/Press" label="Media/Press">
+        <attvalues>
+          <attvalue for="0" value="2384" />
+          <attvalue for="1" value="#aaaaaa" />
+        </attvalues>
+      </node>
+      <node id="Utility/Grid" label="Utility/Grid">
+        <attvalues>
+          <attvalue for="0" value="102" />
+          <attvalue for="1" value="#5a7a5a" />
+        </attvalues>
+      </node>
+      <node id="Court/Legal" label="Court/Legal">
+        <attvalues>
+          <attvalue for="0" value="301" />
+          <attvalue for="1" value="#8c7b6b" />
+        </attvalues>
+      </node>
+      <node id="Labour" label="Labour">
+        <attvalues>
+          <attvalue for="0" value="447" />
+          <attvalue for="1" value="#b08850" />
+        </attvalues>
+      </node>
+      <node id="Colo/REIT" label="Colo/REIT">
+        <attvalues>
+          <attvalue for="0" value="2250" />
+          <attvalue for="1" value="#4a7c9e" />
+        </attvalues>
+      </node>
+      <node id="Regulator" label="Regulator">
+        <attvalues>
+          <attvalue for="0" value="1347" />
+          <attvalue for="1" value="#B85C00" />
+        </attvalues>
+      </node>
+      <node id="Community" label="Community">
+        <attvalues>
+          <attvalue for="0" value="217" />
+          <attvalue for="1" value="#c0504d" />
+        </attvalues>
+      </node>
+      <node id="Planning body" label="Planning body">
+        <attvalues>
+          <attvalue for="0" value="260" />
+          <attvalue for="1" value="#6b8f71" />
+        </attvalues>
+      </node>
+      <node id="Financial" label="Financial">
+        <attvalues>
+          <attvalue for="0" value="290" />
+          <attvalue for="1" value="#7b68a8" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Hyperscaler" target="Court/Legal" id="0" weight="83" />
+      <edge source="Hyperscaler" target="Media/Press" id="1" weight="312" />
+      <edge source="Hyperscaler" target="Regulator" id="2" weight="144" />
+      <edge source="Hyperscaler" target="Labour" id="3" weight="116" />
+      <edge source="Hyperscaler" target="Planning body" id="4" weight="36" />
+      <edge source="Hyperscaler" target="Community" id="5" weight="34" />
+      <edge source="Hyperscaler" target="Financial" id="6" weight="12" />
+      <edge source="Hyperscaler" target="Utility/Grid" id="7" weight="11" />
+      <edge source="Hyperscaler" target="Colo/REIT" id="8" weight="49" />
+      <edge source="Media/Press" target="Labour" id="9" weight="37" />
+      <edge source="Media/Press" target="Regulator" id="10" weight="58" />
+      <edge source="Media/Press" target="Planning body" id="11" weight="9" />
+      <edge source="Media/Press" target="Financial" id="12" weight="24" />
+      <edge source="Media/Press" target="Colo/REIT" id="13" weight="115" />
+      <edge source="Media/Press" target="Utility/Grid" id="14" weight="6" />
+      <edge source="Media/Press" target="Community" id="15" weight="14" />
+      <edge source="Media/Press" target="Court/Legal" id="16" weight="8" />
+      <edge source="Utility/Grid" target="Regulator" id="17" weight="10" />
+      <edge source="Utility/Grid" target="Community" id="18" weight="1" />
+      <edge source="Utility/Grid" target="Planning body" id="19" weight="1" />
+      <edge source="Utility/Grid" target="Colo/REIT" id="20" weight="2" />
+      <edge source="Court/Legal" target="Labour" id="21" weight="13" />
+      <edge source="Court/Legal" target="Community" id="22" weight="10" />
+      <edge source="Court/Legal" target="Financial" id="23" weight="5" />
+      <edge source="Court/Legal" target="Planning body" id="24" weight="6" />
+      <edge source="Court/Legal" target="Colo/REIT" id="25" weight="12" />
+      <edge source="Court/Legal" target="Regulator" id="26" weight="16" />
+      <edge source="Labour" target="Regulator" id="27" weight="18" />
+      <edge source="Labour" target="Colo/REIT" id="28" weight="9" />
+      <edge source="Labour" target="Planning body" id="29" weight="1" />
+      <edge source="Labour" target="Community" id="30" weight="6" />
+      <edge source="Colo/REIT" target="Planning body" id="31" weight="10" />
+      <edge source="Colo/REIT" target="Financial" id="32" weight="51" />
+      <edge source="Colo/REIT" target="Community" id="33" weight="7" />
+      <edge source="Colo/REIT" target="Regulator" id="34" weight="20" />
+      <edge source="Regulator" target="Planning body" id="35" weight="47" />
+      <edge source="Regulator" target="Community" id="36" weight="9" />
+      <edge source="Regulator" target="Financial" id="37" weight="2" />
+      <edge source="Community" target="Planning body" id="38" weight="3" />
+      <edge source="Planning body" target="Financial" id="39" weight="2" />
+    </edges>
+  </graph>
+</gexf>

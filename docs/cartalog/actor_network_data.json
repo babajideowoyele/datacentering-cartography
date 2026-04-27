@@ -1,0 +1,206 @@
+{
+  "nodes": [
+    {
+      "id": "Hyperscaler",
+      "count": 4934,
+      "color": "#2e4057"
+    },
+    {
+      "id": "Media/Press",
+      "count": 2384,
+      "color": "#aaaaaa"
+    },
+    {
+      "id": "Utility/Grid",
+      "count": 102,
+      "color": "#5a7a5a"
+    },
+    {
+      "id": "Court/Legal",
+      "count": 301,
+      "color": "#8c7b6b"
+    },
+    {
+      "id": "Labour",
+      "count": 447,
+      "color": "#b08850"
+    },
+    {
+      "id": "Colo/REIT",
+      "count": 2250,
+      "color": "#4a7c9e"
+    },
+    {
+      "id": "Regulator",
+      "count": 1347,
+      "color": "#B85C00"
+    },
+    {
+      "id": "Community",
+      "count": 217,
+      "color": "#c0504d"
+    },
+    {
+      "id": "Planning body",
+      "count": 260,
+      "color": "#6b8f71"
+    },
+    {
+      "id": "Financial",
+      "count": 290,
+      "color": "#7b68a8"
+    }
+  ],
+  "links": [
+    {
+      "source": "Hyperscaler",
+      "target": "Media/Press",
+      "weight": 312
+    },
+    {
+      "source": "Hyperscaler",
+      "target": "Regulator",
+      "weight": 144
+    },
+    {
+      "source": "Hyperscaler",
+      "target": "Labour",
+      "weight": 116
+    },
+    {
+      "source": "Colo/REIT",
+      "target": "Media/Press",
+      "weight": 115
+    },
+    {
+      "source": "Court/Legal",
+      "target": "Hyperscaler",
+      "weight": 83
+    },
+    {
+      "source": "Media/Press",
+      "target": "Regulator",
+      "weight": 58
+    },
+    {
+      "source": "Colo/REIT",
+      "target": "Financial",
+      "weight": 51
+    },
+    {
+      "source": "Colo/REIT",
+      "target": "Hyperscaler",
+      "weight": 49
+    },
+    {
+      "source": "Planning body",
+      "target": "Regulator",
+      "weight": 47
+    },
+    {
+      "source": "Labour",
+      "target": "Media/Press",
+      "weight": 37
+    },
+    {
+      "source": "Hyperscaler",
+      "target": "Planning body",
+      "weight": 36
+    },
+    {
+      "source": "Community",
+      "target": "Hyperscaler",
+      "weight": 34
+    },
+    {
+      "source": "Financial",
+      "target": "Media/Press",
+      "weight": 24
+    },
+    {
+      "source": "Colo/REIT",
+      "target": "Regulator",
+      "weight": 20
+    },
+    {
+      "source": "Labour",
+      "target": "Regulator",
+      "weight": 18
+    },
+    {
+      "source": "Court/Legal",
+      "target": "Regulator",
+      "weight": 16
+    },
+    {
+      "source": "Community",
+      "target": "Media/Press",
+      "weight": 14
+    },
+    {
+      "source": "Court/Legal",
+      "target": "Labour",
+      "weight": 13
+    },
+    {
+      "source": "Financial",
+      "target": "Hyperscaler",
+      "weight": 12
+    },
+    {
+      "source": "Colo/REIT",
+      "target": "Court/Legal",
+      "weight": 12
+    },
+    {
+      "source": "Hyperscaler",
+      "target": "Utility/Grid",
+      "weight": 11
+    },
+    {
+      "source": "Community",
+      "target": "Court/Legal",
+      "weight": 10
+    },
+    {
+      "source": "Regulator",
+      "target": "Utility/Grid",
+      "weight": 10
+    },
+    {
+      "source": "Colo/REIT",
+      "target": "Planning body",
+      "weight": 10
+    },
+    {
+      "source": "Media/Press",
+      "target": "Planning body",
+      "weight": 9
+    },
+    {
+      "source": "Colo/REIT",
+      "target": "Labour",
+      "weight": 9
+    },
+    {
+      "source": "Community",
+      "target": "Regulator",
+      "weight": 9
+    },
+    {
+      "source": "Court/Legal",
+      "target": "Media/Press",
+      "weight": 8
+    },
+    {
+      "source": "Colo/REIT",
+      "target": "Community",
+      "weight": 7
+    },
+    {
+      "source": "Media/Press",
+      "target": "Utility/Grid",
+      "weight": 6
+    }
+  ]
+}

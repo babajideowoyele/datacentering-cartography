@@ -1,0 +1,41 @@
+source,target,weight
+Court/Legal,Hyperscaler,83
+Labour,Media/Press,37
+Hyperscaler,Media/Press,312
+Hyperscaler,Regulator,144
+Hyperscaler,Labour,116
+Labour,Regulator,18
+Court/Legal,Labour,13
+Media/Press,Regulator,58
+Hyperscaler,Planning body,36
+Community,Court/Legal,10
+Community,Hyperscaler,34
+Planning body,Regulator,47
+Media/Press,Planning body,9
+Financial,Media/Press,24
+Colo/REIT,Labour,9
+Regulator,Utility/Grid,10
+Colo/REIT,Media/Press,115
+Financial,Planning body,2
+Community,Planning body,3
+Colo/REIT,Planning body,10
+Media/Press,Utility/Grid,6
+Financial,Hyperscaler,12
+Hyperscaler,Utility/Grid,11
+Colo/REIT,Hyperscaler,49
+Community,Media/Press,14
+Colo/REIT,Financial,51
+Court/Legal,Media/Press,8
+Court/Legal,Financial,5
+Colo/REIT,Community,7
+Court/Legal,Planning body,6
+Community,Regulator,9
+Financial,Regulator,2
+Colo/REIT,Court/Legal,12
+Labour,Planning body,1
+Colo/REIT,Regulator,20
+Court/Legal,Regulator,16
+Community,Utility/Grid,1
+Community,Labour,6
+Planning body,Utility/Grid,1
+Colo/REIT,Utility/Grid,2

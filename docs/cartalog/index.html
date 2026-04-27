@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartalog — Datacentering Cartography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #161616;
+    --bg2:       #262626;
+    --bg3:       #393939;
+    --line:      #525252;
+    --text:      #f4f4f4;
+    --text2:     #c6c6c6;
+    --text3:     #8d8d8d;
+    --accent:    #f4f4f4;
+    --hi:        #ffffff;
+    --mono:      'IBM Plex Mono', monospace;
+    --sans:      'IBM Plex Sans', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ── Header ───────────────────────────────────────────── */
+  header {
+    background: #000;
+    border-bottom: 1px solid var(--line);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    gap: 2rem;
+    position: sticky; top: 0; z-index: 100;
+  }
+  header .wordmark {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--hi);
+    text-transform: uppercase;
+  }
+  header .sep { color: var(--line); }
+  header .corpus {
+    font-size: 11px;
+    color: var(--text3);
+  }
+  header .badge {
+    margin-left: auto;
+    font-size: 10px;
+    color: var(--text3);
+    border: 1px solid var(--line);
+    padding: 2px 8px;
+  }
+
+  /* ── Tabs ─────────────────────────────────────────────── */
+  nav.tabs {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    padding: 0 2rem;
+  }
+  nav.tabs button {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text3);
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 12px 20px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  nav.tabs button:hover { color: var(--text); }
+  nav.tabs button.active {
+    color: var(--hi);
+    border-bottom-color: var(--hi);
+  }
+
+  /* ── Layout ───────────────────────────────────────────── */
+  main { padding: 2rem; max-width: 1400px; }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: var(--hi);
+  }
+  .subtitle {
+    font-size: 11px;
+    color: var(--text3);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Cards ────────────────────────────────────────────── */
+  .card-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    padding: 1rem 1.2rem;
+    flex: 1;
+    min-width: 160px;
+  }
+  .card .label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    margin-bottom: 0.4rem;
+  }
+  .card .value {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--hi);
+  }
+  .card .sub {
+    font-size: 10px;
+    color: var(--text3);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Network ──────────────────────────────────────────── */
+  #network-wrap {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  #network-svg {
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    flex: 1;
+  }
+  #legend {
+    min-width: 200px;
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    padding: 1rem;
+  }
+  #legend h3 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    margin-bottom: 0.8rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 11px;
+    color: var(--text2);
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-count {
+    margin-left: auto;
+    color: var(--text3);
+    font-size: 10px;
+  }
+
+  /* ── Table ────────────────────────────────────────────── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  thead tr {
+    border-bottom: 1px solid var(--line);
+  }
+  th {
+    text-align: left;
+    padding: 6px 12px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    font-weight: 400;
+  }
+  td {
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--bg3);
+    color: var(--text2);
+    vertical-align: middle;
+  }
+  tr:hover td { background: var(--bg3); color: var(--text); }
+  .bar-cell { width: 140px; }
+  .bar-bg {
+    background: var(--bg3);
+    height: 6px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .bar-fill {
+    background: var(--text3);
+    height: 100%;
+  }
+  .kw-pill {
+    display: inline-block;
+    background: var(--bg3);
+    color: var(--text3);
+    font-size: 9px;
+    padding: 1px 5px;
+    margin: 1px 2px 1px 0;
+    border: 1px solid var(--line);
+  }
+  .topic-id { color: var(--text3); font-size: 10px; }
+
+  /* ── Note box ─────────────────────────────────────────── */
+  .note-box {
+    background: var(--bg2);
+    border-left: 3px solid var(--line);
+    padding: 0.8rem 1rem;
+    font-size: 11px;
+    color: var(--text3);
+    margin-bottom: 1.2rem;
+  }
+  .note-box strong { color: var(--text2); }
+  .note-box a { color: var(--text2); }
+
+  /* ── Register ─────────────────────────────────────────── */
+  .reg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .reg-card {
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    padding: 1rem;
+  }
+  .reg-card .type {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    margin-bottom: 0.5rem;
+  }
+  .reg-card .pct-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    font-size: 11px;
+  }
+  .reg-card .label-sm { color: var(--text3); }
+  .reg-card .pct-bar {
+    height: 4px;
+    background: var(--bg3);
+    margin-bottom: 0.2rem;
+  }
+  .reg-card .pct-bar .fill-a { background: var(--text3); height: 100%; }
+  .reg-card .pct-bar .fill-b { background: var(--hi); height: 100%; }
+  .delta-pos { color: #6fdc8c; }
+  .delta-neg { color: #fa4d56; }
+
+  /* ── Tooltip ──────────────────────────────────────────── */
+  /* ── Map ──────────────────────────────────────────────── */
+  #map-wrap { position: relative; }
+  #cartalog-map {
+    width: 100%;
+    height: 560px;
+    border: 1px solid var(--line);
+    background: #111;
+  }
+  .leaflet-container { background: #111 !important; font-family: var(--mono) !important; }
+
+  /* ── Tooltip ──────────────────────────────────────────── */
+  #tooltip {
+    position: fixed;
+    background: #000;
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text);
+    pointer-events: none;
+    display: none;
+    z-index: 200;
+    max-width: 200px;
+  }
+
+  /* ── BERTopic link ────────────────────────────────────── */
+  .btn-link {
+    display: inline-block;
+    background: var(--bg3);
+    border: 1px solid var(--line);
+    color: var(--text2);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 6px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 1.2rem;
+    transition: background 0.1s;
+  }
+  .btn-link:hover { background: var(--line); color: var(--hi); }
+
+  /* ── Footer ───────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 1rem 2rem;
+    font-size: 10px;
+    color: var(--text3);
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="wordmark">Cartalog</span>
+  <span class="sep">|</span>
+  <span class="corpus">Datacentering Cartography · DCD corpus 2006–2026</span>
+  <span class="badge">DRIFT / HPI · ECR11 2026</span>
+</header>
+
+<nav class="tabs">
+  <button class="active" onclick="showTab('overview')">Overview</button>
+  <button onclick="showTab('network')">Actor Network</button>
+  <button onclick="showTab('topics')">BERTopic Clusters</button>
+  <button onclick="showTab('register')">Register Analysis</button>
+  <button onclick="showTab('map')">Spatial Map</button>
+</nav>
+
+<main>
+
+<!-- ── OVERVIEW ───────────────────────────────────────────────── -->
+<section id="panel-overview" class="panel active">
+  <h2>Datacentering Cartography</h2>
+  <p class="subtitle">A multimodal research agenda for innovation studies — B. A. Owoyele, DRIFT / HPI</p>
+
+  <div class="card-row">
+    <div class="card">
+      <div class="label">Articles crawled</div>
+      <div class="value">40,824</div>
+      <div class="sub">DatacenterDynamics, 2006–2026</div>
+    </div>
+    <div class="card">
+      <div class="label">Contestation events</div>
+      <div class="value">1,073</div>
+      <div class="sub">Headline-level signal; peak 2025</div>
+    </div>
+    <div class="card">
+      <div class="label">BERTopic clusters</div>
+      <div class="value">73</div>
+      <div class="sub">min_topic_size=15; headline + intro</div>
+    </div>
+    <div class="card">
+      <div class="label">Actor types detected</div>
+      <div class="value">10</div>
+      <div class="sub">Regex NER on corpus; co-occurrence edges</div>
+    </div>
+    <div class="card">
+      <div class="label">Contestation rate</div>
+      <div class="value">2.6%</div>
+      <div class="sub">0.4% (2006) → 3.7% (2025)</div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Methodological note:</strong> All analyses use headline + intro text only (not full articles). NER uses regex patterns for speed; GLiNER entity linking is the next step. BERTopic clustering uses sentence-transformers/all-MiniLM-L6-v2 embeddings with UMAP + HDBSCAN. Actor co-occurrence counts how many articles mention both actor types in the same headline+intro pair.
+  </div>
+
+  <div class="note-box">
+    <strong>Framework:</strong> Jørgensen (2012) arenas of development · Clarke (2005) situational analysis · Marres (2015) issue mapping · Matthiessen (2015) registerial cartography · Berente et al. (2019) CITC
+  </div>
+</section>
+
+<!-- ── ACTOR NETWORK ──────────────────────────────────────────── -->
+<section id="panel-network" class="panel">
+  <h2>Actor Co-occurrence Network</h2>
+  <p class="subtitle">Which actor types co-appear in the same article? Node size = mention count · Edge weight = co-occurrence frequency</p>
+
+  <div class="note-box">
+    <strong>Deduplication:</strong> Each article generates at most one edge per actor pair (undirected, <code>sorted()</code> key). Nodes are unique actor types detected via keyword regex. No article is counted twice per pair.
+  </div>
+
+  <div id="network-wrap">
+    <svg id="network-svg" width="800" height="520"></svg>
+    <div id="legend">
+      <h3>Actor types</h3>
+      <div id="legend-items"></div>
+      <hr style="border-color:var(--line);margin:0.8rem 0">
+      <div style="font-size:10px;color:var(--text3);line-height:1.6">
+        Node radius ∝ √(mention count)<br>
+        Edge width ∝ co-occurrence<br>
+        Drag nodes to explore
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BERTOPIC ────────────────────────────────────────────────── -->
+<section id="panel-topics" class="panel">
+  <h2>BERTopic Clusters</h2>
+  <p class="subtitle">73 topics from 40,565 docs · min_topic_size=15 · headlines + intros only</p>
+
+  <div class="note-box">
+    <strong>Stop words:</strong> BERTopic uses sentence-transformer embeddings (not bag-of-words), so stop words don't affect clustering. They may appear in c-TF-IDF topic <em>labels</em> (e.g. topic 0 "in data center to") but not in the semantic grouping. Topic −1 = outliers (articles fitting no cluster, n=14,867). Topic 0 = residual generic articles (n=20,904). Both are excluded from this table.
+  </div>
+
+  <a class="btn-link" href="../../data/processed/wp4_dcd/bertopic_map.html" target="_blank">
+    ↗ Open interactive UMAP topic map (Plotly)
+  </a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>n</th>
+        <th>Bar</th>
+        <th>Keywords</th>
+        <th>Theme</th>
+      </tr>
+    </thead>
+    <tbody id="topic-tbody"></tbody>
+  </table>
+</section>
+
+<!-- ── REGISTER ───────────────────────────────────────────────── -->
+<section id="panel-register" class="panel">
+  <h2>Register Analysis — Hallidayan Process Types</h2>
+  <p class="subtitle">Regex classification of headline verbs · 40,824 articles · contestation vs non-contestation subset</p>
+
+  <div class="note-box">
+    <strong>Method:</strong> Each headline is classified by dominant Hallidayan process type (material, verbal, mental, relational, enabling, behavioral) using regex verb-family patterns. Headlines are from the DCD crawl; this is a fast approximation — full register analysis requires part-of-speech tagging on expanded text.
+  </div>
+
+  <div class="reg-grid" id="reg-grid"></div>
+
+  <div class="note-box">
+    Key finding: <strong>behavioral</strong> processes (+21.5 pp) and <strong>enabling</strong> processes (+13.4 pp) are strongly over-represented in contestation articles. <strong>Material</strong> processes dominate non-contestation coverage (66.8%) but drop to 33.7% in contestation.
+  </div>
+</section>
+
+<!-- ── SPATIAL MAP ────────────────────────────────────────────── -->
+<section id="panel-map" class="panel">
+  <h2>Spatial Distribution — Location Mentions</h2>
+  <p class="subtitle">City-level mentions extracted from 40,824 DCD headlines + intros · Circle area ∝ mention count</p>
+
+  <div class="note-box">
+    <strong>Method:</strong> Regex keyword matching for 31 major data center hub cities. Counts articles mentioning each city by name. Next step: GLiNER NER for finer-grained location extraction including smaller markets.
+  </div>
+
+  <div id="map-wrap">
+    <div id="cartalog-map"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Cartalog · Datacentering Cartography · B. A. Owoyele · DRIFT / HPI · Research Policy 11th ECR Conference, 27 Apr 2026 ·
+  Data: DatacenterDynamics crawl (40,824 articles, 2006–2026)
+</footer>
+
+<div id="tooltip"></div>
+
+<script>
+// ── Tab switching ──────────────────────────────────────────────
+function showTab(name) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  event.target.classList.add('active');
+  if (name === 'network' && !window._networkBuilt) buildNetwork();
+  if (name === 'topics' && !window._topicsBuilt) buildTopics();
+  if (name === 'register' && !window._registerBuilt) buildRegister();
+  if (name === 'map' && !window._mapBuilt) buildMap();
+}
+
+// ── Actor Network ──────────────────────────────────────────────
+const ACTOR_DATA = {
+  "nodes": [
+    {"id":"Hyperscaler","count":4934,"color":"#e0e0e0"},
+    {"id":"Media/Press","count":2384,"color":"#a8a8a8"},
+    {"id":"Colo/REIT","count":2250,"color":"#8d8d8d"},
+    {"id":"Regulator","count":1347,"color":"#c6c6c6"},
+    {"id":"Labour","count":447,"color":"#6f6f6f"},
+    {"id":"Court/Legal","count":301,"color":"#525252"},
+    {"id":"Financial","count":290,"color":"#393939"},
+    {"id":"Planning body","count":260,"color":"#d4d4d4"},
+    {"id":"Community","count":217,"color":"#b0b0b0"},
+    {"id":"Utility/Grid","count":102,"color":"#888888"}
+  ],
+  "links": [
+    {"source":"Hyperscaler","target":"Media/Press","weight":312},
+    {"source":"Hyperscaler","target":"Regulator","weight":144},
+    {"source":"Hyperscaler","target":"Labour","weight":116},
+    {"source":"Colo/REIT","target":"Media/Press","weight":115},
+    {"source":"Court/Legal","target":"Hyperscaler","weight":83},
+    {"source":"Media/Press","target":"Regulator","weight":58},
+    {"source":"Colo/REIT","target":"Financial","weight":51},
+    {"source":"Colo/REIT","target":"Hyperscaler","weight":49},
+    {"source":"Planning body","target":"Regulator","weight":47},
+    {"source":"Labour","target":"Media/Press","weight":37},
+    {"source":"Hyperscaler","target":"Planning body","weight":36},
+    {"source":"Community","target":"Hyperscaler","weight":34},
+    {"source":"Financial","target":"Media/Press","weight":24},
+    {"source":"Colo/REIT","target":"Regulator","weight":20},
+    {"source":"Labour","target":"Regulator","weight":18},
+    {"source":"Community","target":"Regulator","weight":16},
+    {"source":"Community","target":"Planning body","weight":15},
+    {"source":"Court/Legal","target":"Regulator","weight":14},
+    {"source":"Court/Legal","target":"Planning body","weight":12},
+    {"source":"Labour","target":"Court/Legal","weight":10}
+  ]
+};
+
+function buildNetwork() {
+  window._networkBuilt = true;
+  const svg = d3.select('#network-svg');
+  const W = svg.node().getBoundingClientRect().width || 800;
+  const H = 520;
+  svg.attr('width', W).attr('height', H);
+
+  const maxCount = d3.max(ACTOR_DATA.nodes, d => d.count);
+  const maxWeight = d3.max(ACTOR_DATA.links, d => d.weight);
+  const rScale = d3.scaleSqrt().domain([0, maxCount]).range([8, 42]);
+  const wScale = d3.scaleLinear().domain([0, maxWeight]).range([0.5, 8]);
+
+  const sim = d3.forceSimulation(ACTOR_DATA.nodes)
+    .force('link', d3.forceLink(ACTOR_DATA.links)
+      .id(d => d.id)
+      .distance(d => 180 - wScale(d.weight) * 12))
+    .force('charge', d3.forceManyBody().strength(-600))
+    .force('center', d3.forceCenter(W / 2, H / 2))
+    .force('collide', d3.forceCollide(d => rScale(d.count) + 6));
+
+  const link = svg.append('g')
+    .selectAll('line')
+    .data(ACTOR_DATA.links)
+    .join('line')
+    .attr('stroke', '#525252')
+    .attr('stroke-width', d => wScale(d.weight))
+    .attr('stroke-opacity', 0.7);
+
+  const node = svg.append('g')
+    .selectAll('g')
+    .data(ACTOR_DATA.nodes)
+    .join('g')
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end',   (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
+
+  const tip = document.getElementById('tooltip');
+
+  node.append('circle')
+    .attr('r', d => rScale(d.count))
+    .attr('fill', d => d.color)
+    .attr('fill-opacity', 0.85)
+    .attr('stroke', '#000')
+    .attr('stroke-width', 1)
+    .on('mousemove', (e, d) => {
+      tip.style.display = 'block';
+      tip.style.left = (e.clientX + 14) + 'px';
+      tip.style.top  = (e.clientY - 10) + 'px';
+      tip.innerHTML = `<strong>${d.id}</strong><br>Mentions: ${d.count.toLocaleString()}`;
+    })
+    .on('mouseleave', () => { tip.style.display = 'none'; });
+
+  node.append('text')
+    .text(d => d.id)
+    .attr('text-anchor', 'middle')
+    .attr('dy', '0.35em')
+    .attr('font-family', 'IBM Plex Mono, monospace')
+    .attr('font-size', d => Math.min(11, rScale(d.count) * 0.55))
+    .attr('fill', '#000')
+    .attr('pointer-events', 'none');
+
+  sim.on('tick', () => {
+    link
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    node.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+
+  // Legend
+  const legendEl = document.getElementById('legend-items');
+  ACTOR_DATA.nodes
+    .slice().sort((a,b) => b.count - a.count)
+    .forEach(n => {
+      legendEl.innerHTML += `
+        <div class="legend-item">
+          <div class="legend-dot" style="background:${n.color}"></div>
+          <span>${n.id}</span>
+          <span class="legend-count">${n.count.toLocaleString()}</span>
+        </div>`;
+    });
+}
+
+// ── BERTopic Topics ─────────────────────────────────────────────
+const TOPICS = [
+  {"id":1,"count":642,"keywords":["cooling","liquid","immersion","cooled","cdu","rack"],"theme":"Cooling tech"},
+  {"id":2,"count":639,"keywords":["equinix","equinixs","opens","expansion","singapore","exchange"],"theme":"Equinix expansion"},
+  {"id":3,"count":476,"keywords":["ceo","appoints","chief","names","role","executive"],"theme":"Executive appointments"},
+  {"id":4,"count":310,"keywords":["de","en","la","el","para","los"],"theme":"Spanish-language coverage"},
+  {"id":5,"count":177,"keywords":["storage","flash","ssd","ssds","hard","drives"],"theme":"Storage hardware"},
+  {"id":6,"count":151,"keywords":["tower","cell","theft","copper","arrested","telecoms"],"theme":"Telecoms / copper theft"},
+  {"id":7,"count":129,"keywords":["rackspace","rackable","cloud","managed","rack","service"],"theme":"Rackspace / managed cloud"},
+  {"id":8,"count":124,"keywords":["carbon","removal","credits","capture","microsoft","tons"],"theme":"Carbon offsetting"},
+  {"id":9,"count":117,"keywords":["ups","emerson","batteries","power","eaton","launches"],"theme":"UPS / power hardware"},
+  {"id":10,"count":103,"keywords":["ovhcloud","ovh","fire","strasbourg","klaba","zone"],"theme":"OVH Strasbourg fire"},
+  {"id":11,"count":100,"keywords":["awards","winners","dcd","leaders","emea","announced"],"theme":"Industry awards"},
+  {"id":12,"count":91,"keywords":["colt","dcs","frankfurt","london","hayes","colts"],"theme":"Colt DCS"},
+  {"id":13,"count":82,"keywords":["brocade","networking","ethernet","switches","fibre","channel"],"theme":"Network hardware"},
+  {"id":14,"count":79,"keywords":["vertiv","cooling","ups","liebert","liquid","launches"],"theme":"Vertiv equipment"},
+  {"id":15,"count":78,"keywords":["pue","ashrae","metric","standard","energy","efficiency"],"theme":"PUE / efficiency standards"},
+  {"id":16,"count":76,"keywords":["tiktok","bytedance","oracle","trump","ban","us"],"theme":"TikTok / US policy"},
+  {"id":17,"count":63,"keywords":["zayo","fiber","dark","route","acquisition","markley"],"theme":"Fiber / connectivity"},
+  {"id":18,"count":56,"keywords":["virtualization","vmworld","virtual","server","hypervisor","vmware"],"theme":"Virtualization"},
+  {"id":19,"count":54,"keywords":["softlayer","ibm","opens","san","francisco","unitedlayer"],"theme":"IBM SoftLayer"},
+  {"id":20,"count":52,"keywords":["jobs","cut","unions","workforce","cuts","telia"],"theme":"Labour / job cuts"},
+  {"id":21,"count":52,"keywords":["white","space","editorial","talk","podcast","opinion"],"theme":"Editorial / podcast"},
+  {"id":22,"count":51,"keywords":["eaton","power","management","electrical","ups","new"],"theme":"Eaton power"},
+  {"id":23,"count":45,"keywords":["fabros","dupont","ashburn","chicago","guidance","reit"],"theme":"Fabros / Northern Virginia"},
+  {"id":24,"count":45,"keywords":["atos","french","it","origin","enterprise","services"],"theme":"Atos / French IT"},
+  {"id":25,"count":41,"keywords":["fcc","spectrum","auction","broadband","authority","us"],"theme":"FCC / spectrum"}
+];
+
+function buildTopics() {
+  window._topicsBuilt = true;
+  const max = TOPICS[0].count;
+  const tbody = document.getElementById('topic-tbody');
+  TOPICS.forEach(t => {
+    const kws = t.keywords.filter(k => k.length > 2).slice(0,5).map(k => `<span class="kw-pill">${k}</span>`).join('');
+    tbody.innerHTML += `
+      <tr>
+        <td class="topic-id">T${t.id}</td>
+        <td>${t.count.toLocaleString()}</td>
+        <td class="bar-cell">
+          <div class="bar-bg"><div class="bar-fill" style="width:${(t.count/max*100).toFixed(1)}%"></div></div>
+        </td>
+        <td>${kws}</td>
+        <td style="color:var(--text)">${t.theme}</td>
+      </tr>`;
+  });
+}
+
+// ── Register Analysis ──────────────────────────────────────────
+const REGISTER = [
+  {type:"Material",   noncon:66.8, con:33.7, delta:-33.1},
+  {type:"Verbal",     noncon:18.2, con:21.4, delta:+3.2},
+  {type:"Relational", noncon:8.4,  con:11.2, delta:+2.8},
+  {type:"Behavioral", noncon:3.1,  con:24.6, delta:+21.5},
+  {type:"Enabling",   noncon:2.8,  con:16.2, delta:+13.4},
+  {type:"Mental",     noncon:0.7,  con:2.1,  delta:+1.4}
+];
+
+function buildRegister() {
+  window._registerBuilt = true;
+  const grid = document.getElementById('reg-grid');
+  REGISTER.forEach(r => {
+    const dSign = r.delta >= 0 ? '+' : '';
+    const dClass = r.delta >= 0 ? 'delta-pos' : 'delta-neg';
+    grid.innerHTML += `
+      <div class="reg-card">
+        <div class="type">${r.type}</div>
+        <div class="pct-row">
+          <span class="label-sm">Non-contest.</span>
+          <span>${r.noncon}%</span>
+        </div>
+        <div class="pct-bar"><div class="fill-a" style="width:${r.noncon}%"></div></div>
+        <div class="pct-row" style="margin-top:0.4rem">
+          <span class="label-sm">Contestation</span>
+          <span>${r.con}%</span>
+        </div>
+        <div class="pct-bar"><div class="fill-b" style="width:${r.con}%"></div></div>
+        <div style="margin-top:0.6rem;font-size:11px">
+          Δ <span class="${dClass}">${dSign}${r.delta} pp</span>
+        </div>
+      </div>`;
+  });
+}
+
+// ── Spatial Map ─────────────────────────────────────────────────
+const GEO_DATA = [
+  {"city":"London","lat":51.51,"lon":-0.12,"count":557},
+  {"city":"Singapore","lat":1.35,"lon":103.82,"count":484},
+  {"city":"New York","lat":40.71,"lon":-74.0,"count":257},
+  {"city":"Chicago","lat":41.88,"lon":-87.63,"count":239},
+  {"city":"Frankfurt","lat":50.11,"lon":8.68,"count":200},
+  {"city":"Sydney","lat":-33.87,"lon":151.21,"count":196},
+  {"city":"Dallas","lat":32.78,"lon":-96.8,"count":193},
+  {"city":"Hong Kong","lat":22.32,"lon":114.17,"count":193},
+  {"city":"Dublin","lat":53.33,"lon":-6.25,"count":184},
+  {"city":"Phoenix","lat":33.45,"lon":-112.07,"count":146},
+  {"city":"Amsterdam","lat":52.37,"lon":4.9,"count":131},
+  {"city":"Tokyo","lat":35.69,"lon":139.69,"count":129},
+  {"city":"Paris","lat":48.85,"lon":2.35,"count":118},
+  {"city":"Mumbai","lat":19.08,"lon":72.88,"count":112},
+  {"city":"Northern Virginia","lat":38.9,"lon":-77.4,"count":105},
+  {"city":"Toronto","lat":43.65,"lon":-79.38,"count":94},
+  {"city":"Melbourne","lat":-37.81,"lon":144.96,"count":91},
+  {"city":"Ashburn","lat":39.04,"lon":-77.49,"count":77},
+  {"city":"Madrid","lat":40.42,"lon":-3.7,"count":70},
+  {"city":"Osaka","lat":34.69,"lon":135.5,"count":66},
+  {"city":"Loudoun","lat":39.08,"lon":-77.64,"count":65},
+  {"city":"Jakarta","lat":-6.21,"lon":106.85,"count":61},
+  {"city":"Stockholm","lat":59.33,"lon":18.07,"count":58},
+  {"city":"Dubai","lat":25.2,"lon":55.27,"count":52},
+  {"city":"Seattle","lat":47.61,"lon":-122.33,"count":52},
+  {"city":"São Paulo","lat":-23.55,"lon":-46.63,"count":50},
+  {"city":"Milan","lat":45.46,"lon":9.19,"count":48},
+  {"city":"Seoul","lat":37.57,"lon":126.98,"count":42},
+  {"city":"Warsaw","lat":52.23,"lon":21.01,"count":30},
+  {"city":"Manassas","lat":38.75,"lon":-77.48,"count":29},
+  {"city":"Strasbourg","lat":48.58,"lon":7.75,"count":15}
+];
+
+function buildMap() {
+  window._mapBuilt = true;
+  setTimeout(() => {
+    const map = L.map('cartalog-map', {
+      center: [25, 10],
+      zoom: 2,
+      zoomControl: true,
+      attributionControl: true,
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap, © CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    const maxCount = d3.max(GEO_DATA, d => d.count);
+    const rScale = d3.scaleSqrt().domain([0, maxCount]).range([4, 36]);
+
+    GEO_DATA.forEach(d => {
+      const r = rScale(d.count);
+      L.circleMarker([d.lat, d.lon], {
+        radius: r,
+        fillColor: '#f4f4f4',
+        fillOpacity: 0.75,
+        color: '#000',
+        weight: 1,
+      })
+      .bindTooltip(`<strong>${d.city}</strong><br>${d.count.toLocaleString()} articles`, {
+        className: 'leaflet-tooltip-dark'
+      })
+      .addTo(map);
+    });
+  }, 100);
+}
+
+// ── Leaflet tooltip dark style ──────────────────────────────────
+const st = document.createElement('style');
+st.textContent = `.leaflet-tooltip-dark{background:#000;border:1px solid #525252;color:#f4f4f4;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 8px;}
+.leaflet-tooltip-dark.leaflet-tooltip-top::before{border-top-color:#525252;}`;
+document.head.appendChild(st);
+
+// Build overview immediately
+document.addEventListener('DOMContentLoaded', () => {});
+</script>
+</body>
+</html>
